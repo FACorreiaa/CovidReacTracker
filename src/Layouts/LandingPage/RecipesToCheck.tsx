@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ImageCard from "./ImageCard";
 import places from "../../assets/static/landing";
 import templates from "../../assets/static/landing";
-import useWindowPosition from "../../hooks/landing";
+import useWindowPosition from "../../hooks/Landing";
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "100hv",

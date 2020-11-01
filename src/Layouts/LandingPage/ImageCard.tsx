@@ -60,12 +60,11 @@ interface ICardProps {
 type Props = {
   template: any;
   checked: boolean;
-}
+};
 
 export default function ImageCard<T>({ template, checked }: Props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-
 
   return (
     <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>

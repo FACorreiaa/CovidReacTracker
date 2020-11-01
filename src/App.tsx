@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, RouteComponentProps, Switch } from "react-router-dom";
-import LandingPage from './components/LandingPage/LandingPage';
+import LandingPage from './Layouts/LandingPage/LandingPage';
 
 
 function App() {
