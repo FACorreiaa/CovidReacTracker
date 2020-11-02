@@ -1,6 +1,4 @@
-import { Button, MenuItem, Select, TextField } from "@material-ui/core";
-import Input from "@material-ui/core/Input/Input";
-import { Label } from "@material-ui/icons";
+import { MenuItem, Select } from "@material-ui/core";
 import React, { FunctionComponent } from "react";
 type GeneralCountryProps = {
   labelId: string;
@@ -20,9 +18,6 @@ export const CountrySubForm: FunctionComponent<GeneralCountryProps> = ({
 }) => (
   <Select labelId={labelId} id={id} value={value} onChange={handleFieldChange}>
     {countryList.map((value) => {
-      console.log("countryListList", countryList);
-      console.log("value", value);
-
       return (
         <MenuItem
           value={value}

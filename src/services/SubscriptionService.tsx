@@ -10,7 +10,6 @@ interface CountrySubInfo {
 }
 
 const postGeneralSub = async (data: GeneralSubInfo) => {
-  console.log("data", data);
   return await http.post("/user/sub/general", data);
 };
 

@@ -1,7 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
-import Input from "@material-ui/core/Input";
-import Button from "@material-ui/core/Button";
-import postComments from "../../hooks/Post";
+import React, { useState } from "react";
 import { GeneralSubForm } from "./ChildGeneralSub";
 import generalSubs from "../../services/SubscriptionService";
 import { InfoSection } from "../../Layouts/LandingPage/InfoSection";
@@ -9,7 +6,6 @@ import { CountrySubForm } from "./ChildCountrySub";
 import CountriesDropdown from "../../hooks/CountriesDropdown";
 
 export default function CountrySub() {
-  const isSubbed = <span>You are already Subbed!</span>;
   const countryList = CountriesDropdown();
 
   const initData = {
@@ -18,10 +14,6 @@ export default function CountrySub() {
 
   const initResponse = {
     data: true,
-  };
-
-  const initCountryList = {
-    country: "",
   };
 
   //General
@@ -34,7 +26,6 @@ export default function CountrySub() {
     //const { name, value } = e.target;
     //setData({ ...data, [name]: value });
     const email = e.target.value;
-    console.log(email);
     return setData({ email });
   };
 
@@ -46,17 +37,13 @@ export default function CountrySub() {
     };
     if (data.email === "" || data.email === undefined) return;
 
-    console.log("obj", obj);
     try {
       setLoading(true);
       const result = await generalSubs.postGeneralSub(obj);
-      console.log("result", result);
       setData({ email: result.data.email });
       setRes({ data: result.data });
       setLoading(false);
-      console.log(result);
     } catch (err) {
-      console.log(err);
       SetError(err);
       setLoading(false);
     }
@@ -66,18 +53,17 @@ export default function CountrySub() {
 
   const [country, setCountry] = useState("");
   const [value, setValue] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [countryEmail, setCountryEmail] = useState("");
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const country = e.target.value;
     setCountry(country);
-    console.log("COUNTRYRYRY", country);
   };
 
   const handleCountryEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     //const { name, value } = e.target;
     //setData({ ...data, [name]: value });
     const countryEmail = e.target.value;
-    console.log(countryEmail);
     return setCountryEmail(countryEmail);
   };
 
@@ -90,16 +76,15 @@ export default function CountrySub() {
     };
     if (countryEmail === "" || countryEmail === undefined) return;
 
-    console.log("obj", obj);
     try {
       setLoading(true);
       const result = await generalSubs.postCountrySub(obj);
-      console.log("result", result);
-      setCountryEmail(result.data.email);
+      setCountryEmail("");
+      setCountry("");
+      setValue(result.data);
+      setSubmitted(true);
       setLoading(false);
-      console.log(result);
     } catch (err) {
-      console.log(err);
       SetError(err);
       setLoading(false);
     }
@@ -132,8 +117,6 @@ export default function CountrySub() {
           value={country}
           countryList={countryList}
         />
-        {console.log("countryList", countryList)}
-        {console.log("value", value)}
 
         <GeneralSubForm
           placeholder="Insert Email"
@@ -142,10 +125,13 @@ export default function CountrySub() {
           onSubmit={handleCountrySubmit}
         />
         {loading && <span>Loading...</span>}
-        {!countryEmail && (
+        {err && <span>Something ocurred</span>}
+        {value === "You are already subbed" && submitted && (
           <span style={{ color: "red" }}>You are already subbed</span>
         )}
-        {console.log("countryEmail", countryEmail)}
+        {value === "" && submitted && (
+          <span style={{ color: "greem" }}>You subbed for {country}</span>
+        )}
       </InfoSection>
     </>
   );
