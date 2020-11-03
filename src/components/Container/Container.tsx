@@ -1,29 +1,22 @@
 import { CssBaseline, Container, Typography } from "@material-ui/core";
 import React, { FunctionComponent } from "react";
 
-type SectionProps = {
-  title: string;
-  paragraph: string;
-};
+type SectionProps = {};
 
 // we can use children even though we haven't defined them in our CardProps
-export const InfoSection: FunctionComponent<SectionProps> = ({
-  title,
-  paragraph,
+export const ContainerComp: FunctionComponent<SectionProps> = ({
   children,
 }) => (
   <React.Fragment>
-    <Container maxWidth="sm">
+    <Container maxWidth="lg">
       <Typography
         component="div"
         style={{
           backgroundColor: "inherit",
-          height: "20vh",
+          height: "100vh",
           textAlign: "center",
         }}
       >
-        <h2>{title}</h2>
-        <p>{paragraph}</p>
         {children}
       </Typography>
     </Container>

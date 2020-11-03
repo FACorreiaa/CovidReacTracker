@@ -21,4 +21,18 @@ const getCountriesList = async () => {
   return await http.get("/slugs/countries/list");
 };
 
-export default { postGeneralSub, postCountrySub, getCountriesList };
+const getSummaryList = async () => {
+  return await http.get("/summary");
+};
+
+const getTotalList = async () => {
+  return await http.get("/wip/total");
+};
+
+export default {
+  postGeneralSub,
+  postCountrySub,
+  getCountriesList,
+  getSummaryList,
+  getTotalList,
+};

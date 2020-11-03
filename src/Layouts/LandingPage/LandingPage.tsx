@@ -5,7 +5,7 @@ import { CssBaseline } from "@material-ui/core";
 import LandingHeader from "./LandingHeader";
 import RecipesToCheck from "./RecipesToCheck";
 import { InfoSection } from "./InfoSection";
-import CountrySub from "../../components/CountrySubscription/CountrySub";
+import CountrySub from "../../components/Subscriptions/CountrySub";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +19,6 @@ function LandingPage() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <LandingHeader />
       <InfoSection
         title="Covid tracker"

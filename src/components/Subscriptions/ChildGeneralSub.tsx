@@ -1,6 +1,5 @@
 import { Button } from "@material-ui/core";
 import Input from "@material-ui/core/Input/Input";
-import { Label } from "@material-ui/icons";
 import React, { FunctionComponent } from "react";
 
 type GeneralSubProps = {
