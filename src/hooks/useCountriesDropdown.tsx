@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import generalSubs from "../services/SubscriptionService";
 
-export default function CountriesDropdown() {
+export default function useCountriesDropdown() {
   const [countries, SetCountries] = useState([]);
 
   useEffect(() => {

@@ -3,10 +3,10 @@ import { GeneralSubForm } from "./ChildGeneralSub";
 import generalSubs from "../../services/SubscriptionService";
 import { InfoSection } from "../../Layouts/LandingPage/InfoSection";
 import { CountrySubForm } from "./ChildCountrySub";
-import CountriesDropdown from "../../hooks/CountriesDropdown";
+import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 
 export default function CountrySub() {
-  const countryList = CountriesDropdown();
+  const countryList = useCountriesDropdown();
 
   const initData = {
     email: "",

@@ -9,6 +9,8 @@ import CustomCard from "../../components/Card/Card";
 import { Grid } from "@material-ui/core";
 import { CustomMap } from "../../components/CustomMap/CustomMap";
 import Loading from "../../components/Loading/Loading";
+import BarChart from "../../components/Chart/BarChart";
+import CustomTitle from "../../components/Title/Title";
 
 const url = "/summary";
 
@@ -32,8 +34,8 @@ function SummaryPage() {
       {data.data.map((d: SummaryList) => (
         <>
           <ContainerComp>
-            <h3>Covid 19 Daily Summary List</h3>
-            <h2>Today at {format(parseISO(`${d.createdAt}`), "PPPPpppp")}:</h2>
+            <CustomTitle title="Covid 19 Daily Summary List" />
+            <h2>{format(parseISO(`${d.createdAt}`), "PPPPpppp")}:</h2>
             <Grid
               style={{ marginBottom: "1em" }}
               container
@@ -57,7 +59,6 @@ function SummaryPage() {
                 value={d.NewRecovered}
               />
             </Grid>
-
             <Grid
               style={{ marginBottom: "1em" }}
               container
@@ -81,6 +82,7 @@ function SummaryPage() {
                 value={d.TotalRecovered}
               />
             </Grid>
+            INSERIR AQUI QUALQUER COISA
           </ContainerComp>
           {console.log(d)}
         </>
