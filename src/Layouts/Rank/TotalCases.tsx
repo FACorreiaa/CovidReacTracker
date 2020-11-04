@@ -1,9 +1,9 @@
 import React from "react";
 import { ContainerComp } from "../../components/Container/Container";
 import NavBar from "../../components/NavBar/Navbar";
-import TotalConfirmed from "../../components/TotalRank/TotalConfirmed";
-import TotalDeaths from "../../components/TotalRank/TotalDeaths";
-import TotalRecovered from "../../components/TotalRank/TotalRecovered";
+import TotalConfirmed from "../../components/Rank/TotalConfirmed";
+import TotalDeaths from "../../components/Rank/TotalDeaths";
+import TotalRecovered from "../../components/Rank/TotalRecovered";
 
 function TotalCases() {
   return (
@@ -11,8 +11,6 @@ function TotalCases() {
       <NavBar />
 
       <ContainerComp>
-        <TotalRecovered />
-        <TotalDeaths />
         <TotalConfirmed />
       </ContainerComp>
     </div>

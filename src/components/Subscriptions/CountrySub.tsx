@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { GeneralSubForm } from "./ChildGeneralSub";
-import generalSubs from "../../services/SubscriptionService";
 import { InfoSection } from "../../Layouts/LandingPage/InfoSection";
 import { CountrySubForm } from "./ChildCountrySub";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
+import {
+  postCountrySub,
+  postGeneralSub,
+} from "../../services/SubscriptionService";
 
 export default function CountrySub() {
   const countryList = useCountriesDropdown();
@@ -39,7 +42,7 @@ export default function CountrySub() {
 
     try {
       setLoading(true);
-      const result = await generalSubs.postGeneralSub(obj);
+      const result = await postGeneralSub(obj);
       setData({ email: result.data.email });
       setRes({ data: result.data });
       setLoading(false);
@@ -78,7 +81,7 @@ export default function CountrySub() {
 
     try {
       setLoading(true);
-      const result = await generalSubs.postCountrySub(obj);
+      const result = await postCountrySub(obj);
       setCountryEmail("");
       setCountry("");
       setValue(result.data);

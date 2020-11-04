@@ -1,7 +1,6 @@
 import React from "react";
 import NavBar from "../../components/NavBar/Navbar";
 import useSWR from "swr";
-import getSummaryList from "../../services/SubscriptionService";
 import { format, parseISO } from "date-fns";
 import { InfoSection } from "../LandingPage/InfoSection";
 import { ContainerComp } from "../../components/Container/Container";
@@ -11,6 +10,7 @@ import { CustomMap } from "../../components/CustomMap/CustomMap";
 import Loading from "../../components/Loading/Loading";
 import BarChart from "../../components/Chart/BarChart";
 import CustomTitle from "../../components/Title/Title";
+import { getSummaryList } from "../../services/SubscriptionService";
 
 const url = "/summary";
 
@@ -25,7 +25,7 @@ interface SummaryList {
 }
 
 function SummaryPage() {
-  const { data, error } = useSWR(url, getSummaryList.getSummaryList);
+  const { data, error } = useSWR(url, getSummaryList);
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
   return (

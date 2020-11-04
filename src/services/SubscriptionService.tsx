@@ -9,30 +9,22 @@ interface CountrySubInfo {
   country: string;
 }
 
-const postGeneralSub = async (data: GeneralSubInfo) => {
+export const postGeneralSub = async (data: GeneralSubInfo) => {
   return await http.post("/user/sub/general", data);
 };
 
-const postCountrySub = async (data: CountrySubInfo) => {
+export const postCountrySub = async (data: CountrySubInfo) => {
   return await http.post("/user/sub/country", data);
 };
 
-const getCountriesList = async () => {
+export const getCountriesList = async () => {
   return await http.get("/slugs/countries/list");
 };
 
-const getSummaryList = async () => {
+export const getSummaryList = async () => {
   return await http.get("/summary");
 };
 
-const getTotalList = async () => {
+export const getTotalList = async () => {
   return await http.get("/wip/total");
-};
-
-export default {
-  postGeneralSub,
-  postCountrySub,
-  getCountriesList,
-  getSummaryList,
-  getTotalList,
 };

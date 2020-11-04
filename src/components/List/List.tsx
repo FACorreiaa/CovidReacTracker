@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: "100%",
-      maxWidth: "48ch",
+      maxWidth: "38ch",
       backgroundColor: theme.palette.background.paper,
     },
     inline: {
@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
 type Props = {
   country: string;
   value: number;
+  index: number;
 };
 
 export default function CustomList(props: Props) {
@@ -32,7 +33,7 @@ export default function CustomList(props: Props) {
         aria-labelledby="nested-list-subheader"
         subheader={
           <ListSubheader component="div" id="nested-list-subheader">
-            {props.country}: {props.value}
+            {props.index}. {props.country}: {props.value}
           </ListSubheader>
         }
         className={classes.root}
