@@ -12,7 +12,7 @@ function TotalDeaths() {
     `${process.env.REACT_APP_BASE_URL}/countriessummary/top/total/deaths`,
     fetcher
   );
-  let index = 0;
+  let index = 1;
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
   console.log("DATA", data);
@@ -25,7 +25,7 @@ function TotalDeaths() {
       justify="center"
       alignItems="center"
     >
-      <h5 style={{ textAlign: "center" }}>Covid 19 Top 10 Total Deaths</h5>
+      <h5 style={{ textAlign: "center" }}>Top 10 Total Deaths</h5>
       {result.map((d: CountrySummary) => (
         <CustomList index={index++} country={d.Country} value={d.TotalDeaths} />
       ))}

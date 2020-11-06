@@ -12,6 +12,8 @@ function TotalCases() {
 
       <ContainerComp>
         <TotalConfirmed />
+        <TotalDeaths />
+        <TotalRecovered />
       </ContainerComp>
     </div>
   );

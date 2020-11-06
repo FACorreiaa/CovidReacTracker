@@ -1,5 +1,6 @@
 import http from "./config/http-common";
 
+//not using
 export const getTopTotalRecovered = async () => {
   return await http.get("/countriessummary/top/total/recovered");
 };

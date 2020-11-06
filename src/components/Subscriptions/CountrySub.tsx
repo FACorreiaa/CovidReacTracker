@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { GeneralSubForm } from "./ChildGeneralSub";
-import { InfoSection } from "../../Layouts/LandingPage/InfoSection";
+import { InfoSection } from "../../Pages/LandingPage/InfoSection";
 import { CountrySubForm } from "./ChildCountrySub";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import {

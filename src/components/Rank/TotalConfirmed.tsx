@@ -12,7 +12,7 @@ function TotalConfirmed() {
     `${process.env.REACT_APP_BASE_URL}/countriessummary/top/total/confirmed`,
     fetcher
   );
-  let index = 0;
+  let index = 1;
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
   console.log("DATA", data);
@@ -25,9 +25,7 @@ function TotalConfirmed() {
       justify="center"
       alignItems="flex-end"
     >
-      <h5 style={{ textAlign: "center" }}>
-        Covid 19 Top 10 Total Confirmed Cases
-      </h5>
+      <h5 style={{ textAlign: "center" }}>Top 10 Total Confirmed Cases</h5>
       {result.map((d: CountrySummary) => (
         <CustomList
           index={index++}

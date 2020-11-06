@@ -49,7 +49,22 @@ export default function NavBar() {
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
-          <Button color="inherit">Summary</Button>
+          <Button color="inherit">
+            <Link
+              to="/dayone"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              Day One
+            </Link>
+          </Button>
+          <Button color="inherit">
+            <Link
+              to="/summary"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              Summary
+            </Link>
+          </Button>
           <Button
             aria-controls="simple-menu"
             aria-haspopup="true"
@@ -70,7 +85,12 @@ export default function NavBar() {
             >
               <MenuItem onClick={handleClose}>Top 10 Total</MenuItem>
             </Link>
-            <MenuItem onClick={handleClose}>Top 10 Daily</MenuItem>
+            <Link
+              to="/rank/daily"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <MenuItem onClick={handleClose}>Top 10 Daily</MenuItem>
+            </Link>
           </Menu>
         </Toolbar>
       </AppBar>
