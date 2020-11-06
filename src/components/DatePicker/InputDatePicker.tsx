@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
@@ -7,6 +7,7 @@ import {
   MuiPickersUtilsProvider,
 } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
+import { format, formatISO } from "date-fns";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,6 +27,7 @@ type Props = {
   label: string;
   value: string;
   handleDateChange: any;
+  inputValue: any;
 };
 
 export default function CustomInputDatePicker(props: Props) {
@@ -37,9 +39,10 @@ export default function CustomInputDatePicker(props: Props) {
         <KeyboardDatePicker
           margin="normal"
           id="date-picker-dialog"
-          label="Date picker dialog"
-          format="MM/dd/yyyy"
+          label="Select Date"
+          format="yyyy-MM-dd"
           value={props.value}
+          inputValue={props.inputValue}
           onChange={props.handleDateChange}
           KeyboardButtonProps={{
             "aria-label": "change date",

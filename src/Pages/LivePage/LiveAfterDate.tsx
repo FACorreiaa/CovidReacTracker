@@ -18,7 +18,9 @@ import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle
 
 export default function LiveAfterDate() {
   const [selectedDate, setSelectedDate] = React.useState("");
-
+  const [inputValue, setInputValue] = useState(
+    format(new Date(), "yyyy-MM-dd")
+  );
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/live/country/${country}/status/confirmed/date/${selectedDate}`;
   const { data, error } = useSWR(url, fetcher);
@@ -46,8 +48,9 @@ export default function LiveAfterDate() {
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
 
-  const handleDateChange = (date: string) => {
+  const handleDateChange = (date: string, value: any) => {
     setSelectedDate(formatISO(new Date(date)));
+    setInputValue(value);
     mutate(data, false);
   };
 
@@ -106,10 +109,14 @@ export default function LiveAfterDate() {
           value={selectedDate}
           handleDateChange={handleDateChange}
           myRef={value}
+          inputValue={inputValue}
           onChange={onChange}
           onClick={onClick}
           label={"Insert Country"}
         />
+        {console.log(value)}
+        {console.log(selectedDate)}
+
         {country.length && data[0].name && (
           <>
             <CustomTitle title={country} />
