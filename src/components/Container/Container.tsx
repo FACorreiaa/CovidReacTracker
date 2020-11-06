@@ -4,7 +4,7 @@ import React, { FunctionComponent } from "react";
 type SectionProps = {};
 
 // we can use children even though we haven't defined them in our CardProps
-export const ContainerComp: FunctionComponent<SectionProps> = ({
+export const CustomContainer: FunctionComponent<SectionProps> = ({
   children,
 }) => (
   <React.Fragment>

@@ -22,17 +22,26 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function NavBar() {
+export default function CustomNavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl2, setAnchorEl2] = React.useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
+
     console.log(anchorEl);
+  };
+
+  const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl2(event.currentTarget);
+
+    console.log(anchorEl2);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+    setAnchorEl2(null);
   };
   return (
     <div className={classes.root}>
@@ -57,6 +66,45 @@ export default function NavBar() {
               Day One
             </Link>
           </Button>
+          <Button
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            Live
+          </Button>
+          <Menu
+            id="live-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <Link
+              to="/live/after/date"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <MenuItem onClick={handleClose}>Live After Date</MenuItem>
+            </Link>
+            <Link
+              to="/live/last/days"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <MenuItem onClick={handleClose}>Last 30 Days</MenuItem>
+            </Link>
+            <Link
+              to="/live/daily/country"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <MenuItem onClick={handleClose}>Live Daily Country</MenuItem>
+            </Link>
+            <Link
+              to="/live/total/countries"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <MenuItem onClick={handleClose}>Live Total Countries</MenuItem>
+            </Link>
+          </Menu>
           <Button color="inherit">
             <Link
               to="/summary"
@@ -68,15 +116,15 @@ export default function NavBar() {
           <Button
             aria-controls="simple-menu"
             aria-haspopup="true"
-            onClick={handleClick}
+            onClick={handleClick2}
           >
             Top 10
           </Button>
           <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
+            id="top-menu"
+            anchorEl={anchorEl2}
             keepMounted
-            open={Boolean(anchorEl)}
+            open={Boolean(anchorEl2)}
             onClose={handleClose}
           >
             <Link

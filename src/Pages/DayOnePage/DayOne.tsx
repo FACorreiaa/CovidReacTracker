@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ContainerComp } from "../../components/Container/Container";
+import { CustomContainer } from "../../components/Container/Container";
 import InputCountryForm from "../../components/InputCountry/InputCountry";
-import NavBar from "../../components/NavBar/Navbar";
+import CustomNavBar from "../../components/NavBar/NavBar";
 import { fetcher } from "../../services/config/http-common";
 import useSWR, { mutate } from "swr";
 import Loading from "../../components/Loading/Loading";
@@ -75,8 +75,8 @@ function DayOne() {
   };
   return (
     <div>
-      <NavBar />
-      <ContainerComp>
+      <CustomNavBar />
+      <CustomContainer>
         <InputCountryForm
           myRef={value}
           onChange={onChange}
@@ -96,7 +96,7 @@ function DayOne() {
             />
           </>
         )}
-      </ContainerComp>
+      </CustomContainer>
     </div>
   );
 }

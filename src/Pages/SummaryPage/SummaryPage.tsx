@@ -1,9 +1,9 @@
 import React from "react";
-import NavBar from "../../components/NavBar/Navbar";
+import CustomNavBar from "../../components/NavBar/NavBar";
 import useSWR from "swr";
 import { format, parseISO } from "date-fns";
 import { InfoSection } from "../LandingPage/InfoSection";
-import { ContainerComp } from "../../components/Container/Container";
+import { CustomContainer } from "../../components/Container/Container";
 import CustomCard from "../../components/Card/Card";
 import { Grid } from "@material-ui/core";
 import { CustomMap } from "../../components/CustomMap/CustomMap";
@@ -11,18 +11,9 @@ import Loading from "../../components/Loading/Loading";
 import BarChart from "../../components/Chart/BarChart";
 import CustomTitle from "../../components/Title/Title";
 import { getSummaryList } from "../../services/SubscriptionService";
+import { SummaryList } from "../../Interface/SummaryList";
 
 const url = "/summary";
-
-interface SummaryList {
-  NewConfirmed: number;
-  NewDeaths: number;
-  NewRecovered: number;
-  TotalConfirmed: number;
-  TotalDeaths: number;
-  TotalRecovered: number;
-  createdAt: Date;
-}
 
 function SummaryPage() {
   const { data, error } = useSWR(url, getSummaryList);
@@ -30,10 +21,10 @@ function SummaryPage() {
   if (!data) return <Loading />;
   return (
     <div>
-      <NavBar />
+      <CustomNavBar />
       {data.data.map((d: SummaryList) => (
         <>
-          <ContainerComp>
+          <CustomContainer>
             <CustomTitle title="Covid 19 Daily Summary List" />
             <h2>{format(parseISO(`${d.createdAt}`), "PPPPpppp")}:</h2>
             <Grid
@@ -83,7 +74,7 @@ function SummaryPage() {
               />
             </Grid>
             INSERIR AQUI QUALQUER COISA
-          </ContainerComp>
+          </CustomContainer>
           {console.log(d)}
         </>
       ))}

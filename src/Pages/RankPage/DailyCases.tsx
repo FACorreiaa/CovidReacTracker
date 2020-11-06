@@ -1,6 +1,6 @@
 import React from "react";
-import { ContainerComp } from "../../components/Container/Container";
-import NavBar from "../../components/NavBar/Navbar";
+import { CustomContainer } from "../../components/Container/Container";
+import CustomNavBar from "../../components/NavBar/NavBar";
 import DailyConfirmed from "../../components/Rank/DailyConfirmed";
 import DailyDeaths from "../../components/Rank/DailyDeaths";
 import DailyRecovered from "../../components/Rank/DailyRecovered";
@@ -8,12 +8,12 @@ import DailyRecovered from "../../components/Rank/DailyRecovered";
 function DailyCases() {
   return (
     <div>
-      <NavBar />
-      <ContainerComp>
+      <CustomNavBar />
+      <CustomContainer>
         <DailyConfirmed />
         <DailyDeaths />
         <DailyRecovered />
-      </ContainerComp>
+      </CustomContainer>
     </div>
   );
 }

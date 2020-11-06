@@ -1,6 +1,6 @@
 import React from "react";
-import { ContainerComp } from "../../components/Container/Container";
-import NavBar from "../../components/NavBar/Navbar";
+import { CustomContainer } from "../../components/Container/Container";
+import CustomNavBar from "../../components/NavBar/NavBar";
 import TotalConfirmed from "../../components/Rank/TotalConfirmed";
 import TotalDeaths from "../../components/Rank/TotalDeaths";
 import TotalRecovered from "../../components/Rank/TotalRecovered";
@@ -8,13 +8,13 @@ import TotalRecovered from "../../components/Rank/TotalRecovered";
 function TotalCases() {
   return (
     <div>
-      <NavBar />
+      <CustomNavBar />
 
-      <ContainerComp>
+      <CustomContainer>
         <TotalConfirmed />
         <TotalDeaths />
         <TotalRecovered />
-      </ContainerComp>
+      </CustomContainer>
     </div>
   );
 }
