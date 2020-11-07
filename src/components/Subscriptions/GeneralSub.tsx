@@ -55,7 +55,7 @@ export default function GeneralSub() {
   return (
     <>
       <InfoSection
-        title="General subscription"
+        title=""
         paragraph="Subscribe to receive emails about daily total cases around the world!"
       >
         <GeneralSubForm

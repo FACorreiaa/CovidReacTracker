@@ -54,7 +54,7 @@ export default function CountrySub() {
   return (
     <>
       <InfoSection
-        title="Country subscription"
+        title=""
         paragraph="Subscribe to receive emails about daily cases on the countries you pick"
       >
         <CountrySubForm
