@@ -16,6 +16,7 @@ import CountryStatusBetweenDate from "./Pages/CountryPage/CountryStatusBetweenDa
 import CountryStatus from "./Pages/CountryPage/CountryStatus";
 import CountryCasesBetweenDate from "./Pages/CountryPage/CountryCasesBetweenDate";
 import LiveTotal from "./Pages/LivePage/LiveTotal";
+import ContactPage from "./Pages/ContactPage/ContactPage";
 
 LogRocket.init("covidtracker/covidreactracker");
 setupLogRocketReact(LogRocket);
@@ -46,6 +47,7 @@ function App() {
           path="/country/cases/dates"
           component={CountryCasesBetweenDate}
         />
+        <Route exact path="/contact/admin" component={ContactPage} />
       </Switch>
     </Router>
   );

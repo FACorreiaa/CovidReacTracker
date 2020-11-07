@@ -78,6 +78,7 @@ export default function CustomNavBar() {
               Day One
             </Link>
           </Button>
+
           <Button
             aria-controls="simple-menu"
             aria-haspopup="true"
@@ -190,6 +191,14 @@ export default function CustomNavBar() {
               </MenuItem>
             </Link>
           </Menu>
+          <Button color="inherit">
+            <Link
+              to="/contact/admin"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              Contact Me
+            </Link>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
