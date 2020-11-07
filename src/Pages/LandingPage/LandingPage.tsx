@@ -6,6 +6,7 @@ import LandingHeader from "./LandingHeader";
 import RecipesToCheck from "./RecipesToCheck";
 import { InfoSection } from "./InfoSection";
 import CountrySub from "../../components/Subscriptions/CountrySub";
+import GeneralSub from "../../components/Subscriptions/GeneralSub";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +26,9 @@ function LandingPage() {
         paragraph="This is a simple test to see how the text will look here and i have to remove this after"
       />
       <CountrySub />
+      <br />
+      <GeneralSub />
+      <br />
       <RecipesToCheck />
     </div>
   );
