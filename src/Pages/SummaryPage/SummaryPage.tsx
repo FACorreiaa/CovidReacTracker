@@ -2,13 +2,10 @@ import React from "react";
 import CustomNavBar from "../../components/NavBar/NavBar";
 import useSWR from "swr";
 import { format, parseISO } from "date-fns";
-import { InfoSection } from "../LandingPage/InfoSection";
 import { CustomContainer } from "../../components/Container/Container";
 import CustomCard from "../../components/Card/Card";
 import { Grid } from "@material-ui/core";
-import { CustomMap } from "../../components/CustomMap/CustomMap";
 import Loading from "../../components/Loading/Loading";
-import BarChart from "../../components/Chart/BarChart";
 import CustomTitle from "../../components/Title/Title";
 import { getSummaryList } from "../../services/SubscriptionService";
 import { SummaryList } from "../../Interface/SummaryList";
@@ -73,7 +70,6 @@ function SummaryPage() {
                 value={d.TotalRecovered}
               />
             </Grid>
-            INSERIR AQUI QUALQUER COISA
           </CustomContainer>
           {console.log(d)}
         </>

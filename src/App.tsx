@@ -15,6 +15,7 @@ import CountryTotalPage from "./Pages/CountryPage/CountryTotalPage";
 import CountryStatusBetweenDate from "./Pages/CountryPage/CountryStatusBetweenDate";
 import CountryStatus from "./Pages/CountryPage/CountryStatus";
 import CountryCasesBetweenDate from "./Pages/CountryPage/CountryCasesBetweenDate";
+import LiveTotal from "./Pages/LivePage/LiveTotal";
 
 LogRocket.init("covidtracker/covidreactracker");
 setupLogRocketReact(LogRocket);
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/dayone" component={DayOne} />
         <Route exact path="/live/after/date" component={LiveAfterDate} />
         <Route exact path="/live/daily/country" component={LiveDailyCountry} />
+        <Route exact path="/live/total" component={LiveTotal} />
 
         <Route exact path="/country/total" component={CountryTotalPage} />
         <Route

@@ -1,6 +1,5 @@
 import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
 import {
   KeyboardDatePicker,
@@ -21,18 +20,16 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type Props = {
   onClick: any;
-  myRef: any;
   onChange: any;
-  label: string;
   from: string;
   to: string;
   inputFromValue: any;
-  inputToValue: any;
   handleFromDateChange: any;
+  inputToValue: any;
   handleToDateChange: any;
 };
 
-export default function InputCountryDate(props: Props) {
+export default function CustomDoubleDatePicker(props: Props) {
   const classes = useStyles();
 
   return (
@@ -40,7 +37,7 @@ export default function InputCountryDate(props: Props) {
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
           margin="normal"
-          id="date-picker-dialog"
+          id="date-from"
           label="Select From Date"
           format="yyyy-MM-dd"
           value={props.from}
@@ -54,7 +51,7 @@ export default function InputCountryDate(props: Props) {
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
           margin="normal"
-          id="date-picker-dialog"
+          id="date-to"
           label="Select To Date"
           format="yyyy-MM-dd"
           value={props.to}
@@ -65,13 +62,6 @@ export default function InputCountryDate(props: Props) {
           }}
         />
       </MuiPickersUtilsProvider>
-      <TextField
-        id="outlined-basic"
-        label={props.label}
-        variant="outlined"
-        ref={props.myRef}
-        onChange={props.onChange}
-      />
 
       <Button variant="contained" onClick={props.onClick}>
         Submit

@@ -104,6 +104,12 @@ export default function CustomNavBar() {
             >
               <MenuItem onClick={handleClose}>Live Daily Country</MenuItem>
             </Link>
+            <Link
+              to="/live/total"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <MenuItem onClick={handleClose}>Live Total</MenuItem>
+            </Link>
           </Menu>
           <Button color="inherit">
             <Link
