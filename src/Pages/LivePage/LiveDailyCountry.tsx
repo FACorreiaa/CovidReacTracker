@@ -1,21 +1,13 @@
 import React, { useState } from "react";
 import useSWR, { mutate } from "swr";
 import { CustomContainer } from "../../components/Container/Container";
-import CustomDatePicker from "../../components/DatePicker/DatePicker";
 import InputCountryForm from "../../components/InputCountry/InputCountry";
 import CustomNavBar from "../../components/NavBar/NavBar";
-import CustomTitle from "../../components/Title/Title";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
-import CustomInputDatePicker from "../../components/DatePicker/InputDatePicker";
-import formatISO from "date-fns/formatISO";
-import { Line } from "react-chartjs-2";
-import { ILiveData } from "../../Interface/LiveData";
-import { format } from "date-fns";
-import { parseISO } from "date-fns/fp";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomCard from "../../components/Card/Card";
-import { Divider, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 export default function LiveDailyCountry() {
   const [country, setCountry] = useState("");
@@ -44,7 +36,6 @@ export default function LiveDailyCountry() {
 
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
-  const renderTitle = () => {};
   return (
     <div>
       <CustomNavBar />

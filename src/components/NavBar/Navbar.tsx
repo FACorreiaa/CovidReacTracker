@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
+    titlecolor: {
+      color: "#5AFF30",
+    },
   })
 );
 
@@ -26,6 +29,7 @@ export default function CustomNavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [anchorEl2, setAnchorEl2] = React.useState<null | HTMLElement>(null);
+  const [anchorEl3, setAnchorEl3] = React.useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -35,6 +39,12 @@ export default function CustomNavBar() {
 
   const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl2(event.currentTarget);
+
+    console.log(anchorEl2);
+  };
+
+  const handleClick3 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl3(event.currentTarget);
 
     console.log(anchorEl2);
   };
@@ -56,7 +66,9 @@ export default function CustomNavBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            <span className={classes.titlecolor}>Covid</span>
+            <span>Tracke</span>
+            <span className={classes.titlecolor}>React</span>
           </Typography>
           <Button color="inherit">
             <Link
@@ -87,22 +99,10 @@ export default function CustomNavBar() {
               <MenuItem onClick={handleClose}>Live After Date</MenuItem>
             </Link>
             <Link
-              to="/live/last/days"
-              style={{ textDecoration: "none", display: "block" }}
-            >
-              <MenuItem onClick={handleClose}>Last 30 Days</MenuItem>
-            </Link>
-            <Link
               to="/live/daily/country"
               style={{ textDecoration: "none", display: "block" }}
             >
               <MenuItem onClick={handleClose}>Live Daily Country</MenuItem>
-            </Link>
-            <Link
-              to="/live/total/countries"
-              style={{ textDecoration: "none", display: "block" }}
-            >
-              <MenuItem onClick={handleClose}>Live Total Countries</MenuItem>
             </Link>
           </Menu>
           <Button color="inherit">
@@ -138,6 +138,50 @@ export default function CustomNavBar() {
               style={{ textDecoration: "none", display: "block" }}
             >
               <MenuItem onClick={handleClose}>Top 10 Daily</MenuItem>
+            </Link>
+          </Menu>
+          <Button
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleClick3}
+          >
+            Country
+          </Button>
+          <Menu
+            id="top-menu"
+            anchorEl={anchorEl3}
+            keepMounted
+            open={Boolean(anchorEl3)}
+            onClose={handleClose}
+          >
+            <Link
+              to="/country/total"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <MenuItem onClick={handleClose}>Country Total</MenuItem>
+            </Link>
+            <Link
+              to="/country/status"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <MenuItem onClick={handleClose}>Country by Status</MenuItem>
+            </Link>
+            <Link
+              to="/country/status/dates"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <MenuItem onClick={handleClose}>
+                Country Status Between Dates
+              </MenuItem>
+            </Link>
+
+            <Link
+              to="/country/cases/dates"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <MenuItem onClick={handleClose}>
+                Country Cases Between Dates
+              </MenuItem>
             </Link>
           </Menu>
         </Toolbar>
