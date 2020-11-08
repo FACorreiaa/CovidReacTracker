@@ -1,7 +1,9 @@
+import "./tailwind.output.css";
+import "./index.css";
 import { CssBaseline } from "@material-ui/core";
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import LandingPage from "./Pages/LandingPage/LandingPage";
+import LandingPage from "./Pages/LandingPage_/LandingPage";
 import SummaryPage from "./Pages/SummaryPage/SummaryPage";
 import LogRocket from "logrocket";
 import setupLogRocketReact from "logrocket-react";
