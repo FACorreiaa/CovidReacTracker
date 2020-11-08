@@ -193,10 +193,10 @@ export default function CustomNavBar() {
           </Menu>
           <Button color="inherit">
             <Link
-              to="/contact/admin"
+              to="/about"
               style={{ textDecoration: "none", display: "block" }}
             >
-              Contact Me
+              About me
             </Link>
           </Button>
         </Toolbar>

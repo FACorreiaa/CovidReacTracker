@@ -1,5 +1,6 @@
 import { CssBaseline, Container, Typography } from "@material-ui/core";
 import React, { FunctionComponent } from "react";
+import { Trans } from "react-i18next";
 
 type SectionProps = {
   title: string;
@@ -22,8 +23,12 @@ export const InfoSection: FunctionComponent<SectionProps> = ({
           textAlign: "center",
         }}
       >
-        <h2>{title}</h2>
-        <p>{paragraph}</p>
+        <Trans i18nKey="landingSectionTitle">
+          <h2>{title}</h2>
+        </Trans>
+        <Trans i18nKey="landingSectionParagraph">
+          <p>{paragraph}</p>
+        </Trans>
         {children}
       </Typography>
     </Container>

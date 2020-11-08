@@ -1,5 +1,5 @@
 import { CssBaseline } from "@material-ui/core";
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import SummaryPage from "./Pages/SummaryPage/SummaryPage";
@@ -47,7 +47,7 @@ function App() {
           path="/country/cases/dates"
           component={CountryCasesBetweenDate}
         />
-        <Route exact path="/contact/admin" component={ContactPage} />
+        <Route exact path="/about" component={ContactPage} />
       </Switch>
     </Router>
   );
