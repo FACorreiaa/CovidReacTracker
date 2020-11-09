@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { CustomMainContainer } from "../../components/Landing/CustomMainContainer";
 import CardContainer from "./CardContainer";
 import Footer from "./Footer";
@@ -14,7 +15,7 @@ export default function LandingPage() {
         <SectionContainer>
           <SectionInfo title="CovidTrackeReact">
             <button className="text-nav-color text-nav p-button w-button text-center shadow-button rounded-button">
-              Learn More
+              <Link to="/about">Learn More</Link>
             </button>
           </SectionInfo>
         </SectionContainer>
