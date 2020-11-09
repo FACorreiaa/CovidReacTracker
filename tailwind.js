@@ -28,6 +28,9 @@ module.exports = {
         "dark-card": "#3d3d3d",
         "footer-main": "#3e3e3e",
       }),
+      backgroundPositionY: {
+        content: "bottom",
+      },
       padding: {
         "landing-50": "50px",
         "nav-25": "25px",
@@ -35,11 +38,17 @@ module.exports = {
         container: "25px",
         card: "35px",
       },
+      paddingTop: {
+        "nav-50": "50px",
+      },
       width: {
-        nav: "70%",
+        nav: "80%",
         button: "180px",
         card: "350px",
         footer: "70%",
+      },
+      spacing: {
+        container: "0",
       },
       fontSize: {
         nav: "22px",
@@ -51,6 +60,8 @@ module.exports = {
       textColor: {
         "nav-color": "#eaeaea",
         "footer-color": "#eaeaea",
+        "second-title": "#3d3d3d",
+        "third-title": "#626262",
       },
       margin: {
         nav: "0 auto",

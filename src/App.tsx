@@ -1,7 +1,12 @@
 import "./assets/main.css";
 import { CssBaseline } from "@material-ui/core";
 import React, { Suspense } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter,
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from "react-router-dom";
 import LandingPage from "./Pages/LandingPage_/LandingPage";
 import SummaryPage from "./Pages/SummaryPage/SummaryPage";
 import LogRocket from "logrocket";
@@ -21,12 +26,11 @@ import ContactPage from "./Pages/ContactPage/ContactPage";
 
 LogRocket.init("covidtracker/covidreactracker");
 setupLogRocketReact(LogRocket);
-
+//delete
 function App() {
   return (
     <Router>
-      <CssBaseline />
-      <Switch>
+      <BrowserRouter>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/summary" component={SummaryPage} />
         <Route exact path="/rank/total" component={TotalCases} />
@@ -49,7 +53,7 @@ function App() {
           component={CountryCasesBetweenDate}
         />
         <Route exact path="/about" component={ContactPage} />
-      </Switch>
+      </BrowserRouter>
     </Router>
   );
 }
