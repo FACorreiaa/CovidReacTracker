@@ -1,23 +1,28 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 export default function Footer() {
   return (
-    <div>
-      <footer className="h-64 bg-gray-600 justify-center justify-between">
-        <section className="w-3/4 flex justify-between m-auto">
-          <section>
-            <h1 className="text-4xl font-light ">Additional Information</h1>
-            <ul className="list-none text-gray-300">
-              <li>About Hello, World!</li>
-              <li>Careers</li>
-              <li>Contact Us</li>
-            </ul>
-          </section>
+    <footer className="h-footer bg-footer-main justify-center">
+      <section className="w-footer flex justify-between m-footer text-footer-color">
+        <section>
+          <h1 className="text-footer-title font-footer  text-footer-color">
+            Additional Information
+          </h1>
+          <ul className="list-none">
+            <li>About Hello, World!</li>
+            <li>Careers</li>
+            <li>Contact Us</li>
+          </ul>
         </section>
-        <section className="m-auto w-3/4">
-          <div className="text-gray-300 m-1 text-3xl">Some Icons</div>
+        <section className="m-footer w-footer">
+          <div className="text-footer-color m-1 text-footer-icons mr-footer">
+            <i className="fab fa-github"></i>
+            <i className="fab fa-linkedin"></i>
+            <i className="fab fa-twitter"></i>
+          </div>
         </section>
-      </footer>
-    </div>
+      </section>
+    </footer>
   );
 }

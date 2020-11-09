@@ -1,5 +1,4 @@
-import "./tailwind.output.css";
-import "./index.css";
+import "./assets/main.css";
 import { CssBaseline } from "@material-ui/core";
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";

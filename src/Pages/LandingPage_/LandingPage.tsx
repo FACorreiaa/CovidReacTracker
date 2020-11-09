@@ -6,13 +6,13 @@ import SectionInfo from "./SectionInfo";
 
 export default function LandingPage() {
   return (
-    <div className="bg-white-landing white-landing box-border h-full">
-      <div className="box-border h-full  bg-no-repeat pt-12 font-header">
+    <>
+      <div className="box-border bg-white-landing h-full bg-landing-main bg-no-repeat bg-bottom p-landing-50">
         <Header />
         <SectionInfo />
-        <CardContainer />
       </div>
+      <CardContainer />
       <Footer />
-    </div>
+    </>
   );
 }

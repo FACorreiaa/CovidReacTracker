@@ -1,0 +1,23 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@layer base {
+  html {
+    @apply h-full;
+    @apply box-border;
+  }
+  body {
+    @apply h-full;
+    @apply box-border;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
