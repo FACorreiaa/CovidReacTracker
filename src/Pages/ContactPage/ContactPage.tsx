@@ -6,7 +6,6 @@ import { postAdminMessage } from "../../services/ContactService";
 import { useHistory } from "react-router-dom";
 import { CustomContainer } from "../../components/Container/Container";
 import CustomTitle from "../../components/Title/Title";
-import CustomNavBar from "../../components/NavBar/NavBar";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -52,7 +51,6 @@ export default function ValidationTextFields() {
 
   return (
     <>
-      <CustomNavBar />
       <CustomContainer>
         <CustomTitle title="Contact me anytime. I wont reply with spam :)" />
         <Grid

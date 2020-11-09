@@ -1,9 +1,11 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 type Props = {
   title: string;
   children: any;
 };
+
 export default function SectionInfo(props: Props) {
   return (
     <div>

@@ -3,7 +3,6 @@ import useSWR, { mutate } from "swr";
 import { CustomContainer } from "../../components/Container/Container";
 import CustomDatePicker from "../../components/DatePicker/DatePicker";
 import InputCountryForm from "../../components/InputCountry/InputCountry";
-import CustomNavBar from "../../components/NavBar/NavBar";
 import CustomTitle from "../../components/Title/Title";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
@@ -100,7 +99,6 @@ export default function LiveAfterDate() {
 
   return (
     <div>
-      <CustomNavBar />
       <CustomContainer>
         <CustomSummaryTitle />
         <CustomCountryTitle country={country} />

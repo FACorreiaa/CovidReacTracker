@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import useSWR, { mutate } from "swr";
 import { CustomContainer } from "../../components/Container/Container";
-import CustomNavBar from "../../components/NavBar/NavBar";
 import CustomTitle from "../../components/Title/Title";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
@@ -117,7 +116,6 @@ export default function CountryCasesBetweenDates() {
 
   return (
     <div>
-      <CustomNavBar />
       <CustomContainer>
         <CustomSummaryTitle />
         <CustomCountryTitle country={country} />

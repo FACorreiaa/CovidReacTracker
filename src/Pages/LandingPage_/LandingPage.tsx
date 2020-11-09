@@ -10,18 +10,7 @@ import SectionInfo from "./SectionInfo";
 export default function LandingPage() {
   return (
     <>
-      <CustomMainContainer>
-        <Header />
-        <SectionContainer>
-          <SectionInfo title="CovidTrackeReact">
-            <button className="text-nav-color text-nav p-button w-button text-center shadow-button rounded-button">
-              <Link to="/about">Learn More</Link>
-            </button>
-          </SectionInfo>
-        </SectionContainer>
-      </CustomMainContainer>
       <CardContainer />
-      <Footer />
     </>
   );
 }

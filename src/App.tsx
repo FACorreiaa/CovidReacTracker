@@ -1,11 +1,10 @@
 import "./assets/main.css";
-import { CssBaseline } from "@material-ui/core";
-import React, { Suspense } from "react";
+import React from "react";
 import {
   BrowserRouter,
   BrowserRouter as Router,
+  Link,
   Route,
-  Switch,
 } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage_/LandingPage";
 import SummaryPage from "./Pages/SummaryPage/SummaryPage";
@@ -23,14 +22,42 @@ import CountryStatus from "./Pages/CountryPage/CountryStatus";
 import CountryCasesBetweenDate from "./Pages/CountryPage/CountryCasesBetweenDate";
 import LiveTotal from "./Pages/LivePage/LiveTotal";
 import ContactPage from "./Pages/ContactPage/ContactPage";
+import { CustomMainContainer } from "./components/Landing/CustomMainContainer";
+import Footer from "./Pages/LandingPage_/Footer";
+import Header from "./Pages/LandingPage_/Header";
+import { SectionContainer } from "./Pages/LandingPage_/SectionContainer";
+import SectionInfo from "./Pages/LandingPage_/SectionInfo";
 
 LogRocket.init("covidtracker/covidreactracker");
 setupLogRocketReact(LogRocket);
 //delete
+/*
+<Route
+              path="/summary"
+              render={(props) => (
+                <SectionInfo {...props} title="teste">
+                  <button className="text-nav-color text-nav p-button w-button text-center shadow-button rounded-button">
+                    <Link to="/about">Learn More</Link>
+                  </button>
+                </SectionInfo>
+              )}
+            />
+            */
 function App() {
   return (
     <Router>
       <BrowserRouter>
+        <CustomMainContainer>
+          <Header />
+          <SectionContainer>
+            <SectionInfo title="CovidTrackeReact">
+              <button className="text-nav-color text-nav p-button w-button text-center shadow-button rounded-button">
+                <Link to="/about">Learn More</Link>
+              </button>
+            </SectionInfo>
+          </SectionContainer>
+        </CustomMainContainer>
+
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/summary" component={SummaryPage} />
         <Route exact path="/rank/total" component={TotalCases} />
@@ -53,6 +80,7 @@ function App() {
           component={CountryCasesBetweenDate}
         />
         <Route exact path="/about" component={ContactPage} />
+        <Footer />
       </BrowserRouter>
     </Router>
   );
