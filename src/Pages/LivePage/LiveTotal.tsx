@@ -13,6 +13,7 @@ import { CountrySummary } from "../../Interface/CountrySummary";
 import CustomReactTailWindDatePicker from "../../components/DatePicker/CustomReactTailWindDatePicker";
 import CustomFormButton from "../../components/Button/CustomFormButton";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
+import CustomTitle from "../../components/Title/Title";
 
 export default function LiveAfterDate() {
   const [selectedFromDate, setSelectedFromDate] = React.useState("");
@@ -140,7 +141,7 @@ export default function LiveAfterDate() {
       },
     ],
   };
-
+  //
   return (
     <div>
       <CustomSecondaryContainer>
@@ -165,19 +166,26 @@ export default function LiveAfterDate() {
             />
           </form>
         </div>
-        {data[0].name && (
+      </CustomSecondaryContainer>
+
+      {data[0].name && (
+        <CustomSecondaryContainer>
+          <div className="text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+            <CustomTitle title="Around the world" />
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}
-              width={150}
+              width={100}
               height={50}
               options={{
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
               }}
             />
+            {console.log(data)}
           </div>
-        )}
-      </CustomSecondaryContainer>
+        </CustomSecondaryContainer>
+      )}
     </div>
   );
 }

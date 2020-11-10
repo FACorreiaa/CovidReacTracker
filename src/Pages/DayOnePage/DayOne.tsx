@@ -12,6 +12,8 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import CustomButton from "../../components/Button/CustomButton";
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import CustomFormButton from "../../components/Button/CustomFormButton";
+import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
+import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 
 function DayOne() {
   const [country, setCountry] = useState("");
@@ -78,6 +80,10 @@ function DayOne() {
   };
   return (
     <div>
+      <CustomSecondaryContainer>
+        <CustomCountryTitle country={country} />
+        <CustomSummaryTitle />
+      </CustomSecondaryContainer>
       <CustomSecondaryContainer>
         <div className="w-full max-w-xs">
           <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">

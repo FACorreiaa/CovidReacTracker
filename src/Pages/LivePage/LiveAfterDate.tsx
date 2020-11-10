@@ -132,24 +132,26 @@ export default function LiveAfterDate() {
             </div>
           </form>
         </div>
-        {country.length && data[0].name && (
-          <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-              <CustomTitle title={country} />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-              <Line
-                data={dataSource}
-                width={150}
-                height={50}
-                options={{
-                  maintainAspectRatio: false,
-                }}
-              />
-            </div>
-          </>
-        )}
       </CustomSecondaryContainer>
+
+      {country.length && data[0].name && (
+        <CustomSecondaryContainer>
+          <div className="text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+            <CustomTitle title={country} />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+            <Line
+              data={dataSource}
+              width={100}
+              height={50}
+              options={{
+                maintainAspectRatio: true,
+              }}
+            />
+            {console.log(data)}
+          </div>
+        </CustomSecondaryContainer>
+      )}
     </div>
   );
 }
