@@ -7,9 +7,6 @@ import { fetcher } from "../../services/config/http-common";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomCard from "../../components/Card/Card";
 import { Grid } from "@material-ui/core";
-import CustomFormButton from "../../components/Button/CustomFormButton";
-import CustomInputCountryForm from "../../components/Form/CustomInput";
-import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 
 export default function LiveDailyCountry() {
   const [country, setCountry] = useState("");
@@ -40,33 +37,25 @@ export default function LiveDailyCountry() {
   if (!data) return <Loading />;
   return (
     <div>
-      <CustomSecondaryContainer>
-        <form className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div className="mb-4">
-            <CustomInputCountryForm
-              for="country"
-              id="country"
-              type="text"
-              placeholder="Insert Country"
-              onChange={onChange}
-              label="Insert Country"
-              myRef={value}
-            />
-          </div>
-
-          <div className="flex items-center justify-between">
-            <CustomFormButton label="Submit" onClick={onClick} />
-          </div>
-        </form>
+      <CustomContainer>
         <CustomSummaryTitle />
-      </CustomSecondaryContainer>
-      <CustomSecondaryContainer>
+        <InputCountryForm
+          myRef={value}
+          onChange={onChange}
+          onClick={onClick}
+          label={"Insert Country"}
+        />
         {country.length &&
           data.map((d: any) => {
             return (
               <>
                 <h3>{d.Country}</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+                <Grid
+                  style={{ marginBottom: "1em", display: "inline-flex" }}
+                  direction="row"
+                  justify="center"
+                  alignItems="flex-end"
+                >
                   <CustomCard
                     icon={""}
                     title={"New Confirmed"}
@@ -82,9 +71,14 @@ export default function LiveDailyCountry() {
                     title={"New Recovered"}
                     value={d.NewRecovered}
                   />
-                </div>
+                </Grid>
                 <br />
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+                <Grid
+                  style={{ marginBottom: "1em", display: "inline-flex" }}
+                  direction="row"
+                  justify="center"
+                  alignItems="flex-end"
+                >
                   <CustomCard
                     icon={""}
                     title={"Total Confirmed"}
@@ -100,11 +94,11 @@ export default function LiveDailyCountry() {
                     title={"Total Recovered"}
                     value={d.TotalRecovered}
                   />
-                </div>
+                </Grid>
               </>
             );
           })}
-      </CustomSecondaryContainer>
+      </CustomContainer>
     </div>
   );
 }

@@ -10,15 +10,18 @@ import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle
 import CustomDoubleDatePicker from "../../components/DatePicker/DoubleDatePicker";
 import CustomWIPTotalTitle from "../../components/SummaryTitle/CustomWIPTotalTitle";
 import { CountrySummary } from "../../Interface/CountrySummary";
-import CustomReactTailWindDatePicker from "../../components/DatePicker/CustomReactTailWindDatePicker";
-import CustomFormButton from "../../components/Button/CustomFormButton";
-import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 
 export default function LiveAfterDate() {
   const [selectedFromDate, setSelectedFromDate] = React.useState("");
   const [selectedToDate, setSelectedToDate] = React.useState("");
-  const [valueFromDate, setValueFromDate] = React.useState(new Date());
-  const [valueToDate, setValueToDate] = React.useState(new Date());
+
+  const [inputFromValue, setInputFromValue] = useState(
+    format(new Date(), "yyyy-MM-dd")
+  );
+
+  const [inputToValue, setInputToValue] = useState(
+    format(new Date(), "yyyy-MM-dd")
+  );
 
   const url = `${process.env.REACT_APP_BASE_URL}/wip/total/date?from=${selectedFromDate}&to=${selectedToDate}`;
   const { data, error } = useSWR(url, fetcher);
@@ -37,22 +40,14 @@ export default function LiveAfterDate() {
     mutate(data, false);
   };
 
-  const onFromChange = (date: Date) => {
-    setValueFromDate(date);
-    const isoDate = formatISO(date);
-    setSelectedFromDate(isoDate);
-  };
-
-  const onToChange = (date: Date) => {
-    setValueToDate(date);
-    const isoDate = formatISO(date);
-    setSelectedToDate(isoDate);
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    value.current = e.target.value;
   };
 
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
 
-  /*
   const handleFromDateChange = (date: string, value: any) => {
     setSelectedFromDate(formatISO(new Date(date)));
     setInputFromValue(value);
@@ -61,7 +56,7 @@ export default function LiveAfterDate() {
   const handleToDateChange = (date: string, value: any) => {
     setSelectedToDate(formatISO(new Date(date)));
     setInputToValue(value);
-  };*/
+  };
 
   const dataSource = {
     labels: ["Total cases around the world since day one"],
@@ -143,30 +138,22 @@ export default function LiveAfterDate() {
 
   return (
     <div>
-      <CustomSecondaryContainer>
+      <CustomContainer>
         <CustomSummaryTitle />
         <CustomWIPTotalTitle />
-      </CustomSecondaryContainer>
+        <CustomDoubleDatePicker
+          onChange={onChange}
+          onClick={onClick}
+          inputFromValue={inputFromValue}
+          inputToValue={inputToValue}
+          handleToDateChange={handleToDateChange}
+          handleFromDateChange={handleFromDateChange}
+          from={selectedFromDate}
+          to={selectedToDate}
+        />
 
-      <CustomSecondaryContainer>
-        <div className="w-full max-w-xs">
-          <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <CustomReactTailWindDatePicker
-              label="from"
-              for="from"
-              onChange={onFromChange}
-              selected={valueFromDate}
-            />
-            <CustomReactTailWindDatePicker
-              label="to"
-              for="to"
-              onChange={onToChange}
-              selected={valueToDate}
-            />
-          </form>
-        </div>
         {data[0].name && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          <>
             <Line
               data={dataSource}
               width={150}
@@ -175,9 +162,9 @@ export default function LiveAfterDate() {
                 maintainAspectRatio: false,
               }}
             />
-          </div>
+          </>
         )}
-      </CustomSecondaryContainer>
+      </CustomContainer>
     </div>
   );
 }
