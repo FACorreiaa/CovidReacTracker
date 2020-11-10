@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import useSWR, { mutate } from "swr";
-import { CustomContainer } from "../../components/Container/Container";
-import CustomDatePicker from "../../components/DatePicker/DatePicker";
-import InputCountryForm from "../../components/InputCountry/InputCountry";
 import CustomTitle from "../../components/Title/Title";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
-import CustomInputDatePicker from "../../components/DatePicker/InputDatePicker";
-import formatISO from "date-fns/formatISO";
 import { Line } from "react-chartjs-2";
 import { ILiveData } from "../../Interface/LiveData";
 import { format } from "date-fns";

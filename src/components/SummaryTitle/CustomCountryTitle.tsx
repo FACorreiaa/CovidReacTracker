@@ -3,7 +3,6 @@ import useSWR from "swr";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
 import CustomCard from "../../components/Card/Card";
-import { Grid } from "@material-ui/core";
 
 type Props = {
   country: string;

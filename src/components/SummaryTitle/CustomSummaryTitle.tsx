@@ -2,7 +2,6 @@ import React from "react";
 import useSWR from "swr";
 import { format, parseISO } from "date-fns";
 import CustomCard from "../../components/Card/Card";
-import { Grid } from "@material-ui/core";
 import Loading from "../../components/Loading/Loading";
 import CustomTitle from "../../components/Title/Title";
 import { getSummaryList } from "../../services/SubscriptionService";

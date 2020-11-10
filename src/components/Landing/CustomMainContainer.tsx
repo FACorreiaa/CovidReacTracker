@@ -1,4 +1,3 @@
-import { CssBaseline, Container, Typography } from "@material-ui/core";
 import React, { FunctionComponent } from "react";
 
 type SectionProps = {};

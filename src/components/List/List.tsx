@@ -1,21 +1,4 @@
 import React from "react";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
-import ListSubheader from "@material-ui/core/ListSubheader";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: "100%",
-      maxWidth: "38ch",
-      backgroundColor: theme.palette.background.paper,
-    },
-    inline: {
-      display: "inline-flex",
-    },
-  })
-);
 
 type Props = {
   country: string;
@@ -24,8 +7,6 @@ type Props = {
 };
 
 export default function CustomList(props: Props) {
-  const classes = useStyles();
-
   return (
     <div className="flex flex-col gap-4 lg:p-4 p-2  rounde-lg m-2">
       <div className="flex items-center justify-between w-full p-2 lg:rounded-full md:rounded-full hover:bg-gray-100 cursor-pointer border-2 rounded-lg text-nav-color text-nav  text-center shadow-button">

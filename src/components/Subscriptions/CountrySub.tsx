@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-import { GeneralSubForm } from "./ChildGeneralSub";
-import { InfoSection } from "../../Pages/LandingPage/InfoSection";
 import { CountrySubForm } from "./ChildCountrySub";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
-import {
-  postCountrySub,
-  postGeneralSub,
-} from "../../services/SubscriptionService";
-import { CustomSubscriptionMultiSelect } from "./CustomSubscriptionMultiSelect";
+import { postCountrySub } from "../../services/SubscriptionService";
 
 export default function CountrySub() {
   const countryList = useCountriesDropdown();
@@ -56,7 +50,7 @@ export default function CountrySub() {
     <>
       <div className="w-full max-w-sm"></div>
       <CountrySubForm
-        countryLabel="Insert Email to get daily alerts"
+        countryLabel="Insert Email to get daily country alerts"
         selectLabel="Pick country to subscribe"
         handleFieldChange={handleFieldChange}
         selectValue={country}

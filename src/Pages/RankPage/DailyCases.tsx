@@ -1,5 +1,4 @@
 import React from "react";
-import { CustomContainer } from "../../components/Container/Container";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import DailyConfirmed from "../../components/Rank/DailyConfirmed";
 import DailyDeaths from "../../components/Rank/DailyDeaths";

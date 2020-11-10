@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { GeneralSubForm } from "./ChildGeneralSub";
-import { InfoSection } from "../../Pages/LandingPage/InfoSection";
-import { CountrySubForm } from "./ChildCountrySub";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import {
   postCountrySub,
@@ -59,6 +57,7 @@ export default function GeneralSub() {
         onChange={handleGeneralEmail}
         value={data.email}
         onSubmit={handleGeneralSubmit}
+        label="Insert email for daily general alerts"
       />
       {loading && <span>Loading...</span>}
       {res.data === false && (

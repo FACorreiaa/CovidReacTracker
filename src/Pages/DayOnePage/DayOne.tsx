@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { CustomContainer } from "../../components/Container/Container";
-import InputCountryForm from "../../components/InputCountry/InputCountry";
 import { fetcher } from "../../services/config/http-common";
 import useSWR, { mutate } from "swr";
 import Loading from "../../components/Loading/Loading";
@@ -9,7 +7,6 @@ import { Bar } from "react-chartjs-2";
 import { format, parseISO } from "date-fns";
 import CustomTitle from "../../components/Title/Title";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
-import CustomButton from "../../components/Button/CustomButton";
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import CustomFormButton from "../../components/Button/CustomFormButton";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";

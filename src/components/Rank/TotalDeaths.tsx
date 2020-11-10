@@ -1,7 +1,6 @@
 import React from "react";
 import useSWR from "swr";
 import Loading from "../Loading/Loading";
-import { Grid } from "@material-ui/core";
 import { CountrySummary } from "../../Interface/CountrySummary";
 import CustomList from "../List/List";
 import { getTopTotalDeaths } from "../../services/RankingService";

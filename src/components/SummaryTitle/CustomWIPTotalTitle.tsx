@@ -1,7 +1,6 @@
 import React from "react";
 import useSWR from "swr";
 import CustomCard from "../../components/Card/Card";
-import { Grid } from "@material-ui/core";
 import Loading from "../../components/Loading/Loading";
 import { getTotalList } from "../../services/SubscriptionService";
 import { SummaryList } from "../../Interface/SummaryList";

@@ -1,5 +1,3 @@
-import { Button } from "@material-ui/core";
-import Input from "@material-ui/core/Input/Input";
 import React, { FunctionComponent } from "react";
 
 type GeneralSubProps = {
@@ -7,15 +5,24 @@ type GeneralSubProps = {
   onChange: any;
   placeholder: string;
   onSubmit: any;
+  label: string;
 };
 export const GeneralSubForm: FunctionComponent<GeneralSubProps> = ({
   placeholder,
   onChange,
   value,
   onSubmit,
+  label,
 }) => (
   <>
     <form className="w-full max-w-sm shadow-md rounded" onSubmit={onSubmit}>
+      <label
+        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        htmlFor="grid-first-name"
+      >
+        {label}
+      </label>
+
       <div className="flex items-center border-b border-teal-500 py-2">
         <input
           type="email"
@@ -29,7 +36,7 @@ export const GeneralSubForm: FunctionComponent<GeneralSubProps> = ({
           className="flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
           type="button"
         >
-          Submit
+          Subscribe
         </button>
       </div>
     </form>

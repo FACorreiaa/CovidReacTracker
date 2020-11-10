@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import useSWR, { mutate } from "swr";
-import { CustomContainer } from "../../components/Container/Container";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
 import formatISO from "date-fns/formatISO";
 import { Line } from "react-chartjs-2";
-import { format } from "date-fns";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
-import CustomDoubleDatePicker from "../../components/DatePicker/DoubleDatePicker";
 import CustomWIPTotalTitle from "../../components/SummaryTitle/CustomWIPTotalTitle";
 import { CountrySummary } from "../../Interface/CountrySummary";
 import CustomReactTailWindDatePicker from "../../components/DatePicker/CustomReactTailWindDatePicker";
-import CustomFormButton from "../../components/Button/CustomFormButton";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomTitle from "../../components/Title/Title";
 
@@ -23,20 +19,6 @@ export default function LiveAfterDate() {
 
   const url = `${process.env.REACT_APP_BASE_URL}/wip/total/date?from=${selectedFromDate}&to=${selectedToDate}`;
   const { data, error } = useSWR(url, fetcher);
-
-  let value = React.useRef("");
-
-  /*const onClick = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setCountry(value.current);
-      setValues(data);
-    },
-    [data]
-  );*/
-  const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    mutate(data, false);
-  };
 
   const onFromChange = (date: Date) => {
     setValueFromDate(date);
