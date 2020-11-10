@@ -15,18 +15,13 @@ export default function CustomCountryTitle(props: Props) {
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
   return (
-    <div>
+    <div className="flex flex-grid">
       {props.country.length &&
         data.map((d: any) => {
           return (
             <>
               <h3>{d.Country}</h3>
-              <Grid
-                style={{ marginBottom: "1em", display: "inline-flex" }}
-                direction="row"
-                justify="center"
-                alignItems="flex-end"
-              >
+              <div>
                 <CustomCard
                   icon={""}
                   title={"New Confirmed"}
@@ -42,14 +37,8 @@ export default function CustomCountryTitle(props: Props) {
                   title={"New Recovered"}
                   value={d.NewRecovered}
                 />
-              </Grid>
-              <br />
-              <Grid
-                style={{ marginBottom: "1em", display: "inline-flex" }}
-                direction="row"
-                justify="center"
-                alignItems="flex-end"
-              >
+              </div>
+              <div>
                 <CustomCard
                   icon={""}
                   title={"Total Confirmed"}
@@ -65,7 +54,7 @@ export default function CustomCountryTitle(props: Props) {
                   title={"Total Recovered"}
                   value={d.TotalRecovered}
                 />
-              </Grid>
+              </div>
             </>
           );
         })}

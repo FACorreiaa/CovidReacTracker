@@ -16,7 +16,7 @@ export default function CustomSummaryTitle() {
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+    <div className="flex flex-col">
       {data.data.map((d: SummaryList) => (
         <>
           <CustomCard

@@ -14,6 +14,9 @@ import { format } from "date-fns";
 import { parseISO } from "date-fns/fp";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
+import CustomFormButton from "../../components/Button/CustomFormButton";
+import CustomInputCountryForm from "../../components/Form/CustomInput";
+import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 
 export default function CountryTotalPage() {
   const [country, setCountry] = useState("");
@@ -82,31 +85,61 @@ export default function CountryTotalPage() {
 
   return (
     <div>
-      <CustomContainer>
+      {/**
+       * <CustomSecondaryContainer>
         <CustomSummaryTitle />
         <CustomCountryTitle country={country} />
+      </CustomSecondaryContainer>
+       * 
+       */}
 
-        <InputCountryForm
-          myRef={value}
-          onChange={onChange}
-          onClick={onClick}
-          label={"Insert Country"}
-        />
-        {country.length && data[0].name && (
-          <>
+      <CustomSecondaryContainer>
+        <CustomCountryTitle country={country} />
+        <CustomSummaryTitle />
+      </CustomSecondaryContainer>
+      <CustomSecondaryContainer>
+        <div className="w-full max-w-xs">
+          <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div className="mb-4">
+              <CustomInputCountryForm
+                for="country"
+                id="country"
+                type="text"
+                placeholder="Insert Country"
+                onChange={onChange}
+                label="Insert Country"
+                myRef={value}
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <CustomFormButton label="Submit" onClick={onClick} />
+            </div>
+          </form>
+          <p className="text-center text-gray-500 text-xs">
+            &copy;2020 Acme Corp. All rights reserved.
+          </p>
+        </div>
+      </CustomSecondaryContainer>
+
+      {country.length && data[0].name && (
+        <CustomSecondaryContainer>
+          <div className="text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <CustomTitle title={country} />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}
-              width={150}
+              width={100}
               height={50}
               options={{
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
               }}
             />
-          </>
-        )}
-        {console.log("datadatadata", data)}
-      </CustomContainer>
+            {console.log(data)}
+          </div>
+        </CustomSecondaryContainer>
+      )}
     </div>
   );
 }

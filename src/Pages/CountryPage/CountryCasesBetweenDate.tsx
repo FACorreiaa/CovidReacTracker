@@ -13,17 +13,16 @@ import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import { ICountryTotal } from "../../Interface/CountryStatus";
 import InputCountryDate from "../../components/InputCountry/InputCountryDate";
+import CustomFormButton from "../../components/Button/CustomFormButton";
+import CustomReactTailWindDatePicker from "../../components/DatePicker/CustomReactTailWindDatePicker";
+import CustomInputCountryForm from "../../components/Form/CustomInput";
+import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 
 export default function CountryCasesBetweenDates() {
   const [selectedFromDate, setSelectedFromDate] = React.useState("");
-  const [inputFromValue, setInputFromValue] = useState(
-    format(new Date(), "yyyy-MM-dd")
-  );
-
   const [selectedToDate, setSelectedToDate] = React.useState("");
-  const [inputToValue, setInputToValue] = useState(
-    format(new Date(), "yyyy-MM-dd")
-  );
+  const [valueFromDate, setValueFromDate] = React.useState(new Date());
+  const [valueToDate, setValueToDate] = React.useState(new Date());
   const [country, setCountry] = useState("");
 
   const url = `${process.env.REACT_APP_BASE_URL}/country/live/${country}/date/?from=${selectedFromDate}&to=${selectedToDate}`;
@@ -31,13 +30,6 @@ export default function CountryCasesBetweenDates() {
 
   let value = React.useRef("");
 
-  /*const onClick = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setCountry(value.current);
-      setValues(data);
-    },
-    [data]
-  );*/
   const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setCountry(value.current);
@@ -52,14 +44,16 @@ export default function CountryCasesBetweenDates() {
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
 
-  const handleFromDateChange = (date: string, value: any) => {
-    setSelectedFromDate(formatISO(new Date(date)));
-    setInputFromValue(value);
+  const onFromChange = (date: Date) => {
+    setValueFromDate(date);
+    const isoDate = formatISO(date);
+    setSelectedFromDate(isoDate);
   };
 
-  const handleToDateChange = (date: string, value: any) => {
-    setSelectedToDate(formatISO(new Date(date)));
-    setInputToValue(value);
+  const onToChange = (date: Date) => {
+    setValueToDate(date);
+    const isoDate = formatISO(date);
+    setSelectedToDate(isoDate);
   };
 
   const dataSource = {
@@ -116,38 +110,65 @@ export default function CountryCasesBetweenDates() {
 
   return (
     <div>
-      <CustomContainer>
-        <CustomSummaryTitle />
+      <CustomSecondaryContainer>
         <CustomCountryTitle country={country} />
-        <CustomTitle title="Pick a date and check all cases after that moment!" />
-        <InputCountryDate
-          myRef={value}
-          onChange={onChange}
-          onClick={onClick}
-          label={"Insert Country Name"}
-          inputFromValue={inputFromValue}
-          inputToValue={inputToValue}
-          handleToDateChange={handleToDateChange}
-          handleFromDateChange={handleFromDateChange}
-          from={selectedFromDate}
-          to={selectedToDate}
-        />
+        <CustomSummaryTitle />
+      </CustomSecondaryContainer>
+      <CustomSecondaryContainer>
+        <div className="w-full max-w-xs">
+          <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div className="mb-4">
+              <CustomReactTailWindDatePicker
+                label="from"
+                for="from"
+                onChange={onFromChange}
+                selected={valueFromDate}
+              />
+              <CustomReactTailWindDatePicker
+                label="to"
+                for="to"
+                onChange={onToChange}
+                selected={valueToDate}
+              />
+              <CustomInputCountryForm
+                for="country"
+                id="country"
+                type="text"
+                placeholder="Insert Country"
+                onChange={onChange}
+                label="Insert Country"
+                myRef={value}
+              />
+            </div>
 
-        {country.length && data[0].name && (
-          <>
+            <div className="flex items-center justify-between">
+              <CustomFormButton label="Submit" onClick={onClick} />
+            </div>
+          </form>
+          <p className="text-center text-gray-500 text-xs">
+            &copy;2020 Acme Corp. All rights reserved.
+          </p>
+        </div>
+      </CustomSecondaryContainer>
+
+      {country.length && data[0].name && (
+        <CustomSecondaryContainer>
+          <div className="text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <CustomTitle title={country} />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}
-              width={150}
+              width={100}
               height={50}
               options={{
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
               }}
             />
-          </>
-        )}
-        {console.log("datadatadata", data)}
-      </CustomContainer>
+            {console.log(data)}
+          </div>
+        </CustomSecondaryContainer>
+      )}
     </div>
   );
 }
