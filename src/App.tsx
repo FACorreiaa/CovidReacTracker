@@ -27,6 +27,7 @@ import Footer from "./Pages/LandingPage_/Footer";
 import Header from "./Pages/LandingPage_/Header";
 import { SectionContainer } from "./Pages/LandingPage_/SectionContainer";
 import SectionInfo from "./Pages/LandingPage_/SectionInfo";
+import CustomButton from "./components/Button/CustomButton";
 
 LogRocket.init("covidtracker/covidreactracker");
 setupLogRocketReact(LogRocket);
@@ -51,9 +52,9 @@ function App() {
           <Header />
           <SectionContainer>
             <SectionInfo title="CovidTrackeReact">
-              <button className="text-nav-color text-nav p-button w-button text-center shadow-button rounded-button">
-                <Link to="/about">Learn More</Link>
-              </button>
+              <CustomButton label="About me">
+                <Link to="/about" />
+              </CustomButton>
             </SectionInfo>
           </SectionContainer>
         </CustomMainContainer>

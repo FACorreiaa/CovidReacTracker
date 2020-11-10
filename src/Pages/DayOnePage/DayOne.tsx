@@ -8,6 +8,10 @@ import { IDayOne } from "../../Interface/Dayone";
 import { Bar } from "react-chartjs-2";
 import { format, parseISO } from "date-fns";
 import CustomTitle from "../../components/Title/Title";
+import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
+import CustomButton from "../../components/Button/CustomButton";
+import CustomInputCountryForm from "../../components/Form/CustomInput";
+import CustomFormButton from "../../components/Button/CustomFormButton";
 
 function DayOne() {
   const [country, setCountry] = useState("");
@@ -74,16 +78,37 @@ function DayOne() {
   };
   return (
     <div>
-      <CustomContainer>
-        <InputCountryForm
-          myRef={value}
-          onChange={onChange}
-          onClick={onClick}
-          label={"Insert Country"}
-        />
-        {country.length && data[0].name && (
-          <>
+      <CustomSecondaryContainer>
+        <div className="w-full max-w-xs">
+          <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div className="mb-4">
+              <CustomInputCountryForm
+                for="country"
+                id="country"
+                type="text"
+                placeholder="Insert Country"
+                onChange={onChange}
+                label="Insert Country"
+                myRef={value}
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <CustomFormButton label="Submit" onClick={onClick} />
+            </div>
+          </form>
+          <p className="text-center text-gray-500 text-xs">
+            &copy;2020 Acme Corp. All rights reserved.
+          </p>
+        </div>
+      </CustomSecondaryContainer>
+
+      {country.length && data[0].name && (
+        <CustomSecondaryContainer>
+          <div className="text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <CustomTitle title={country} />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Bar
               data={dataSource}
               width={100}
@@ -92,9 +117,9 @@ function DayOne() {
                 maintainAspectRatio: true,
               }}
             />
-          </>
-        )}
-      </CustomContainer>
+          </div>
+        </CustomSecondaryContainer>
+      )}
     </div>
   );
 }

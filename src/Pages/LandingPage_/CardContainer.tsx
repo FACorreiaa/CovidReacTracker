@@ -1,11 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import CustomCard from "../../components/Card/Card";
 import CustomLandingCard from "../../components/Landing/CustomLandingCard";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
-import useWindowPosition from "../../hooks/Landing";
-import { SectionContainer } from "./SectionContainer";
-import SectionInfo from "./SectionInfo";
 
 export default function CardContainer() {
   return (
