@@ -54,21 +54,16 @@ export default function GeneralSub() {
 
   return (
     <>
-      <InfoSection
-        title=""
-        paragraph="Subscribe to receive emails about daily total cases around the world!"
-      >
-        <GeneralSubForm
-          placeholder="Insert Email"
-          onChange={handleGeneralEmail}
-          value={data.email}
-          onSubmit={handleGeneralSubmit}
-        />
-        {loading && <span>Loading...</span>}
-        {res.data === false && (
-          <span style={{ color: "red" }}>You are already subbed</span>
-        )}
-      </InfoSection>
+      <GeneralSubForm
+        placeholder="Insert Email"
+        onChange={handleGeneralEmail}
+        value={data.email}
+        onSubmit={handleGeneralSubmit}
+      />
+      {loading && <span>Loading...</span>}
+      {res.data === false && (
+        <span style={{ color: "red" }}>You are already subbed</span>
+      )}
     </>
   );
 }

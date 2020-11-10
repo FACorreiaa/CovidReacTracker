@@ -7,6 +7,7 @@ import {
   postCountrySub,
   postGeneralSub,
 } from "../../services/SubscriptionService";
+import { CustomSubscriptionMultiSelect } from "./CustomSubscriptionMultiSelect";
 
 export default function CountrySub() {
   const countryList = useCountriesDropdown();
@@ -53,33 +54,27 @@ export default function CountrySub() {
   };
   return (
     <>
-      <InfoSection
-        title=""
-        paragraph="Subscribe to receive emails about daily cases on the countries you pick"
-      >
-        <CountrySubForm
-          labelId="country-list"
-          id="country"
-          handleFieldChange={handleFieldChange}
-          value={country}
-          countryList={countryList}
-        />
+      <div className="w-full max-w-sm"></div>
+      <CountrySubForm
+        countryLabel="Insert Email to get daily alerts"
+        selectLabel="Pick country to subscribe"
+        handleFieldChange={handleFieldChange}
+        selectValue={country}
+        countryList={countryList}
+        placeholder="Insert Email"
+        onChange={handleCountryEmail}
+        value={countryEmail}
+        onSubmit={handleCountrySubmit}
+      />
 
-        <GeneralSubForm
-          placeholder="Insert Email"
-          onChange={handleCountryEmail}
-          value={countryEmail}
-          onSubmit={handleCountrySubmit}
-        />
-        {loading && <span>Loading...</span>}
-        {err && <span>Something ocurred</span>}
-        {value === "You are already subbed" && submitted && (
-          <span style={{ color: "red" }}>You are already subbed</span>
-        )}
-        {value === "" && submitted && (
-          <span style={{ color: "greem" }}>You subbed for {country}</span>
-        )}
-      </InfoSection>
+      {loading && <span>Loading...</span>}
+      {err && <span>Something ocurred</span>}
+      {value === "You are already subbed" && submitted && (
+        <span style={{ color: "red" }}>You are already subbed</span>
+      )}
+      {value === "" && submitted && (
+        <span style={{ color: "greem" }}>You subbed for {country}</span>
+      )}
     </>
   );
 }
