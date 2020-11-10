@@ -1,5 +1,6 @@
 import React from "react";
 import { CustomContainer } from "../../components/Container/Container";
+import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import DailyConfirmed from "../../components/Rank/DailyConfirmed";
 import DailyDeaths from "../../components/Rank/DailyDeaths";
 import DailyRecovered from "../../components/Rank/DailyRecovered";
@@ -7,11 +8,11 @@ import DailyRecovered from "../../components/Rank/DailyRecovered";
 function DailyCases() {
   return (
     <div>
-      <CustomContainer>
+      <CustomSecondaryContainer>
         <DailyConfirmed />
         <DailyDeaths />
         <DailyRecovered />
-      </CustomContainer>
+      </CustomSecondaryContainer>
     </div>
   );
 }

@@ -19,13 +19,8 @@ function TotalRecovered() {
 
   console.log("result", result);
   return (
-    <Grid
-      style={{ marginBottom: "1em", display: "inline-flex" }}
-      direction="column"
-      justify="center"
-      alignItems="flex-start"
-    >
-      <h5 style={{ textAlign: "center" }}>Top 10 Total Recovered</h5>
+    <div className="flex flex-col">
+      <h5 className="text-center font-bold">Top 10 Total Recovered</h5>
       {result.map((d: CountrySummary) => (
         <CustomList
           index={index++}
@@ -33,7 +28,7 @@ function TotalRecovered() {
           value={d.TotalRecovered}
         />
       ))}
-    </Grid>
+    </div>
   );
 }
 

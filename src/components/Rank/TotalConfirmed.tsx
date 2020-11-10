@@ -19,13 +19,8 @@ function TotalConfirmed() {
   const result = data.map((res: any) => res.countrySummary);
   console.log("result", result);
   return (
-    <Grid
-      style={{ marginBottom: "1em", display: "inline-flex" }}
-      direction="column"
-      justify="center"
-      alignItems="flex-end"
-    >
-      <h5 style={{ textAlign: "center" }}>Top 10 Total Confirmed Cases</h5>
+    <div className="flex flex-col">
+      <h5 className="text-center font-bold">Top 10 Total Confirmed Cases</h5>
       {result.map((d: CountrySummary) => (
         <CustomList
           index={index++}
@@ -33,7 +28,7 @@ function TotalConfirmed() {
           value={d.TotalConfirmed}
         />
       ))}
-    </Grid>
+    </div>
   );
 }
 
