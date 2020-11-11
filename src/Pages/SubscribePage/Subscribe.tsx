@@ -8,21 +8,21 @@ export default function SubscribePage() {
     <div>
       <CustomSecondaryContainer>
         <div className="prose lg:prose-xl">
-          Subscribe to get emails daily about Corona Virus around the world
-          <p>By subscribing you will get daily reports about:</p>
-          <ul className="list-inside">
-            <li>New Cases</li>
-            <li>New Deaths</li>
-            <li>New Recovered</li>
-            <li>Total Cases</li>
-            <li>Total Deaths</li>
-            <li>Total Recovered</li>
-          </ul>
+          <p>
+            Subscribe to get emails daily about Corona Virus around the world!
+          </p>
+          <span>Or</span>
+          <p>
+            Subscribe for a specific country. You can pick has many as you want!
+          </p>
           <p>
             You will get one email each 12h about general cases around the world
             and for specific countries that you choose to apply for! You can
-            ubsubscribe anytime, dont worry
+            ubsubscribe anytime, dont worry. By subscribing you will get daily
+            reports about: Confirmed Cases, Deaths and Recovered. Daily New and
+            Total!
           </p>
+
           <p className="text-center ">
             And remember,
             <span className="font-semibold tracking-widest">
@@ -33,10 +33,10 @@ export default function SubscribePage() {
         </div>
         <div className="grid grid-rows-3 grid-flow-col gap-4">
           <div className="row-span-1 col-span-2 ">
-            <CountrySub />
-          </div>
-          <div className="row-span-2 col-span-2 ">
             <GeneralSub />
+          </div>
+          <div>
+            <CountrySub />
           </div>
         </div>
       </CustomSecondaryContainer>

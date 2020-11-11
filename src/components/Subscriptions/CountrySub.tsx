@@ -48,10 +48,9 @@ export default function CountrySub() {
   };
   return (
     <>
-      <div className="w-full max-w-sm"></div>
       <CountrySubForm
-        countryLabel="Insert Email to get daily country alerts"
-        selectLabel="Pick country to subscribe"
+        countryLabel="Email"
+        selectLabel="Country"
         handleFieldChange={handleFieldChange}
         selectValue={country}
         countryList={countryList}
@@ -59,6 +58,7 @@ export default function CountrySub() {
         onChange={handleCountryEmail}
         value={countryEmail}
         onSubmit={handleCountrySubmit}
+        title="Subscribe for alerts on a specific Country"
       />
 
       {loading && <span>Loading...</span>}

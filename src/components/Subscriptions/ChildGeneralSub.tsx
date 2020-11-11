@@ -23,7 +23,7 @@ export const GeneralSubForm: FunctionComponent<GeneralSubProps> = ({
         {label}
       </label>
 
-      <div className="flex items-center border-b border-teal-500 py-2">
+      <div className="flex items-center border-b ">
         <input
           type="email"
           placeholder={placeholder}
@@ -36,7 +36,7 @@ export const GeneralSubForm: FunctionComponent<GeneralSubProps> = ({
           className="flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
           type="button"
         >
-          Subscribe
+          Send<i className="fas fa-paper-plane"></i>
         </button>
       </div>
     </form>
