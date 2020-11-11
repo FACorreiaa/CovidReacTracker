@@ -53,12 +53,6 @@ export default function GeneralSub() {
         label="Insert email for daily general alerts"
       />
       {loading && <span>Loading...</span>}
-      {res.data === false && (
-        <ErrorMessage
-          title="Danger!"
-          error="That email might be invalid or you are already subbed"
-        />
-      )}
     </>
   );
 }
