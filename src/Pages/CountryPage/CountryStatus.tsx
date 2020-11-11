@@ -12,6 +12,7 @@ import CustomFormButton from "../../components/Button/CustomFormButton";
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomMultipleStatusSelect from "../../components/Form/CustomMultipleSelect";
+import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 
 export default function CountryStatus() {
   const [country, setCountry] = useState("");
@@ -34,6 +35,7 @@ export default function CountryStatus() {
   };
 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
     const status = e.target.value;
     setStatus(status);
     mutate(data, false);
@@ -72,6 +74,8 @@ export default function CountryStatus() {
        */}
 
       <CustomSecondaryContainer>
+        {!country ? "" : <CustomCountryTitle country={country} />}
+
         <CustomSummaryTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>

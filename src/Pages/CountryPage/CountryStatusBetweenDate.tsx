@@ -98,7 +98,7 @@ export default function LiveAfterDate() {
        */}
 
       <CustomSecondaryContainer>
-        <CustomCountryTitle country={country} />
+        {!country ? "" : <CustomCountryTitle country={country} />}
         <CustomSummaryTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>

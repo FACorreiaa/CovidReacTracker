@@ -108,7 +108,7 @@ export default function CountryCasesBetweenDates() {
   return (
     <div>
       <CustomSecondaryContainer>
-        <CustomCountryTitle country={country} />
+        {!country ? "" : <CustomCountryTitle country={country} />}
         <CustomSummaryTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>

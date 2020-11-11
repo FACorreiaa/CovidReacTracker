@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CountrySubForm } from "./ChildCountrySub";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import { postCountrySub } from "../../services/SubscriptionService";
+import ErrorMessage from "./ErrorMessage";
 
 export default function CountrySub() {
   const countryList = useCountriesDropdown();
@@ -64,7 +65,10 @@ export default function CountrySub() {
       {loading && <span>Loading...</span>}
       {err && <span>Something ocurred</span>}
       {value === "You are already subbed" && submitted && (
-        <span style={{ color: "red" }}>You are already subbed</span>
+        <ErrorMessage
+          title="Danger!"
+          error="That email might be invalid or you are already subbed for that country!"
+        />
       )}
       {value === "" && submitted && (
         <span style={{ color: "greem" }}>You subbed for {country}</span>

@@ -15,7 +15,7 @@ export const GeneralSubForm: FunctionComponent<GeneralSubProps> = ({
   label,
 }) => (
   <>
-    <form className="w-full max-w-sm shadow-md rounded" onSubmit={onSubmit}>
+    <form className="w-full max-w-sm shadow-md rounded">
       <label
         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
         htmlFor="grid-first-name"
@@ -23,7 +23,7 @@ export const GeneralSubForm: FunctionComponent<GeneralSubProps> = ({
         {label}
       </label>
 
-      <div className="flex items-center border-b ">
+      <div className="flex error items-center border-b ">
         <input
           type="email"
           placeholder={placeholder}
@@ -33,6 +33,7 @@ export const GeneralSubForm: FunctionComponent<GeneralSubProps> = ({
           aria-label="email"
         />
         <button
+          onClick={onSubmit}
           className="flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
           type="button"
         >

@@ -89,7 +89,7 @@ export default function CountryTotalPage() {
        */}
 
       <CustomSecondaryContainer>
-        <CustomCountryTitle country={country} />
+        {!country ? "" : <CustomCountryTitle country={country} />}
         <CustomSummaryTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>

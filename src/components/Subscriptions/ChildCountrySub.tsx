@@ -25,7 +25,7 @@ export const CountrySubForm: FunctionComponent<CountrySubProps> = ({
   title,
 }) => (
   <>
-    <form className="w-full max-w-sm shadow-md rounded" onSubmit={onSubmit}>
+    <form className="w-full max-w-sm shadow-md rounded">
       <div className="md:flex md:items-center mb-6">
         <div className="md:w-3/3">
           <label
@@ -91,6 +91,7 @@ export const CountrySubForm: FunctionComponent<CountrySubProps> = ({
         <div className="md:w-1/3"></div>
         <div className="md:w-2/3">
           <button
+            onSubmit={onSubmit}
             className="flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
             type="button"
           >

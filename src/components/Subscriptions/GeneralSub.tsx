@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import { GeneralSubForm } from "./ChildGeneralSub";
-import useCountriesDropdown from "../../hooks/useCountriesDropdown";
-import {
-  postCountrySub,
-  postGeneralSub,
-} from "../../services/SubscriptionService";
+import { postGeneralSub } from "../../services/SubscriptionService";
+import ErrorMessage from "./ErrorMessage";
 
 export default function GeneralSub() {
-  const countryList = useCountriesDropdown();
-
   const initData = {
     email: "",
   };
@@ -20,9 +15,8 @@ export default function GeneralSub() {
   //General
   const [data, setData] = useState(initData);
   const [res, setRes] = useState(initResponse);
-  const [err, SetError] = useState("");
+  const [error, SetError] = useState("");
   const [loading, setLoading] = useState(false);
-
   const handleGeneralEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     //const { name, value } = e.target;
     //setData({ ...data, [name]: value });
@@ -61,7 +55,10 @@ export default function GeneralSub() {
       />
       {loading && <span>Loading...</span>}
       {res.data === false && (
-        <span style={{ color: "red" }}>You are already subbed</span>
+        <ErrorMessage
+          title="Danger!"
+          error="That email might be invalid or you are already subbed"
+        />
       )}
     </>
   );
