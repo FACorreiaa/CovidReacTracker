@@ -12,7 +12,7 @@ import CustomFormButton from "../../components/Button/CustomFormButton";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { ILiveData } from "../../Interface/LiveData";
-import CustomTitle from "../../components/Title/Title";
+import CustomFormTemplate from "../../components/Form/FormTemplate";
 
 export default function LiveAfterDate() {
   const [selectedDate, setSelectedDate] = React.useState("");
@@ -104,38 +104,27 @@ export default function LiveAfterDate() {
         <CustomWIPTotalTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        <div className="w-full max-w-xs">
-          <form className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <CustomReactTailWindDatePicker
-              label="After Date"
-              for="after"
-              onChange={onDateChange}
-              selected={inputValue}
-            />
-            <div className="mb-4">
-              <CustomInputCountryForm
-                for="country"
-                id="country"
-                type="text"
-                placeholder="Insert Country"
-                onChange={onChange}
-                label="Insert Country"
-                myRef={value}
-              />
-            </div>
-
-            <div className="flex items-center justify-between">
-              <CustomFormButton label="Submit" onClick={onClick} />
-            </div>
-          </form>
-        </div>
+        <CustomFormTemplate onClick={onClick}>
+          <CustomReactTailWindDatePicker
+            label="After"
+            for="after"
+            onChange={onDateChange}
+            selected={inputValue}
+          />
+          <CustomInputCountryForm
+            for="country"
+            id="country"
+            type="text"
+            placeholder="Country"
+            onChange={onChange}
+            label="Insert"
+            myRef={value}
+          />
+        </CustomFormTemplate>
       </CustomSecondaryContainer>
 
       {country.length && data[0].name && (
         <CustomSecondaryContainer>
-          <div className="text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-            <CustomTitle title={country} />
-          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}

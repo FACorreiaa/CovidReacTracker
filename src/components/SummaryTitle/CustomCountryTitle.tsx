@@ -21,7 +21,11 @@ export default function CustomCountryTitle(props: Props) {
             data.map((d: any) => {
               return (
                 <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-                  <h3>{`Values for: ${d.Country}`}</h3>
+                  <label className="italic">
+                    Values for:
+                    <span className="font-semibold  text-2xl">{d.Country}</span>
+                    <i className="fas fa-flag"></i>
+                  </label>
                   <CustomCard
                     icon="fas fa-check w-5 h-5 pr-2"
                     title={"New Confirmed"}

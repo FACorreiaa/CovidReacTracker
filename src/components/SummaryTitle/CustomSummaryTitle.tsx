@@ -1,12 +1,9 @@
 import React from "react";
 import useSWR from "swr";
-import { format, parseISO } from "date-fns";
 import CustomCard from "../../components/Card/Card";
 import Loading from "../../components/Loading/Loading";
-import CustomTitle from "../../components/Title/Title";
 import { getSummaryList } from "../../services/SubscriptionService";
 import { SummaryList } from "../../Interface/SummaryList";
-import { CustomSecondaryContainer } from "../Landing/CustomSecondaryContainer";
 
 const url = "/summary";
 
@@ -20,7 +17,9 @@ export default function CustomSummaryTitle() {
         <div className="container  mx-auto grid">
           {data.data.map((d: SummaryList) => (
             <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-              <h3>New Around the world</h3>
+              <label className="font-semibold">
+                New Around the world <i className="fas fa-globe"></i>
+              </label>
 
               <CustomCard
                 icon="fas fa-check w-5 h-5 pr-2"

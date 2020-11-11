@@ -7,6 +7,7 @@ import CustomCard from "../../components/Card/Card";
 import CustomFormButton from "../../components/Button/CustomFormButton";
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
+import CustomFormTemplate from "../../components/Form/FormTemplate";
 
 export default function LiveDailyCountry() {
   const [country, setCountry] = useState("");
@@ -38,7 +39,7 @@ export default function LiveDailyCountry() {
   return (
     <div>
       <CustomSecondaryContainer>
-        <form className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <CustomFormTemplate onClick={onClick}>
           <div className="mb-4">
             <CustomInputCountryForm
               for="country"
@@ -50,11 +51,8 @@ export default function LiveDailyCountry() {
               myRef={value}
             />
           </div>
+        </CustomFormTemplate>
 
-          <div className="flex items-center justify-between">
-            <CustomFormButton label="Submit" onClick={onClick} />
-          </div>
-        </form>
         <CustomSummaryTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>

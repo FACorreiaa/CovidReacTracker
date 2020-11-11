@@ -15,7 +15,6 @@ export default function CustomList(props: Props) {
             <div className="text-sm leading-3 text-gray-700 font-bold w-full">
               {props.index} - {props.country}
             </div>
-
             <div className="text-xs text-gray-600 w-full">{props.value}</div>
           </div>
         </div>

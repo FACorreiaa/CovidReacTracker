@@ -10,8 +10,9 @@ export default function CustomFormButton(props: Props) {
   return (
     <div>
       <button
+        type="button"
         onClick={props.onClick}
-        className="text-black text-nav p-button w-button text-center shadow-button rounded-button"
+        className="text-black items-center shadow-nav rounded-nav  bg-nav hover:bg-purple-400 focus:shadow-outline focus:outline-none  font-bold py-2 px-4"
       >
         {props.label}
         {props.children}

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useSWR, { mutate } from "swr";
-import CustomTitle from "../../components/Title/Title";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
 import { Line } from "react-chartjs-2";
@@ -12,6 +11,7 @@ import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle
 import CustomFormButton from "../../components/Button/CustomFormButton";
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
+import CustomFormTemplate from "../../components/Form/FormTemplate";
 
 export default function CountryTotalPage() {
   const [country, setCountry] = useState("");
@@ -93,35 +93,23 @@ export default function CountryTotalPage() {
         <CustomSummaryTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        <div className="w-full max-w-xs">
-          <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <div className="mb-4">
-              <CustomInputCountryForm
-                for="country"
-                id="country"
-                type="text"
-                placeholder="Insert Country"
-                onChange={onChange}
-                label="Insert Country"
-                myRef={value}
-              />
-            </div>
-
-            <div className="flex items-center justify-between">
-              <CustomFormButton label="Submit" onClick={onClick} />
-            </div>
-          </form>
-          <p className="text-center text-gray-500 text-xs">
-            &copy;2020 Acme Corp. All rights reserved.
-          </p>
-        </div>
+        <CustomFormTemplate onClick={onClick}>
+          <CustomInputCountryForm
+            for="country"
+            id="country"
+            type="text"
+            placeholder="Insert Country"
+            onChange={onChange}
+            label="Insert Country"
+            myRef={value}
+          />
+        </CustomFormTemplate>
       </CustomSecondaryContainer>
 
-      {country.length && data[0].name && (
+      {!country ? (
+        ""
+      ) : (
         <CustomSecondaryContainer>
-          <div className="text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-            <CustomTitle title={country} />
-          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}

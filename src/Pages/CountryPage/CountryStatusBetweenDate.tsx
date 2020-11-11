@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useSWR, { mutate } from "swr";
-import CustomTitle from "../../components/Title/Title";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
 import formatISO from "date-fns/formatISO";
@@ -146,9 +145,6 @@ export default function LiveAfterDate() {
 
       {country.length && data[0].name && (
         <CustomSecondaryContainer>
-          <div className="text-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-            <CustomTitle title={country} />
-          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}
