@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { GeneralSubForm } from "./ChildGeneralSub";
 import { postGeneralSub } from "../../services/SubscriptionService";
+import GeneralSubForm from "./ChildGeneralSub";
 import ErrorMessage from "./ErrorMessage";
 
 export default function GeneralSub() {
@@ -15,7 +15,6 @@ export default function GeneralSub() {
   //General
   const [data, setData] = useState(initData);
   const [res, setRes] = useState(initResponse);
-  const [error, SetError] = useState("");
   const [loading, setLoading] = useState(false);
   const handleGeneralEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     //const { name, value } = e.target;
@@ -30,7 +29,7 @@ export default function GeneralSub() {
     let obj = {
       email: data.email,
     };
-    if (data.email === "" || data.email === undefined) return;
+    //if (data.email === "" || data.email === undefined) return;
 
     try {
       setLoading(true);
@@ -39,7 +38,7 @@ export default function GeneralSub() {
       setRes({ data: result.data });
       setLoading(false);
     } catch (err) {
-      SetError(err);
+      console.log(err);
       setLoading(false);
     }
   };
