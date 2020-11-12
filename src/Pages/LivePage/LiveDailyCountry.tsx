@@ -4,7 +4,6 @@ import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomCard from "../../components/Card/Card";
-import CustomFormButton from "../../components/Button/CustomFormButton";
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomFormTemplate from "../../components/Form/FormTemplate";
@@ -16,13 +15,6 @@ export default function LiveDailyCountry() {
 
   let value = React.useRef("");
 
-  /*const onClick = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setCountry(value.current);
-      setValues(data);
-    },
-    [data]
-  );*/
   const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setCountry(value.current);

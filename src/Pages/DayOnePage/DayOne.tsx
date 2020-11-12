@@ -6,17 +6,13 @@ import { IDayOne } from "../../Interface/Dayone";
 import { Bar } from "react-chartjs-2";
 import { format, parseISO } from "date-fns";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
-import CustomInputCountryForm from "../../components/Form/CustomInput";
-import CustomFormButton from "../../components/Button/CustomFormButton";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
-import CustomFormTemplate from "../../components/Form/FormTemplate";
 import { useForm } from "react-hook-form";
-import CustomErrorMessage from "../../components/ErrorMessages/ErrorMessage";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 
 function DayOne() {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { handleSubmit } = useForm();
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/dayone/all/total/country/${country}`;
   const { data, error } = useSWR(url, fetcher);
@@ -30,7 +26,7 @@ function DayOne() {
     },
     [data]
   );*/
-  const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onClick = () => {
     setCountry(value.current);
     mutate(data, false);
   };

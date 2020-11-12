@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default function CustomAfterDateFormTemplate(props: Props) {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { handleSubmit, errors } = useForm();
 
   return (
     <div className="w-full max-w-xs">
