@@ -12,7 +12,7 @@ export default function CustomFormButton(props: Props) {
       <button
         type="button"
         onClick={props.onClick}
-        className="text-black items-center shadow-nav rounded-nav  bg-nav hover:bg-purple-400 focus:shadow-outline focus:outline-none  font-bold py-2 px-4"
+        className="text-black items-center shadow-nav rounded-nav  bg-nav hover:bg-black-400 focus:shadow-outline focus:outline-none  font-bold py-2 px-4"
       >
         {props.label}
         {props.children}

@@ -11,7 +11,7 @@ type GeneralSubProps = {
 };
 export default function GeneralSubForm(props: GeneralSubProps) {
   const { register, handleSubmit, watch, errors } = useForm();
-
+  const invalid = "text-red-500 text-xs italic border-red-5";
   return (
     <>
       <form className="w-full max-w-sm shadow-md rounded">
@@ -28,7 +28,7 @@ export default function GeneralSubForm(props: GeneralSubProps) {
             placeholder={props.placeholder}
             value={props.value}
             onChange={props.onChange}
-            className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+            className="error appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
             aria-label="email"
             name="email"
             ref={register({

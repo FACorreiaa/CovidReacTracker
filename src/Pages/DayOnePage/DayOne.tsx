@@ -11,8 +11,12 @@ import CustomFormButton from "../../components/Button/CustomFormButton";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomFormTemplate from "../../components/Form/FormTemplate";
+import { useForm } from "react-hook-form";
+import CustomErrorMessage from "../../components/ErrorMessages/ErrorMessage";
+import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 
 function DayOne() {
+  const { register, handleSubmit, watch, errors } = useForm();
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/dayone/all/total/country/${country}`;
   const { data, error } = useSWR(url, fetcher);
@@ -27,7 +31,6 @@ function DayOne() {
     [data]
   );*/
   const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
     setCountry(value.current);
     mutate(data, false);
   };
@@ -42,9 +45,10 @@ function DayOne() {
 
   //format(parseISO(`${d.createdAt}`), "PPPPpppp")
   const dataSource = {
-    labels: !country
-      ? null
-      : data[0].name.map((n: IDayOne) => format(parseISO(n.Date), "PPPP")),
+    labels:
+      !country || !data[0].name
+        ? null
+        : data[0].name.map((n: IDayOne) => format(parseISO(n.Date), "PPPP")),
     datasets: [
       {
         label: "Active",
@@ -53,7 +57,10 @@ function DayOne() {
         borderWidth: 1,
         hoverBackgroundColor: "rgba(240, 240, 214, 1)",
         hoverBorderColor: "rgba(247, 202, 24, 1)",
-        data: !country ? null : data[0].name.map((n: IDayOne) => n.Active),
+        data:
+          !country || !data[0].name
+            ? null
+            : data[0].name.map((n: IDayOne) => n.Active),
       },
       {
         label: "Recovered",
@@ -62,7 +69,10 @@ function DayOne() {
         borderWidth: 1,
         hoverBackgroundColor: "rgba(41, 241, 195, 1)",
         hoverBorderColor: "rgba(123, 239, 178, 1)",
-        data: !country ? null : data[0].name.map((n: IDayOne) => n.Recovered),
+        data:
+          !country || !data[0].name
+            ? null
+            : data[0].name.map((n: IDayOne) => n.Recovered),
       },
       {
         label: "Deaths",
@@ -71,7 +81,10 @@ function DayOne() {
         borderWidth: 1,
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
-        data: !country ? null : data[0].name.map((n: IDayOne) => n.Deaths),
+        data:
+          !country || !data[0].name
+            ? null
+            : data[0].name.map((n: IDayOne) => n.Deaths),
       },
     ],
   };
@@ -82,17 +95,17 @@ function DayOne() {
         <CustomSummaryTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        <CustomFormTemplate onClick={onClick}>
-          <CustomInputCountryForm
-            for="country"
-            id="country"
-            type="text"
-            placeholder="Insert Country"
-            onChange={onChange}
-            label="Country"
-            myRef={value}
-          />
-        </CustomFormTemplate>
+        <CustomDayOneTemplate
+          name="country"
+          for="country"
+          id="country"
+          type="text"
+          placeholder="Insert Country"
+          onChange={onChange}
+          label="Country"
+          myRef={value}
+          onClick={handleSubmit(onClick)}
+        />
       </CustomSecondaryContainer>
 
       {!country ? (
