@@ -12,6 +12,7 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { ILiveData } from "../../Interface/LiveData";
 import CustomFormTemplate from "../../components/Form/FormTemplate";
+import LiveAfterDateForm from "../../components/Form/LiveAfterDate";
 
 export default function LiveAfterDate() {
   const [selectedDate, setSelectedDate] = React.useState("");
@@ -22,7 +23,6 @@ export default function LiveAfterDate() {
   let value = React.useRef("");
 
   const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
     setCountry(value.current);
     mutate(data, false);
   };
@@ -103,23 +103,13 @@ export default function LiveAfterDate() {
         <CustomWIPTotalTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        <CustomFormTemplate onClick={onClick}>
-          <CustomReactTailWindDatePicker
-            label="After"
-            for="after"
-            onChange={onDateChange}
-            selected={inputValue}
-          />
-          <CustomInputCountryForm
-            for="country"
-            id="country"
-            type="text"
-            placeholder="Country"
-            onChange={onChange}
-            label="Insert"
-            myRef={value}
-          />
-        </CustomFormTemplate>
+        <LiveAfterDateForm
+          onAfterChange={onDateChange}
+          valueAfterDate={inputValue}
+          onClick={onClick}
+          onChange={onChange}
+          myRef={value}
+        />
       </CustomSecondaryContainer>
 
       {country.length && data[0].name && (

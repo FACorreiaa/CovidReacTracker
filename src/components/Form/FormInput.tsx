@@ -7,6 +7,7 @@ type InputProps = {
   id: string;
   type: string;
   placeholder: string;
+  myRef?: any;
 };
 
 export default function FormInput(props: InputProps) {
@@ -15,11 +16,11 @@ export default function FormInput(props: InputProps) {
       <input
         name={props.name}
         onChange={props.onChange}
-        ref={props.ref}
+        ref={props.myRef}
         id={props.id}
         type={props.type}
         placeholder={props.placeholder}
-        className="shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+        className="shadow appearance-none focus:bg-white  border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
       />
     </div>
   );

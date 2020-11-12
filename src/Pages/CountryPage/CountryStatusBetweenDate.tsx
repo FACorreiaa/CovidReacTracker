@@ -15,6 +15,7 @@ import CustomReactTailWindDatePicker from "../../components/DatePicker/CustomRea
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import CustomMultipleStatusSelect from "../../components/Form/CustomMultipleSelect";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
+import CustomFormCountryStatusDates from "../../components/Form/FormCountryStatusDates";
 
 export default function LiveAfterDate() {
   const [selectedFromDate, setSelectedFromDate] = React.useState("");
@@ -37,7 +38,6 @@ export default function LiveAfterDate() {
     [data]
   );*/
   const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
     setCountry(value.current);
     mutate(data, false);
   };
@@ -102,45 +102,17 @@ export default function LiveAfterDate() {
         <CustomSummaryTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        <div className="w-full max-w-xs">
-          <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <div className="mb-4">
-              <CustomMultipleStatusSelect
-                handleFieldChange={handleFieldChange}
-                label="Status"
-                for="status"
-              />
-              <CustomReactTailWindDatePicker
-                label="from"
-                for="from"
-                onChange={onFromChange}
-                selected={valueFromDate}
-              />
-              <CustomReactTailWindDatePicker
-                label="to"
-                for="to"
-                onChange={onToChange}
-                selected={valueToDate}
-              />
-              <CustomInputCountryForm
-                for="country"
-                id="country"
-                type="text"
-                placeholder="Insert Country"
-                onChange={onChange}
-                label="Insert Country"
-                myRef={value}
-              />
-            </div>
-
-            <div className="flex items-center justify-between">
-              <CustomFormButton label="Submit" onClick={onClick} />
-            </div>
-          </form>
-          <p className="text-center text-gray-500 text-xs">
-            &copy;2020 Acme Corp. All rights reserved.
-          </p>
-        </div>
+        <CustomFormCountryStatusDates
+          for="country"
+          handleFieldChange={handleFieldChange}
+          onFromChange={onFromChange}
+          valueFromDate={valueFromDate}
+          valueToDate={valueToDate}
+          onToChange={onToChange}
+          myRef={value}
+          onChange={onChange}
+          onClick={onClick}
+        />
       </CustomSecondaryContainer>
 
       {country.length && data[0].name && (

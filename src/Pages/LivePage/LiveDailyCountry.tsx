@@ -7,16 +7,18 @@ import CustomCard from "../../components/Card/Card";
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomFormTemplate from "../../components/Form/FormTemplate";
+import { useForm } from "react-hook-form";
+import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 
 export default function LiveDailyCountry() {
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/countriessummary/daily/country/${country}`;
   const { data, error } = useSWR(url, fetcher);
+  const { handleSubmit } = useForm();
 
   let value = React.useRef("");
 
   const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
     setCountry(value.current);
     mutate(data, false);
   };
@@ -31,19 +33,17 @@ export default function LiveDailyCountry() {
   return (
     <div>
       <CustomSecondaryContainer>
-        <CustomFormTemplate onClick={onClick}>
-          <div className="mb-4">
-            <CustomInputCountryForm
-              for="country"
-              id="country"
-              type="text"
-              placeholder="Insert Country"
-              onChange={onChange}
-              label="Insert Country"
-              myRef={value}
-            />
-          </div>
-        </CustomFormTemplate>
+        <CustomDayOneTemplate
+          name="country"
+          for="country"
+          id="country"
+          type="text"
+          placeholder="Insert Country"
+          onChange={onChange}
+          label="Country"
+          myRef={value}
+          onClick={handleSubmit(onClick)}
+        />
 
         <CustomSummaryTitle />
       </CustomSecondaryContainer>

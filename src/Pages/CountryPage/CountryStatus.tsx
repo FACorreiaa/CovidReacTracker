@@ -13,6 +13,7 @@ import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomMultipleStatusSelect from "../../components/Form/CustomMultipleSelect";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
+import CustomFormCountryStatus from "../../components/Form/FormCountryStatus";
 
 export default function CountryStatus() {
   const [country, setCountry] = useState("");
@@ -24,7 +25,6 @@ export default function CountryStatus() {
   let value = React.useRef("");
 
   const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
     setCountry(value.current);
     mutate(data, false);
   };
@@ -79,34 +79,13 @@ export default function CountryStatus() {
         <CustomSummaryTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        <div className="w-full max-w-xs">
-          <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <div className="mb-4">
-              <CustomInputCountryForm
-                for="country"
-                id="country"
-                type="text"
-                placeholder="Insert Country"
-                onChange={onChange}
-                label="Insert Country"
-                myRef={value}
-              />
-              <br />
-              <CustomMultipleStatusSelect
-                handleFieldChange={handleFieldChange}
-                label="Status"
-                for="status"
-              />
-            </div>
-
-            <div className="flex items-center justify-between">
-              <CustomFormButton label="Submit" onClick={onClick} />
-            </div>
-          </form>
-          <p className="text-center text-gray-500 text-xs">
-            &copy;2020 Acme Corp. All rights reserved.
-          </p>
-        </div>
+        <CustomFormCountryStatus
+          onChange={onChange}
+          myRef={value}
+          handleFieldChange={handleFieldChange}
+          onClick={onClick}
+          for="status"
+        />
       </CustomSecondaryContainer>
 
       {country.length && data[0].name && (

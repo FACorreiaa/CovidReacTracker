@@ -1,5 +1,6 @@
 import React from "react";
 import CustomFormButton from "../Button/CustomFormButton";
+import FormButton from "./FormButton";
 
 type Props = {
   children: any;
@@ -14,7 +15,7 @@ export default function CustomFormTemplate(props: Props) {
         <div className="md:flex md:items-center">
           <div className="md:w-1/3"></div>
           <div className="md:w-2/3">
-            <CustomFormButton label="Submit" onClick={props.onClick} />
+            <FormButton type="button" value="Submit" onClick={props.onClick} />
           </div>
         </div>
       </form>

@@ -11,8 +11,12 @@ import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle
 import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomFormTemplate from "../../components/Form/FormTemplate";
+import CustomDayOneTemplate from "../../components/Form/DayOneForm";
+import { useForm } from "react-hook-form";
 
 export default function CountryTotalPage() {
+  const { handleSubmit } = useForm();
+
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/country/total/${country}`;
   const { data, error } = useSWR(url, fetcher);
@@ -20,7 +24,6 @@ export default function CountryTotalPage() {
   let value = React.useRef("");
 
   const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
     setCountry(value.current);
     mutate(data, false);
   };
@@ -92,17 +95,17 @@ export default function CountryTotalPage() {
         <CustomSummaryTitle />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        <CustomFormTemplate onClick={onClick}>
-          <CustomInputCountryForm
-            for="country"
-            id="country"
-            type="text"
-            placeholder="Insert Country"
-            onChange={onChange}
-            label="Insert Country"
-            myRef={value}
-          />
-        </CustomFormTemplate>
+        <CustomDayOneTemplate
+          name="country"
+          for="country"
+          id="country"
+          type="text"
+          placeholder="Insert Country"
+          onChange={onChange}
+          label="Country"
+          myRef={value}
+          onClick={onClick}
+        />
       </CustomSecondaryContainer>
 
       {!country ? (
