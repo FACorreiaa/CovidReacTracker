@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
 
@@ -10,8 +10,7 @@ type GeneralSubProps = {
   label: string;
 };
 export default function GeneralSubForm(props: GeneralSubProps) {
-  const { register, handleSubmit, watch, errors } = useForm();
-  const invalid = "text-red-500 text-xs italic border-red-5";
+  const { register, handleSubmit, errors } = useForm();
   return (
     <>
       <form className="w-full max-w-sm shadow-md rounded">

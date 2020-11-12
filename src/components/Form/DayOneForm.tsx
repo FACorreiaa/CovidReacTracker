@@ -2,6 +2,8 @@ import React from "react";
 import CustomFormButton from "../Button/CustomFormButton";
 import { useForm } from "react-hook-form";
 import CustomErrorMessage from "../../components/ErrorMessages/ErrorMessage";
+import FormButton from "./FormButton";
+import FormInput from "./FormInput";
 type Props = {
   onClick: any;
   label: string;
@@ -30,17 +32,16 @@ export default function CustomDayOneTemplate(props: Props) {
             </label>
           </div>
           <div className="md:w-2/3">
-            <input
+            <FormInput
               name={props.name}
               onChange={props.onChange}
-              className="shadow appearance-none border rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500"
               id={props.id}
               type={props.type}
               placeholder={props.placeholder}
               ref={register({
                 required: "Required",
               })}
-            ></input>
+            />
             {errors.country && (
               <CustomErrorMessage error="Insert a valid country" />
             )}
@@ -49,13 +50,11 @@ export default function CustomDayOneTemplate(props: Props) {
         <div className="md:flex md:items-center">
           <div className="md:w-1/3"></div>
           <div className="md:w-2/3">
-            <button
+            <FormButton
               type="button"
               onClick={handleSubmit(props.onClick)}
-              className="text-black items-center shadow-nav rounded-nav  bg-nav hover:bg-black-400 focus:shadow-outline focus:outline-none  font-bold py-2 px-4"
-            >
-              {props.label}
-            </button>
+              value="Submit"
+            />
           </div>
         </div>
       </form>
