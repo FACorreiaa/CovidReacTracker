@@ -120,6 +120,8 @@ export default function CountryCasesBetweenDates() {
           onToChange={onToChange}
           valueToDate={valueToDate}
           onClick={onClick}
+          id="country"
+          type="country"
         />
       </CustomSecondaryContainer>
 

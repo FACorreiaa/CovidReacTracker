@@ -1,9 +1,10 @@
 import React from "react";
 import CustomReactTailWindDatePicker from "../DatePicker/CustomReactTailWindDatePicker";
 import FormButton from "./FormButton";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import FormInput from "./FormInput";
 import ErrorMessage from "../Subscriptions/ErrorMessage";
+import CustomErrorMessage from "../ErrorMessages/ErrorMessage";
 
 type LiveTotalProps = {
   onClick: any;
@@ -11,6 +12,8 @@ type LiveTotalProps = {
   valueAfterDate: any;
   onChange: any;
   myRef: any;
+  id: string;
+  type: string;
 };
 export default function LiveAfterDateForm(props: LiveTotalProps) {
   const { handleSubmit, errors, register, control } = useForm();
@@ -40,31 +43,30 @@ export default function LiveAfterDateForm(props: LiveTotalProps) {
             </label>
           </div>
           <div className="md:w-2/3">
-            <Controller
-              rules={{ required: true }}
-              control={control}
+            <input
               name="country"
-              render={() => (
-                <FormInput
-                  className={
-                    errors.country
-                      ? `shadow appearance-none focus:bg-white  border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none`
-                      : `border-red-500 text-red-500 italic shadow appearance-none focus:bg-white  border-none w-full  mr-3 py-1 px-2 leading-tight focus:outline-none`
-                  }
-                  myRef={props.myRef}
-                  onChange={props.onChange}
-                  name="country"
-                  id="country"
-                  placeholder={`${
-                    errors.country ? "Insert a valid country" : "Country"
-                  }`}
-                  type="text"
-                  ref={register({
-                    required: "Required",
-                  })}
-                />
-              )}
+              onChange={props.onChange}
+              className={`
+              ${
+                errors.country
+                  ? "border-red-400 border text-red-500 italic shadow appearance-none focus:bg-white  w-full  mr-3 py-1 px-2 leading-tight focus:outline-none"
+                  : "shadow appearance-none focus:bg-white  border w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+              }
+              `}
+              id={props.id}
+              type={props.type}
+              placeholder={`${
+                errors.country ? "Insert a valid country" : "Country"
+              }`}
+              ref={register({
+                required: "Required",
+              })}
             />
+            <div className="text-center">
+              {errors.country && (
+                <CustomErrorMessage error="Insert a valid country" />
+              )}
+            </div>
           </div>
         </div>
 

@@ -4,7 +4,7 @@ type Props = {
   title: string;
   error: string;
 };
-export default function ErrorMessage(props: Props) {
+export default function ErrorMessages(props: Props) {
   return (
     <div>
       <div role="alert">

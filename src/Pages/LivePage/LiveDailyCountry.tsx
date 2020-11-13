@@ -34,7 +34,6 @@ export default function LiveDailyCountry() {
     <div>
       <CustomSecondaryContainer>
         <CustomDayOneTemplate
-          name="country"
           for="country"
           id="country"
           type="text"

@@ -96,7 +96,6 @@ export default function CountryTotalPage() {
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
         <CustomDayOneTemplate
-          name="country"
           for="country"
           id="country"
           type="text"

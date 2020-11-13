@@ -7,11 +7,8 @@ import { Line } from "react-chartjs-2";
 import { format, parseISO } from "date-fns";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomWIPTotalTitle from "../../components/SummaryTitle/CustomWIPTotalTitle";
-import CustomReactTailWindDatePicker from "../../components/DatePicker/CustomReactTailWindDatePicker";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
-import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { ILiveData } from "../../Interface/LiveData";
-import CustomFormTemplate from "../../components/Form/FormTemplate";
 import LiveAfterDateForm from "../../components/Form/LiveAfterDate";
 
 export default function LiveAfterDate() {
@@ -22,7 +19,7 @@ export default function LiveAfterDate() {
   const { data, error } = useSWR(url, fetcher);
   let value = React.useRef("");
 
-  const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onClick = () => {
     setCountry(value.current);
     mutate(data, false);
   };
@@ -109,6 +106,8 @@ export default function LiveAfterDate() {
           onClick={onClick}
           onChange={onChange}
           myRef={value}
+          type="text"
+          id="country"
         />
       </CustomSecondaryContainer>
 

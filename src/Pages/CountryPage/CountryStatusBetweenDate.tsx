@@ -70,7 +70,7 @@ export default function LiveAfterDate() {
 
   const dataSource = {
     labels:
-      country === "" || !data
+      country === "" || !data[0]
         ? null
         : data[0].name.map((n: ILiveData) => format(parseISO(n.Date), "PPPP")),
     datasets: [
@@ -81,9 +81,10 @@ export default function LiveAfterDate() {
         borderWidth: 1,
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
-        data: !country
-          ? null
-          : data[0].name.map((n: ICountryStatus) => n.Cases),
+        data:
+          country === "" || !data[0]
+            ? null
+            : data[0].name.map((n: ICountryStatus) => n.Cases),
       },
     ],
   };
@@ -113,6 +114,8 @@ export default function LiveAfterDate() {
           myRef={value}
           onChange={onChange}
           onClick={onClick}
+          type="text"
+          id="country"
         />
       </CustomSecondaryContainer>
 

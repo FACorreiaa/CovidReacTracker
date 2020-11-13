@@ -42,7 +42,7 @@ function DayOne() {
   //format(parseISO(`${d.createdAt}`), "PPPPpppp")
   const dataSource = {
     labels:
-      !country || !data[0].name
+      !country || !data[0]
         ? null
         : data[0].name.map((n: IDayOne) => format(parseISO(n.Date), "PPPP")),
     datasets: [
@@ -54,7 +54,7 @@ function DayOne() {
         hoverBackgroundColor: "rgba(240, 240, 214, 1)",
         hoverBorderColor: "rgba(247, 202, 24, 1)",
         data:
-          !country || !data[0].name
+          !country || !data[0]
             ? null
             : data[0].name.map((n: IDayOne) => n.Active),
       },
@@ -66,7 +66,7 @@ function DayOne() {
         hoverBackgroundColor: "rgba(41, 241, 195, 1)",
         hoverBorderColor: "rgba(123, 239, 178, 1)",
         data:
-          !country || !data[0].name
+          !country || !data[0]
             ? null
             : data[0].name.map((n: IDayOne) => n.Recovered),
       },
@@ -78,7 +78,7 @@ function DayOne() {
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
         data:
-          !country || !data[0].name
+          !country || !data[0]
             ? null
             : data[0].name.map((n: IDayOne) => n.Deaths),
       },
@@ -92,7 +92,6 @@ function DayOne() {
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
         <CustomDayOneTemplate
-          name="country"
           for="country"
           id="country"
           type="text"

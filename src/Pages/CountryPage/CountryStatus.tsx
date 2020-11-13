@@ -85,6 +85,8 @@ export default function CountryStatus() {
           handleFieldChange={handleFieldChange}
           onClick={onClick}
           for="status"
+          type="text"
+          id="country"
         />
       </CustomSecondaryContainer>
 

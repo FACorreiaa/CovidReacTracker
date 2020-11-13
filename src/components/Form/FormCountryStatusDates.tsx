@@ -1,10 +1,10 @@
 import React from "react";
 import CustomReactTailWindDatePicker from "../DatePicker/CustomReactTailWindDatePicker";
 import FormButton from "./FormButton";
-import { Controller, useForm } from "react-hook-form";
-import FormInput from "./FormInput";
-import ErrorMessage from "../Subscriptions/ErrorMessage";
+import { useForm } from "react-hook-form";
+import ErrorMessages from "../Subscriptions/ErrorMessage";
 import CustomMultipleStatusSelect from "./CustomMultipleSelect";
+import CustomErrorMessage from "../ErrorMessages/ErrorMessage";
 
 type LiveTotalProps = {
   onClick: any;
@@ -16,7 +16,13 @@ type LiveTotalProps = {
   myRef: any;
   for: string;
   handleFieldChange: any;
+  id: string;
+  type: string;
 };
+
+interface FormInputs {
+  singleErrorInput: string;
+}
 export default function CustomFormCountryStatusDates(props: LiveTotalProps) {
   const { handleSubmit, errors, register, control } = useForm();
 
@@ -74,32 +80,30 @@ export default function CustomFormCountryStatusDates(props: LiveTotalProps) {
             </label>
           </div>
           <div className="md:w-2/3">
-            <Controller
-              control={control}
+            <input
               name="country"
-              as={
-                <FormInput
-                  className={`
-                  ${
-                    errors.country
-                      ? "border-red-700 text-red-500 italic shadow appearance-none focus:bg-white  border-none w-full  mr-3 py-1 px-2 leading-tight focus:outline-none"
-                      : "shadow appearance-none focus:bg-white  border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                  }
-                  `}
-                  myRef={props.myRef}
-                  onChange={props.onChange}
-                  name="country"
-                  id="country"
-                  placeholder={`${
-                    errors.country ? "Insert a valid country" : "Country"
-                  }`}
-                  type="text"
-                  ref={register({
-                    required: "Required",
-                  })}
-                />
+              onChange={props.onChange}
+              className={`
+              ${
+                errors.country
+                  ? "border-red-400 border text-red-500 italic shadow appearance-none focus:bg-white  w-full  mr-3 py-1 px-2 leading-tight focus:outline-none"
+                  : "shadow appearance-none focus:bg-white  border w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
               }
+              `}
+              id={props.id}
+              type={props.type}
+              placeholder={`${
+                errors.country ? "Insert a valid country" : "Country"
+              }`}
+              ref={register({
+                required: "Required",
+              })}
             />
+            <div className="text-center">
+              {errors.country && (
+                <CustomErrorMessage error="Insert a valid country" />
+              )}
+            </div>
           </div>
         </div>
 
@@ -114,7 +118,7 @@ export default function CustomFormCountryStatusDates(props: LiveTotalProps) {
           </div>
         </div>
         {errors.country && (
-          <ErrorMessage title="Danger!" error="Invalid country selected!" />
+          <ErrorMessages title="Danger!" error="Invalid country selected!" />
         )}
       </form>
       <p className="text-center text-gray-500 text-xs">

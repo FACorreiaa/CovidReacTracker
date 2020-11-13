@@ -1,13 +1,10 @@
 import React from "react";
-import CustomFormButton from "../Button/CustomFormButton";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import CustomErrorMessage from "../../components/ErrorMessages/ErrorMessage";
 import FormButton from "./FormButton";
-import FormInput from "./FormInput";
 type Props = {
   onClick: any;
   label: string;
-  name: string;
   for: string;
   onChange: any;
   id: string;
@@ -17,7 +14,7 @@ type Props = {
 };
 
 export default function CustomDayOneTemplate(props: Props) {
-  const { register, handleSubmit, watch, errors, control } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   return (
     <div className="w-full max-w-xs">
@@ -32,34 +29,30 @@ export default function CustomDayOneTemplate(props: Props) {
             </label>
           </div>
           <div className="md:w-2/3">
-            <Controller
-              rules={{ required: true }}
-              control={control}
+            <input
               name="country"
-              render={() => (
-                <FormInput
-                  className={
-                    errors.country
-                      ? `shadow appearance-none focus:bg-white  border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none`
-                      : `border-red-500 text-red-500 italic shadow appearance-none focus:bg-white  border-none w-full  mr-3 py-1 px-2 leading-tight focus:outline-none`
-                  }
-                  myRef={props.myRef}
-                  onChange={props.onChange}
-                  name="country"
-                  id="country"
-                  placeholder={`${
-                    errors.country ? "Insert a valid country" : "Country"
-                  }`}
-                  type="text"
-                  ref={register({
-                    required: "Required",
-                  })}
-                />
-              )}
+              onChange={props.onChange}
+              className={`
+              ${
+                errors.country
+                  ? "border-red-400 border text-red-500 italic shadow appearance-none focus:bg-white  w-full  mr-3 py-1 px-2 leading-tight focus:outline-none"
+                  : "shadow appearance-none focus:bg-white  border w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+              }
+              `}
+              id={props.id}
+              type={props.type}
+              placeholder={`${
+                errors.country ? "Insert a valid country" : "Country"
+              }`}
+              ref={register({
+                required: "Required",
+              })}
             />
-            {errors.country && (
-              <CustomErrorMessage error="Insert a valid country" />
-            )}
+            <div className="text-center">
+              {errors.country && (
+                <CustomErrorMessage error="Insert a valid country" />
+              )}
+            </div>
           </div>
         </div>
         <div className="md:flex md:items-center">
