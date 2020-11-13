@@ -4880,6 +4880,14 @@ body {
   background-image: url('./images/wave_dark.svg');
 }
 
+.bg-portugal-icon {
+  background-image: url('./images/portugal.svg');
+}
+
+.bg-england-icon {
+  background-image: url('./images/england.svg');
+}
+
 .from-transparent {
   --gradient-from-color: transparent;
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -25455,6 +25463,14 @@ body::-webkit-scrollbar {
     background-image: url('./images/wave_dark.svg');
   }
 
+  .sm\:bg-portugal-icon {
+    background-image: url('./images/portugal.svg');
+  }
+
+  .sm\:bg-england-icon {
+    background-image: url('./images/england.svg');
+  }
+
   .sm\:from-transparent {
     --gradient-from-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -45989,6 +46005,14 @@ body::-webkit-scrollbar {
 
   .md\:bg-black-landing {
     background-image: url('./images/wave_dark.svg');
+  }
+
+  .md\:bg-portugal-icon {
+    background-image: url('./images/portugal.svg');
+  }
+
+  .md\:bg-england-icon {
+    background-image: url('./images/england.svg');
   }
 
   .md\:from-transparent {
@@ -66527,6 +66551,14 @@ body::-webkit-scrollbar {
     background-image: url('./images/wave_dark.svg');
   }
 
+  .lg\:bg-portugal-icon {
+    background-image: url('./images/portugal.svg');
+  }
+
+  .lg\:bg-england-icon {
+    background-image: url('./images/england.svg');
+  }
+
   .lg\:from-transparent {
     --gradient-from-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -87061,6 +87093,14 @@ body::-webkit-scrollbar {
 
   .xl\:bg-black-landing {
     background-image: url('./images/wave_dark.svg');
+  }
+
+  .xl\:bg-portugal-icon {
+    background-image: url('./images/portugal.svg');
+  }
+
+  .xl\:bg-england-icon {
+    background-image: url('./images/england.svg');
   }
 
   .xl\:from-transparent {

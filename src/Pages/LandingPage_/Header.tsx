@@ -1,11 +1,15 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useHistory } from "react-router-dom";
-import CardContainer from "./CardContainer";
+import PT from "../../assets/images/portugal.svg";
+import EN from "../../assets/images/england.svg";
 
 export default function Header() {
   let history = useHistory();
-
+  const { t, i18n } = useTranslation("landing");
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
   const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     history.push(`/${event.target.value}`);
   };
@@ -13,7 +17,7 @@ export default function Header() {
     <nav className="w-nav flex text-nav text-nav-color justify-between m-nav p-nav-25 items-center shadow-nav rounded-nav">
       <ul className="list-none">
         <li className="inline p-nav-25">
-          <Link to="/summary">Summary</Link>
+          <Link to="/summary">{t("summaryTitle")}</Link>
         </li>
         <li className="inline p-nav-25">
           <Link to="/dayone">Day One</Link>
@@ -79,6 +83,12 @@ export default function Header() {
           <Link to="/about">About</Link>
         </li>
       </ul>
+      <button className="logo" onClick={() => changeLanguage("pt")}>
+        <img src={PT} width="25" height="10" alt="pt" />
+      </button>
+      <button className="logo" onClick={() => changeLanguage("en")}>
+        <img src={EN} width="25" height="10" alt="en" />
+      </button>
     </nav>
   );
 }

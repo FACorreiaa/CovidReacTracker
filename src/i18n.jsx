@@ -25,6 +25,11 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
+    backend: {
+      projectId: "f61b369e-e499-469e-a60f-7e09f1a76c3f",
+      apiKey: "957a0e2e-144f-4184-948e-f0d64377b0f5",
+      referenceLng: "en",
+    },
   });
 
 export default i18n;

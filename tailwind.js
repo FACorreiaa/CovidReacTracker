@@ -20,6 +20,8 @@ module.exports = {
       backgroundImage: (theme) => ({
         "white-landing": "url('./images/wave_light.svg')",
         "black-landing": "url('./images/wave_dark.svg')",
+        "portugal-icon": "url('./images/portugal.svg')",
+        "england-icon": "url('./images/england.svg')",
       }),
       backgroundColor: (theme) => ({
         "landing-main": "#3e3e3e",
