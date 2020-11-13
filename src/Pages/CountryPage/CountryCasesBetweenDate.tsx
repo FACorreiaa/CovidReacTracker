@@ -12,8 +12,11 @@ import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle
 import { ICountryTotal } from "../../Interface/CountryStatus";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomFormCountryDates from "../../components/Form/FormCountryDates";
+import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 
 export default function CountryCasesBetweenDates() {
+  const countryList: any = useCountriesDropdown();
+
   const [selectedFromDate, setSelectedFromDate] = React.useState("");
   const [selectedToDate, setSelectedToDate] = React.useState("");
   const [valueFromDate, setValueFromDate] = React.useState(new Date());
@@ -28,6 +31,12 @@ export default function CountryCasesBetweenDates() {
   const onClick = () => {
     setCountry(value.current);
     mutate(data, false);
+  };
+
+  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const country = e.target.value;
+    console.log(country);
+    setCountry(country);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -110,6 +119,9 @@ export default function CountryCasesBetweenDates() {
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
         <CustomFormCountryDates
+          handleFieldChange={handleFieldChange}
+          selectValue={country}
+          countryList={countryList}
           onChange={onChange}
           myRef={value}
           onFromChange={onFromChange}

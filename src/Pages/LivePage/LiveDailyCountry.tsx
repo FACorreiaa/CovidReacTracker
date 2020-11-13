@@ -7,8 +7,11 @@ import CustomCard from "../../components/Card/Card";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import { useForm } from "react-hook-form";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
+import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 
 export default function LiveDailyCountry() {
+  const countryList: any = useCountriesDropdown();
+
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/countriessummary/daily/country/${country}`;
   const { data, error } = useSWR(url, fetcher);
@@ -19,6 +22,12 @@ export default function LiveDailyCountry() {
   const onClick = () => {
     setCountry(value.current);
     mutate(data, false);
+  };
+
+  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const country = e.target.value;
+    console.log(country);
+    setCountry(country);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,6 +41,9 @@ export default function LiveDailyCountry() {
     <div>
       <CustomSecondaryContainer>
         <CustomDayOneTemplate
+          handleFieldChange={handleFieldChange}
+          selectValue={country}
+          countryList={countryList}
           for="country"
           id="country"
           type="text"

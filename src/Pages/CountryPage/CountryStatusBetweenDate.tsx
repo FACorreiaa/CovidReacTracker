@@ -12,8 +12,10 @@ import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle
 import { ICountryStatus } from "../../Interface/CountryStatus";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomFormCountryStatusDates from "../../components/Form/FormCountryStatusDates";
+import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 
 export default function LiveAfterDate() {
+  const countryList: any = useCountriesDropdown();
   const [selectedFromDate, setSelectedFromDate] = React.useState("");
   const [selectedToDate, setSelectedToDate] = React.useState("");
   const [valueFromDate, setValueFromDate] = React.useState(new Date());
@@ -41,6 +43,12 @@ export default function LiveAfterDate() {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     value.current = e.target.value;
+  };
+
+  const handleCountryFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const country = e.target.value;
+    console.log(country);
+    setCountry(country);
   };
 
   if (error) return <div>failed to load</div>;
@@ -101,6 +109,9 @@ export default function LiveAfterDate() {
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
         <CustomFormCountryStatusDates
+          handlCountryFieldChange={handleCountryFieldChange}
+          selectValue={country}
+          countryList={countryList}
           for="country"
           handleFieldChange={handleFieldChange}
           onFromChange={onFromChange}

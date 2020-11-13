@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { postGeneralSub } from "../../services/SubscriptionService";
 import GeneralSubForm from "./ChildGeneralSub";
 import ErrorMessage from "./ErrorMessage";
+import SuccessMessages from "./SuccessMessages";
 
 export default function GeneralSub() {
   const initData = {
@@ -24,7 +25,7 @@ export default function GeneralSub() {
   };
 
   const handleGeneralSubmit = async (e: React.FormEvent<HTMLInputElement>) => {
-    e.preventDefault();
+    //e.preventDefault();
 
     let obj = {
       email: data.email,
@@ -52,6 +53,7 @@ export default function GeneralSub() {
         onSubmit={handleGeneralSubmit}
         label="Insert email for daily general alerts"
       />
+
       {loading && <span>Loading...</span>}
     </>
   );

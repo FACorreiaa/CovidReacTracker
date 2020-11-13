@@ -13,11 +13,10 @@ type CountrySubProps = {
   countryList: string[];
   selectValue: string;
   title: string;
-  errors: any;
 };
 
 export default function ChildCountrySub(props: CountrySubProps) {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   return (
     <form className="w-full max-w-sm shadow-md rounded">
@@ -43,12 +42,12 @@ export default function ChildCountrySub(props: CountrySubProps) {
         <div className="md:w-2/3">
           <input
             className="shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-            id="countryEmail"
+            id="email"
             type="email"
             placeholder={props.placeholder}
             value={props.value}
             onChange={props.onChange}
-            name="countryEmail"
+            name="email"
             ref={register({
               required: "Required",
               pattern: {
@@ -74,10 +73,10 @@ export default function ChildCountrySub(props: CountrySubProps) {
             className="shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
             id="grid-state"
             ref={register({ required: true })}
-            name="countryList"
+            name="selectValue"
           >
             {props.countryList.map((selectValue) => {
-              return <option value={props.selectValue}>{selectValue}</option>;
+              return <option value={selectValue}>{selectValue}</option>;
             })}
           </select>
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -96,18 +95,24 @@ export default function ChildCountrySub(props: CountrySubProps) {
         <div className="md:w-1/3"></div>
         <div className="md:w-2/3">
           <button
-            onClick={handleSubmit(props.onSubmit)}
             className="flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
             type="button"
+            onClick={handleSubmit(props.onSubmit)}
           >
             Send<i className="fas fa-paper-plane"></i>
           </button>
         </div>
       </div>
-      {(errors.countryEmail || errors.countryList) && (
+      {errors.email && (
         <ErrorMessage
           title="Danger!"
           error="That email might be invalid or no country selected!"
+        />
+      )}
+      {errors.selectedValue && (
+        <ErrorMessage
+          title="Danger!"
+          error="That country might be invalid or no country selected!"
         />
       )}
     </form>
