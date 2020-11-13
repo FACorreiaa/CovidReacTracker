@@ -1,7 +1,7 @@
 import React from "react";
 import CustomReactTailWindDatePicker from "../DatePicker/CustomReactTailWindDatePicker";
 import FormButton from "./FormButton";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import FormInput from "./FormInput";
 import ErrorMessage from "../Subscriptions/ErrorMessage";
 
@@ -15,7 +15,7 @@ type LiveTotalProps = {
   myRef: any;
 };
 export default function CustomFormCountryDates(props: LiveTotalProps) {
-  const { handleSubmit, errors, register } = useForm();
+  const { handleSubmit, errors, register, control } = useForm();
 
   return (
     <div>
@@ -57,16 +57,30 @@ export default function CustomFormCountryDates(props: LiveTotalProps) {
             </label>
           </div>
           <div className="md:w-2/3">
-            <FormInput
-              myRef={props.myRef}
-              onChange={props.onChange}
+            <Controller
+              rules={{ required: true }}
+              control={control}
               name="country"
-              id="country"
-              placeholder="Insert Country"
-              type="text"
-              ref={register({
-                required: "Required",
-              })}
+              render={() => (
+                <FormInput
+                  className={
+                    errors.country
+                      ? `shadow appearance-none focus:bg-white  border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none`
+                      : `border-red-500 text-red-500 italic shadow appearance-none focus:bg-white  border-none w-full  mr-3 py-1 px-2 leading-tight focus:outline-none`
+                  }
+                  myRef={props.myRef}
+                  onChange={props.onChange}
+                  name="country"
+                  id="country"
+                  placeholder={`${
+                    errors.country ? "Insert a valid country" : "Country"
+                  }`}
+                  type="text"
+                  ref={register({
+                    required: "Required",
+                  })}
+                />
+              )}
             />
           </div>
         </div>

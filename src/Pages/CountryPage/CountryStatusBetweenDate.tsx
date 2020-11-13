@@ -69,9 +69,10 @@ export default function LiveAfterDate() {
   };
 
   const dataSource = {
-    labels: !country
-      ? null
-      : data[0].name.map((n: ILiveData) => format(parseISO(n.Date), "PPPP")),
+    labels:
+      country === "" || !data
+        ? null
+        : data[0].name.map((n: ILiveData) => format(parseISO(n.Date), "PPPP")),
     datasets: [
       {
         label: "Deaths",

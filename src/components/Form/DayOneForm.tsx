@@ -1,6 +1,6 @@
 import React from "react";
 import CustomFormButton from "../Button/CustomFormButton";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import CustomErrorMessage from "../../components/ErrorMessages/ErrorMessage";
 import FormButton from "./FormButton";
 import FormInput from "./FormInput";
@@ -17,7 +17,7 @@ type Props = {
 };
 
 export default function CustomDayOneTemplate(props: Props) {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, errors, control } = useForm();
 
   return (
     <div className="w-full max-w-xs">
@@ -32,15 +32,30 @@ export default function CustomDayOneTemplate(props: Props) {
             </label>
           </div>
           <div className="md:w-2/3">
-            <FormInput
-              name={props.name}
-              onChange={props.onChange}
-              id={props.id}
-              type={props.type}
-              placeholder={props.placeholder}
-              ref={register({
-                required: "Required",
-              })}
+            <Controller
+              rules={{ required: true }}
+              control={control}
+              name="country"
+              render={() => (
+                <FormInput
+                  className={
+                    errors.country
+                      ? `shadow appearance-none focus:bg-white  border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none`
+                      : `border-red-500 text-red-500 italic shadow appearance-none focus:bg-white  border-none w-full  mr-3 py-1 px-2 leading-tight focus:outline-none`
+                  }
+                  myRef={props.myRef}
+                  onChange={props.onChange}
+                  name="country"
+                  id="country"
+                  placeholder={`${
+                    errors.country ? "Insert a valid country" : "Country"
+                  }`}
+                  type="text"
+                  ref={register({
+                    required: "Required",
+                  })}
+                />
+              )}
             />
             {errors.country && (
               <CustomErrorMessage error="Insert a valid country" />

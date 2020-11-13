@@ -8,6 +8,7 @@ type InputProps = {
   type: string;
   placeholder: string;
   myRef?: any;
+  className: string;
 };
 
 export default function FormInput(props: InputProps) {
@@ -20,7 +21,7 @@ export default function FormInput(props: InputProps) {
         id={props.id}
         type={props.type}
         placeholder={props.placeholder}
-        className="shadow appearance-none focus:bg-white  border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+        className={props.className}
       />
     </div>
   );
