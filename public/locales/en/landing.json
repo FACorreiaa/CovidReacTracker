@@ -1,3 +1,21 @@
 {
-  "summaryTitle": "Summary"
+  "summaryTitle": "Summary",
+  "dayOneTitle": "Day One",
+  "live": {
+    "totalTitle": "Live Total",
+    "totalAfter": "Live After",
+    "totalCountry": "Live Daily Country"
+  },
+  "rank": {
+    "dailyTop": "Daily Top 10",
+    "generalTop": "Total Top 10"
+  },
+  "country": {
+    "total": "Country Total",
+    "status": "Country by status",
+    "casesBetween": "Country Cases between dates",
+    "statusBetween": "Country status between dates"
+  },
+  "subscribe": "Subscribe",
+  "about": "About me"
 }

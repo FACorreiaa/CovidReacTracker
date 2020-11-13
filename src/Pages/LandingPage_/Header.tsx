@@ -20,7 +20,7 @@ export default function Header() {
           <Link to="/summary">{t("summaryTitle")}</Link>
         </li>
         <li className="inline p-nav-25">
-          <Link to="/dayone">Day One</Link>
+          <Link to="/dayone">{t("dayOneTitle")}</Link>
         </li>
         <li className="inline p-nav-25 w-4">
           <select
@@ -30,13 +30,13 @@ export default function Header() {
             className="w-40 bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
           >
             <option className="bg-transparent" value="live/total">
-              Live Total
+              {t("live.totalTitle")}
             </option>
             <option className="bg-transparent" value="live/after/date">
-              Live After Date
+              {t("live.totalAfter")}
             </option>
             <option className="bg-transparent" value="live/daily/country">
-              Live Daily Country
+              {t("live.totalAfter")}
             </option>
           </select>
         </li>
@@ -48,10 +48,10 @@ export default function Header() {
             className="bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
           >
             <option className="bg-transparent" value="rank/daily">
-              Current top 10
+              {t("rank.dailyTop")}
             </option>
             <option className="bg-transparent" value="rank/total">
-              Global top 10
+              {t("rank.generalTop")}
             </option>
           </select>
         </li>
@@ -63,30 +63,36 @@ export default function Header() {
             className="w-64 bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
           >
             <option className="bg-transparent" value="country/total">
-              Country total
+              {t("country.total")}
             </option>
             <option className="bg-transparent" value="country/cases/dates">
-              Country total cases between dates
+              {t("country.casesBetween")}
             </option>
             <option className="bg-transparent" value="country/status">
-              Country by status
+              {t("country.status")}
             </option>
             <option className="bg-transparent" value="country/status/dates">
-              Country by status between dates
+              {t("country.statusBetween")}
             </option>
           </select>
         </li>
         <li className="inline p-nav-25">
-          <Link to="/subscribe">Subscribe</Link>
+          <Link to="/subscribe"> {t("subscribe")}</Link>
         </li>
         <li className="inline p-nav-25">
-          <Link to="/about">About</Link>
+          <Link to="/about"> {t("about")}</Link>
         </li>
       </ul>
-      <button className="logo" onClick={() => changeLanguage("pt")}>
+      <button
+        className="logo focus:outline-none"
+        onClick={() => changeLanguage("pt")}
+      >
         <img src={PT} width="25" height="10" alt="pt" />
       </button>
-      <button className="logo" onClick={() => changeLanguage("en")}>
+      <button
+        className="logo focus:outline-none"
+        onClick={() => changeLanguage("en")}
+      >
         <img src={EN} width="25" height="10" alt="en" />
       </button>
     </nav>

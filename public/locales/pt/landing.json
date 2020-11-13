@@ -1,3 +1,21 @@
 {
-  "summaryTitle": "Sumário"
+  "summaryTitle": "Sumário",
+  "dayOneTitle": "Dia um",
+  "live": {
+    "totalTitle": "Total atualizado",
+    "totalAfter": "Após data atualizado",
+    "totalCountry": "Dados por pais atualizado"
+  },
+  "rank": {
+    "dailyTop": "Top 10 de hoje",
+    "generalTop": "Top 10 geral"
+  },
+  "country": {
+    "total": "Total por pais",
+    "status": "Total por status",
+    "casesBetween": "Casos por pais entre datas",
+    "statusBetween": "Por cada caso entre data"
+  },
+  "subscribe": "Subscrever",
+  "about": "Sobre mim"
 }
