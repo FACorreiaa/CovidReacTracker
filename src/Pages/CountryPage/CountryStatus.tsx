@@ -8,10 +8,7 @@ import { format } from "date-fns";
 import { parseISO } from "date-fns/fp";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import { ICountryStatus } from "../../Interface/CountryStatus";
-import CustomFormButton from "../../components/Button/CustomFormButton";
-import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
-import CustomMultipleStatusSelect from "../../components/Form/CustomMultipleSelect";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import CustomFormCountryStatus from "../../components/Form/FormCountryStatus";
 
@@ -24,7 +21,7 @@ export default function CountryStatus() {
 
   let value = React.useRef("");
 
-  const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onClick = () => {
     setCountry(value.current);
     mutate(data, false);
   };

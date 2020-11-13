@@ -8,22 +8,17 @@ import { format } from "date-fns";
 import { parseISO } from "date-fns/fp";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
-import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
-import CustomFormTemplate from "../../components/Form/FormTemplate";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
-import { useForm } from "react-hook-form";
 
 export default function CountryTotalPage() {
-  const { handleSubmit } = useForm();
-
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/country/total/${country}`;
   const { data, error } = useSWR(url, fetcher);
 
   let value = React.useRef("");
 
-  const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onClick = () => {
     setCountry(value.current);
     mutate(data, false);
   };

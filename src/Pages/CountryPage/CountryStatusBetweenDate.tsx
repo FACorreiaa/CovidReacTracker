@@ -10,10 +10,6 @@ import { parseISO } from "date-fns/fp";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import { ICountryStatus } from "../../Interface/CountryStatus";
-import CustomFormButton from "../../components/Button/CustomFormButton";
-import CustomReactTailWindDatePicker from "../../components/DatePicker/CustomReactTailWindDatePicker";
-import CustomInputCountryForm from "../../components/Form/CustomInput";
-import CustomMultipleStatusSelect from "../../components/Form/CustomMultipleSelect";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomFormCountryStatusDates from "../../components/Form/FormCountryStatusDates";
 
@@ -37,7 +33,7 @@ export default function LiveAfterDate() {
     },
     [data]
   );*/
-  const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onClick = () => {
     setCountry(value.current);
     mutate(data, false);
   };

@@ -20,11 +20,8 @@ type LiveTotalProps = {
   type: string;
 };
 
-interface FormInputs {
-  singleErrorInput: string;
-}
 export default function CustomFormCountryStatusDates(props: LiveTotalProps) {
-  const { handleSubmit, errors, register, control } = useForm();
+  const { handleSubmit, errors, register } = useForm();
 
   return (
     <div>

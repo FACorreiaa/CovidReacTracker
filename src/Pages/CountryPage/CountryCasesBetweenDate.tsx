@@ -10,9 +10,6 @@ import { parseISO } from "date-fns/fp";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import { ICountryTotal } from "../../Interface/CountryStatus";
-import CustomFormButton from "../../components/Button/CustomFormButton";
-import CustomReactTailWindDatePicker from "../../components/DatePicker/CustomReactTailWindDatePicker";
-import CustomInputCountryForm from "../../components/Form/CustomInput";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomFormCountryDates from "../../components/Form/FormCountryDates";
 
@@ -28,7 +25,7 @@ export default function CountryCasesBetweenDates() {
 
   let value = React.useRef("");
 
-  const onClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onClick = () => {
     setCountry(value.current);
     mutate(data, false);
   };

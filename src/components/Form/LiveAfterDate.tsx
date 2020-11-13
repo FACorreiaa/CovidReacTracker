@@ -2,7 +2,6 @@ import React from "react";
 import CustomReactTailWindDatePicker from "../DatePicker/CustomReactTailWindDatePicker";
 import FormButton from "./FormButton";
 import { useForm } from "react-hook-form";
-import FormInput from "./FormInput";
 import ErrorMessage from "../Subscriptions/ErrorMessage";
 import CustomErrorMessage from "../ErrorMessages/ErrorMessage";
 
@@ -16,7 +15,7 @@ type LiveTotalProps = {
   type: string;
 };
 export default function LiveAfterDateForm(props: LiveTotalProps) {
-  const { handleSubmit, errors, register, control } = useForm();
+  const { handleSubmit, errors, register } = useForm();
 
   return (
     <div>
