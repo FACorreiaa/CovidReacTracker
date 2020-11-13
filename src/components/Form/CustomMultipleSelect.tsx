@@ -18,9 +18,12 @@ export default function CustomMultipleStatusSelect(props: Props) {
       <div className="relative">
         <select
           onChange={props.handleFieldChange}
-          className="shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+          className="shadow appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
           id="grid-state"
         >
+          <option value="" selected disabled hidden>
+            Select a status
+          </option>
           {["confirmed", "recovered", "deaths"].map((value) => {
             return <option value={value}>{value}</option>;
           })}

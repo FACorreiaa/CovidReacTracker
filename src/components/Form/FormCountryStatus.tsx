@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import ErrorMessage from "../Subscriptions/ErrorMessage";
 import CustomMultipleStatusSelect from "./CustomMultipleSelect";
 import CustomErrorMessage from "../ErrorMessages/ErrorMessage";
+import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
 
 type FormCountryStatusProps = {
   onClick: any;
@@ -13,6 +14,10 @@ type FormCountryStatusProps = {
   for: string;
   id: string;
   type: string;
+
+  handlCountryFieldChange: any;
+  countryList: [];
+  selectValue: string;
 };
 export default function CustomFormCountryStatus(props: FormCountryStatusProps) {
   const { handleSubmit, errors, register } = useForm();
@@ -41,30 +46,11 @@ export default function CustomFormCountryStatus(props: FormCountryStatusProps) {
             </label>
           </div>
           <div className="md:w-2/3">
-            <input
-              name="country"
-              onChange={props.onChange}
-              className={`
-              ${
-                errors.country
-                  ? "border-red-400 border text-red-500 italic shadow appearance-none focus:bg-white  w-full  mr-3 py-1 px-2 leading-tight focus:outline-none"
-                  : "shadow appearance-none focus:bg-white  border w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-              }
-              `}
-              id={props.id}
-              type={props.type}
-              placeholder={`${
-                errors.country ? "Insert a valid country" : "Country"
-              }`}
-              ref={register({
-                required: "Required",
-              })}
+            <CustomCountryMultipleSelect
+              handleFieldChange={props.handlCountryFieldChange}
+              selectValue={props.selectValue}
+              countryList={props.countryList}
             />
-            <div className="text-center">
-              {errors.country && (
-                <CustomErrorMessage error="Insert a valid country" />
-              )}
-            </div>
           </div>
         </div>
 

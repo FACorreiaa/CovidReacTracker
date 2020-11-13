@@ -10,15 +10,22 @@ import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import { useForm } from "react-hook-form";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
+import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 
 function DayOne() {
+  const countryList: any = useCountriesDropdown();
+
   const { handleSubmit } = useForm();
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/dayone/all/total/country/${country}`;
   const { data, error } = useSWR(url, fetcher);
 
   let value = React.useRef("");
-
+  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const country = e.target.value;
+    console.log(country);
+    setCountry(country);
+  };
   /*const onClick = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setCountry(value.current);
@@ -92,13 +99,15 @@ function DayOne() {
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
         <CustomDayOneTemplate
+          handleFieldChange={handleFieldChange}
+          selectValue={country}
+          countryList={countryList}
           for="country"
           id="country"
           type="text"
           placeholder="Insert Country"
           onChange={onChange}
           label="Country"
-          myRef={value}
           onClick={handleSubmit(onClick)}
         />
       </CustomSecondaryContainer>

@@ -3,6 +3,7 @@ import CountrySubForm from "./ChildCountrySub";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import { postCountrySub } from "../../services/SubscriptionService";
 import ErrorMessage from "./ErrorMessage";
+import { useForm } from "react-hook-form";
 
 export default function CountrySub() {
   const countryList = useCountriesDropdown();
@@ -11,9 +12,11 @@ export default function CountrySub() {
   const [submitted, setSubmitted] = useState(false);
   const [countryEmail, setCountryEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const { handleSubmit } = useForm();
 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const country = e.target.value;
+    console.log(country);
     setCountry(country);
   };
 
@@ -21,10 +24,13 @@ export default function CountrySub() {
     //const { name, value } = e.target;
     //setData({ ...data, [name]: value });
     const countryEmail = e.target.value;
+    console.log(countryEmail);
+
     return setCountryEmail(countryEmail);
   };
 
   const handleCountrySubmit = async (e: React.FormEvent<HTMLInputElement>) => {
+    //e.preventDefault();
     let obj = {
       email: countryEmail,
       country,
@@ -33,10 +39,8 @@ export default function CountrySub() {
 
     try {
       setLoading(true);
-      const result = await postCountrySub(obj);
-      setCountryEmail("");
-      setCountry("");
-      setValue(result.data);
+      await postCountrySub(obj);
+      console.log(obj);
       setSubmitted(true);
       setLoading(false);
     } catch (err) {
@@ -57,12 +61,6 @@ export default function CountrySub() {
         value={countryEmail}
         onSubmit={handleCountrySubmit}
         title="Subscribe for alerts on a specific Country"
-        errors={
-          <ErrorMessage
-            title="Danger!"
-            error="That email might be invalid or you are already subbed for that country!"
-          />
-        }
       />
 
       {loading && <span>Loading...</span>}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import CustomErrorMessage from "../../components/ErrorMessages/ErrorMessage";
+import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
 import FormButton from "./FormButton";
 type Props = {
   onClick: any;
@@ -11,6 +12,9 @@ type Props = {
   type: string;
   placeholder: string;
   myRef?: any;
+  handleFieldChange: any;
+  countryList: [];
+  selectValue: string;
 };
 
 export default function CustomDayOneTemplate(props: Props) {
@@ -29,33 +33,15 @@ export default function CustomDayOneTemplate(props: Props) {
             </label>
           </div>
           <div className="md:w-2/3">
-            <input
-              name="country"
-              onChange={props.onChange}
-              className={`
-              ${
-                errors.country
-                  ? "border-red-400 border text-red-500 italic shadow appearance-none focus:bg-white  w-full  mr-3 py-1 px-2 leading-tight focus:outline-none"
-                  : "shadow appearance-none focus:bg-white  border w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-              }
-              `}
-              id={props.id}
-              type={props.type}
-              placeholder={`${
-                errors.country ? "Insert a valid country" : "Country"
-              }`}
-              ref={register({
-                required: "Required",
-              })}
+            <CustomCountryMultipleSelect
+              handleFieldChange={props.handleFieldChange}
+              selectValue={props.selectValue}
+              countryList={props.countryList}
             />
-            <div className="text-center">
-              {errors.country && (
-                <CustomErrorMessage error="Insert a valid country" />
-              )}
-            </div>
           </div>
         </div>
-        <div className="md:flex md:items-center">
+        {/**
+         * <div className="md:flex md:items-center">
           <div className="md:w-1/3"></div>
           <div className="md:w-2/3">
             <FormButton
@@ -65,6 +51,7 @@ export default function CustomDayOneTemplate(props: Props) {
             />
           </div>
         </div>
+         */}
       </form>
 
       <p className="text-center text-gray-500 text-xs">

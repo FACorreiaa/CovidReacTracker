@@ -10,8 +10,11 @@ import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
+import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 
 export default function CountryTotalPage() {
+  const countryList: any = useCountriesDropdown();
+
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/country/total/${country}`;
   const { data, error } = useSWR(url, fetcher);
@@ -21,6 +24,12 @@ export default function CountryTotalPage() {
   const onClick = () => {
     setCountry(value.current);
     mutate(data, false);
+  };
+
+  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const country = e.target.value;
+    console.log(country);
+    setCountry(country);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -91,6 +100,9 @@ export default function CountryTotalPage() {
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
         <CustomDayOneTemplate
+          handleFieldChange={handleFieldChange}
+          selectValue={country}
+          countryList={countryList}
           for="country"
           id="country"
           type="text"

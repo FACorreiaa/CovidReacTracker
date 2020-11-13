@@ -11,8 +11,10 @@ import { ICountryStatus } from "../../Interface/CountryStatus";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import CustomFormCountryStatus from "../../components/Form/FormCountryStatus";
+import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 
 export default function CountryStatus() {
+  const countryList: any = useCountriesDropdown();
   const [country, setCountry] = useState("");
   const [status, setStatus] = useState("");
 
@@ -36,6 +38,12 @@ export default function CountryStatus() {
     const status = e.target.value;
     setStatus(status);
     mutate(data, false);
+  };
+
+  const handleCountryFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const country = e.target.value;
+    console.log(country);
+    setCountry(country);
   };
 
   if (error) return <div>failed to load</div>;
@@ -77,6 +85,9 @@ export default function CountryStatus() {
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
         <CustomFormCountryStatus
+          handlCountryFieldChange={handleCountryFieldChange}
+          selectValue={country}
+          countryList={countryList}
           onChange={onChange}
           myRef={value}
           handleFieldChange={handleFieldChange}

@@ -10,8 +10,10 @@ import CustomWIPTotalTitle from "../../components/SummaryTitle/CustomWIPTotalTit
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import { ILiveData } from "../../Interface/LiveData";
 import LiveAfterDateForm from "../../components/Form/LiveAfterDate";
+import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 
 export default function LiveAfterDate() {
+  const countryList: any = useCountriesDropdown();
   const [selectedDate, setSelectedDate] = React.useState("");
   const [inputValue, setInputValue] = useState(new Date());
   const [country, setCountry] = useState("");
@@ -22,6 +24,12 @@ export default function LiveAfterDate() {
   const onClick = () => {
     setCountry(value.current);
     mutate(data, false);
+  };
+
+  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const country = e.target.value;
+    console.log(country);
+    setCountry(country);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -101,6 +109,9 @@ export default function LiveAfterDate() {
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
         <LiveAfterDateForm
+          handleFieldChange={handleFieldChange}
+          selectValue={country}
+          countryList={countryList}
           onAfterChange={onDateChange}
           valueAfterDate={inputValue}
           onClick={onClick}
