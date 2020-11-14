@@ -99,9 +99,7 @@ export default function CustomFormCountryStatusDates(props: LiveTotalProps) {
             />
           </div>
         </div>
-        {errors.country && (
-          <ErrorMessages title="Danger!" error="Invalid country selected!" />
-        )}
+        {errors.country && <ErrorMessages error="Invalid country selected!" />}
       </form>
       <p className="text-center text-gray-500 text-xs">
         &copy;2020 Acme Corp. All rights reserved.

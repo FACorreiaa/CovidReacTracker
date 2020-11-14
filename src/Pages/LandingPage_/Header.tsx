@@ -79,22 +79,21 @@ export default function Header() {
         <li className="inline p-nav-25">
           <Link to="/subscribe"> {t("subscribe")}</Link>
         </li>
-        <li className="inline p-nav-25">
-          <Link to="/about"> {t("about")}</Link>
-        </li>
+        <div className="inline p-nav-25">
+          <button
+            className="logo focus:outline-none"
+            onClick={() => changeLanguage("pt")}
+          >
+            <img src={PT} width="25" height="10" alt="pt" />
+          </button>
+          <button
+            className="logo focus:outline-none"
+            onClick={() => changeLanguage("en")}
+          >
+            <img src={EN} width="25" height="10" alt="en" />
+          </button>
+        </div>
       </ul>
-      <button
-        className="logo focus:outline-none"
-        onClick={() => changeLanguage("pt")}
-      >
-        <img src={PT} width="25" height="10" alt="pt" />
-      </button>
-      <button
-        className="logo focus:outline-none"
-        onClick={() => changeLanguage("en")}
-      >
-        <img src={EN} width="25" height="10" alt="en" />
-      </button>
     </nav>
   );
 }

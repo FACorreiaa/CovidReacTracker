@@ -27,7 +27,7 @@ export default function GeneralSubForm(props: GeneralSubProps) {
             placeholder={props.placeholder}
             value={props.value}
             onChange={props.onChange}
-            className="error appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+            className=" appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
             aria-label="email"
             name="email"
             ref={register({
@@ -48,10 +48,7 @@ export default function GeneralSubForm(props: GeneralSubProps) {
           </button>
         </div>
         {errors.email && (
-          <ErrorMessage
-            title="Danger!"
-            error="That email might be invalid or you are already subbed"
-          />
+          <ErrorMessage error="That email might be invalid or you are already subbed" />
         )}
       </form>
     </>

@@ -70,7 +70,7 @@ export default function ChildCountrySub(props: CountrySubProps) {
         <div className="md:w-2/3">
           <select
             onChange={props.handleFieldChange}
-            className="shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+            className="block shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
             id="grid-state"
             ref={register({ required: true })}
             name="selectValue"
@@ -104,16 +104,10 @@ export default function ChildCountrySub(props: CountrySubProps) {
         </div>
       </div>
       {errors.email && (
-        <ErrorMessage
-          title="Danger!"
-          error="That email might be invalid or no country selected!"
-        />
+        <ErrorMessage error="That email might be invalid or no country selected!" />
       )}
       {errors.selectedValue && (
-        <ErrorMessage
-          title="Danger!"
-          error="That country might be invalid or no country selected!"
-        />
+        <ErrorMessage error="That country might be invalid or no country selected!" />
       )}
     </form>
   );

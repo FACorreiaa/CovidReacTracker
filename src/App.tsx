@@ -53,9 +53,9 @@ function App() {
           <Header />
           <SectionContainer>
             <SectionInfo title="CovidTrackeReact">
-              <CustomButton label="About me">
-                <Link to="/about" />
-              </CustomButton>
+              <Link to="/contact">
+                <CustomButton label="Contact me" />
+              </Link>
             </SectionInfo>
           </SectionContainer>
         </CustomMainContainer>
@@ -81,7 +81,7 @@ function App() {
           path="/country/cases/dates"
           component={CountryCasesBetweenDate}
         />
-        <Route exact path="/about" component={ContactPage} />
+        <Route exact path="/contact" component={ContactPage} />
         <Route exact path="/subscribe" component={SubscribePage} />
         <Footer />
       </BrowserRouter>

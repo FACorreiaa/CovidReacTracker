@@ -1,5 +1,4 @@
 import React from "react";
-import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 
 type Props = {
   handleFieldChange: any;
@@ -12,7 +11,7 @@ export default function CustomCountryMultipleSelect(props: Props) {
     <>
       <select
         onChange={props.handleFieldChange}
-        className="shadow appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+        className=" shadow appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
         id="grid-state"
         name="selectValue"
       >
