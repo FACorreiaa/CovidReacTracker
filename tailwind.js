@@ -17,6 +17,11 @@ module.exports = {
   presets: [],
   theme: {
     extend: {
+      fontFamily: {
+        lato: ["Lato"],
+        poppins: ["Poppins"],
+        roboto: ["Roboto"],
+      },
       backgroundImage: (theme) => ({
         "white-landing": "url('./images/wave_light.svg')",
         "black-landing": "url('./images/wave_dark.svg')",

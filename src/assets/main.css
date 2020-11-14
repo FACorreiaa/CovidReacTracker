@@ -11790,6 +11790,18 @@ body {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.font-lato {
+  font-family: Lato;
+}
+
+.font-poppins {
+  font-family: Poppins;
+}
+
+.font-roboto {
+  font-family: Roboto;
+}
+
 .font-hairline {
   font-weight: 100;
 }
@@ -32373,6 +32385,18 @@ body::-webkit-scrollbar {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .sm\:font-lato {
+    font-family: Lato;
+  }
+
+  .sm\:font-poppins {
+    font-family: Poppins;
+  }
+
+  .sm\:font-roboto {
+    font-family: Roboto;
+  }
+
   .sm\:font-hairline {
     font-weight: 100;
   }
@@ -52915,6 +52939,18 @@ body::-webkit-scrollbar {
 
   .md\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .md\:font-lato {
+    font-family: Lato;
+  }
+
+  .md\:font-poppins {
+    font-family: Poppins;
+  }
+
+  .md\:font-roboto {
+    font-family: Roboto;
   }
 
   .md\:font-hairline {
@@ -73461,6 +73497,18 @@ body::-webkit-scrollbar {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .lg\:font-lato {
+    font-family: Lato;
+  }
+
+  .lg\:font-poppins {
+    font-family: Poppins;
+  }
+
+  .lg\:font-roboto {
+    font-family: Roboto;
+  }
+
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -94003,6 +94051,18 @@ body::-webkit-scrollbar {
 
   .xl\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .xl\:font-lato {
+    font-family: Lato;
+  }
+
+  .xl\:font-poppins {
+    font-family: Poppins;
+  }
+
+  .xl\:font-roboto {
+    font-family: Roboto;
   }
 
   .xl\:font-hairline {

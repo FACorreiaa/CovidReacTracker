@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import 'fontsource-roboto';
 
 type SectionProps = {};
 
@@ -6,7 +7,7 @@ type SectionProps = {};
 export const CustomMainContainer: FunctionComponent<SectionProps> = ({
   children,
 }) => (
-  <div className="box-border bg-white-landing h-full bg-landing-main bg-no-repeat bg-bottom pt-32">
+  <div className="font-roboto box-border bg-white-landing h-full bg-landing-main bg-no-repeat bg-bottom pt-32">
     {children}
   </div>
 );

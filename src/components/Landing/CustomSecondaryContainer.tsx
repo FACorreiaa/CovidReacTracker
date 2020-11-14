@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import 'fontsource-lato';
 
 type SectionProps = {};
 
@@ -6,7 +7,7 @@ type SectionProps = {};
 export const CustomSecondaryContainer: FunctionComponent<SectionProps> = ({
   children,
 }) => (
-  <div className="bg-landing-secondary bg-bottom bg-white-landing bg-dark-landing flex justify-evenly border-box h-full bg-no-repeat bottom-0 pt-12">
+  <div className="font-lato bg-landing-secondary bg-bottom bg-white-landing bg-dark-landing flex justify-evenly border-box h-full bg-no-repeat bottom-0 pt-12">
     {children}
   </div>
 );
