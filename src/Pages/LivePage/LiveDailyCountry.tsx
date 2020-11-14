@@ -8,6 +8,7 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import { useForm } from "react-hook-form";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
+import { FaCheck, FaSkullCrossbones, FaHeart } from "react-icons/fa";
 
 export default function LiveDailyCountry() {
   const countryList: any = useCountriesDropdown();
@@ -66,33 +67,33 @@ export default function LiveDailyCountry() {
                     <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                       <h3>{`Values for: ${d.Country}`}</h3>
                       <CustomCard
-                        icon="fas fa-check w-5 h-5 pr-2"
+                        icon={<FaCheck />}
                         title={"New Confirmed"}
                         value={d.NewConfirmed}
                       />
                       <CustomCard
-                        icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                        icon={<FaSkullCrossbones />}
                         title={"New Deaths"}
                         value={d.NewDeaths}
                       />
                       <CustomCard
-                        icon="fas fa-heart w-5 h-5 pr-2"
+                        icon={<FaHeart />}
                         title={"New Recovered"}
                         value={d.NewRecovered}
                       />
                       <div></div>
                       <CustomCard
-                        icon="fas fa-check w-5 h-5 pr-2"
+                        icon={<FaCheck />}
                         title={"Total Confirmed"}
                         value={d.TotalConfirmed}
                       />
                       <CustomCard
-                        icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                        icon={<FaSkullCrossbones />}
                         title={"Total Deaths"}
                         value={d.TotalDeaths}
                       />
                       <CustomCard
-                        icon="fas fa-heart w-5 h-5 pr-2"
+                        icon={<FaHeart />}
                         title={"Total Recovered"}
                         value={d.TotalRecovered}
                       />

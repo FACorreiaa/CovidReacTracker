@@ -3,6 +3,10 @@ import useSWR from "swr";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
 import CustomCard from "../../components/Card/Card";
+import { FaFlag } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
+import { FaSkullCrossbones } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 
 type Props = {
   country: string;
@@ -24,36 +28,36 @@ export default function CustomCountryTitle(props: Props) {
                   <label className="italic">
                     Values for:
                     <span className="font-semibold  text-2xl">{d.Country}</span>
-                    <i className="fas fa-flag"></i>
+                    <FaFlag />
                   </label>
                   <CustomCard
-                    icon="fas fa-check w-5 h-5 pr-2"
+                    icon={<FaCheck />}
                     title={"New Confirmed"}
                     value={d.NewConfirmed}
                   />
                   <CustomCard
-                    icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                    icon={<FaSkullCrossbones />}
                     title={"New Deaths"}
                     value={d.NewDeaths}
                   />
                   <CustomCard
-                    icon="fas fa-heart w-5 h-5 pr-2"
+                    icon={<FaHeart />}
                     title={"New Recovered"}
                     value={d.NewRecovered}
                   />
                   <div></div>
                   <CustomCard
-                    icon="fas fa-check w-5 h-5 pr-2"
+                    icon={<FaCheck />}
                     title={"Total Confirmed"}
                     value={d.TotalConfirmed}
                   />
                   <CustomCard
-                    icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                    icon={<FaSkullCrossbones />}
                     title={"Total Deaths"}
                     value={d.TotalDeaths}
                   />
                   <CustomCard
-                    icon="fas fa-heart w-5 h-5 pr-2"
+                    icon={<FaHeart />}
                     title={"Total Recovered"}
                     value={d.TotalRecovered}
                   />

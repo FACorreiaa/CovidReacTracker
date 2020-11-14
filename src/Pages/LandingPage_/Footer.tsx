@@ -1,5 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+
 //h-footer
 export default function Footer() {
   return (
@@ -17,9 +18,9 @@ export default function Footer() {
         </section>
         <section className="m-footer w-footer text-right">
           <div className="text-footer-color m-1 text-footer-icons mr-footer">
-            <i className="fab fa-github pr-2"></i>
-            <i className="fab fa-linkedin pr-2"></i>
-            <i className="fab fa-twitter pr-2"></i>
+            <FaGithub />
+            <FaLinkedin />
+            <FaTwitter />
           </div>
         </section>
       </section>

@@ -4,6 +4,7 @@ import CustomCard from "../../components/Card/Card";
 import Loading from "../../components/Loading/Loading";
 import { getSummaryList } from "../../services/SubscriptionService";
 import { SummaryList } from "../../Interface/SummaryList";
+import { FaCheck, FaSkullCrossbones, FaHeart } from "react-icons/fa";
 
 const url = "/summary";
 
@@ -22,17 +23,17 @@ export default function CustomSummaryTitle() {
               </label>
 
               <CustomCard
-                icon="fas fa-check w-5 h-5 pr-2"
+                icon={<FaCheck />}
                 title="New Confirmed"
                 value={d.NewConfirmed}
               />
               <CustomCard
-                icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                icon={<FaSkullCrossbones />}
                 title="New Deaths"
                 value={d.NewDeaths}
               />
               <CustomCard
-                icon="fas fa-heart w-5 h-5 pr-2"
+                icon={<FaHeart />}
                 title="New Recovered"
                 value={d.NewRecovered}
               />
