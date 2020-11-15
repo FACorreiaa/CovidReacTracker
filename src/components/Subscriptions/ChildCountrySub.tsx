@@ -70,13 +70,20 @@ export default function ChildCountrySub(props: CountrySubProps) {
         <div className="md:w-2/3">
           <select
             onChange={props.handleFieldChange}
-            className="block shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+            className="divide-y divide-blue-300 block shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
             id="grid-state"
             ref={register({ required: true })}
             name="selectValue"
           >
+            <option value="" selected disabled hidden>
+              Select a country
+            </option>
             {props.countryList.map((selectValue) => {
-              return <option value={selectValue}>{selectValue}</option>;
+              return (
+                <option className="text-center py-2" value={selectValue}>
+                  {selectValue}
+                </option>
+              );
             })}
           </select>
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

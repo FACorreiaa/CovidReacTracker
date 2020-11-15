@@ -11,7 +11,7 @@ export default function CustomCountryMultipleSelect(props: Props) {
     <>
       <select
         onChange={props.handleFieldChange}
-        className=" shadow appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+        className=" shadow appearance-none bg-transparent  border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
         id="grid-state"
         name="selectValue"
       >
@@ -20,7 +20,11 @@ export default function CustomCountryMultipleSelect(props: Props) {
         </option>
 
         {props.countryList.map((selectValue) => {
-          return <option value={selectValue}>{selectValue}</option>;
+          return (
+            <option className="" value={selectValue}>
+              {selectValue}
+            </option>
+          );
         })}
       </select>
       <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
