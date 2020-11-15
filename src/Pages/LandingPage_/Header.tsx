@@ -36,7 +36,7 @@ export default function Header() {
               {t("live.totalAfter")}
             </option>
             <option className="bg-transparent" value="live/daily/country">
-              {t("live.totalAfter")}
+              {t("live.totalCountry")}
             </option>
           </select>
         </li>
