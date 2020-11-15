@@ -1,5 +1,5 @@
 import React from "react";
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
 import formatISO from "date-fns/formatISO";

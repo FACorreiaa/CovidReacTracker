@@ -1,5 +1,4 @@
 import React from "react";
-import CustomFormButton from "../Button/CustomFormButton";
 import FormButton from "./FormButton";
 
 type Props = {

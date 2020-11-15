@@ -3,7 +3,6 @@ import useSWR from "swr";
 import Loading from "../Loading/Loading";
 import { CountrySummary } from "../../Interface/CountrySummary";
 import CustomList from "../List/List";
-import { getTopTotalConfirmed } from "../../services/RankingService";
 import { fetcher } from "../../services/config/http-common";
 
 function DailyDeaths() {

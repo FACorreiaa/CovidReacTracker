@@ -1,8 +1,5 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import CustomErrorMessage from "../../components/ErrorMessages/ErrorMessage";
 import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
-import FormButton from "./FormButton";
 type Props = {
   onClick: any;
   label: string;
@@ -18,8 +15,6 @@ type Props = {
 };
 
 export default function CustomDayOneTemplate(props: Props) {
-  const { register, handleSubmit, errors } = useForm();
-
   return (
     <div className="w-full max-w-xs">
       <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">

@@ -3,7 +3,6 @@ import CustomReactTailWindDatePicker from "../DatePicker/CustomReactTailWindDate
 import FormButton from "./FormButton";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../Subscriptions/ErrorMessage";
-import CustomErrorMessage from "../ErrorMessages/ErrorMessage";
 import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
 
 type LiveTotalProps = {
@@ -20,7 +19,7 @@ type LiveTotalProps = {
   selectValue: string;
 };
 export default function LiveAfterDateForm(props: LiveTotalProps) {
-  const { handleSubmit, errors, register } = useForm();
+  const { handleSubmit, errors } = useForm();
 
   return (
     <div>

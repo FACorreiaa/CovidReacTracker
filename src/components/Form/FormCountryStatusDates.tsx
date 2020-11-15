@@ -4,7 +4,6 @@ import FormButton from "./FormButton";
 import { useForm } from "react-hook-form";
 import ErrorMessages from "../Subscriptions/ErrorMessage";
 import CustomMultipleStatusSelect from "./CustomMultipleSelect";
-import CustomErrorMessage from "../ErrorMessages/ErrorMessage";
 import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
 
 type LiveTotalProps = {
@@ -25,7 +24,7 @@ type LiveTotalProps = {
 };
 
 export default function CustomFormCountryStatusDates(props: LiveTotalProps) {
-  const { handleSubmit, errors, register } = useForm();
+  const { handleSubmit, errors } = useForm();
 
   return (
     <div>
