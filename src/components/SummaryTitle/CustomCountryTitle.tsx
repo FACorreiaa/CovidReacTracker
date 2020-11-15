@@ -20,44 +20,50 @@ export default function CustomCountryTitle(props: Props) {
           {props.country.length &&
             data.map((d: any) => {
               return (
-                <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-                  <label className="italic">
-                    Values for:
-                    <span className="font-semibold  text-2xl">{d.Country}</span>
-                    <i className="fas fa-flag"></i>
-                  </label>
-                  <CustomCard
-                    icon="fas fa-check w-5 h-5 pr-2"
-                    title={"New Confirmed"}
-                    value={d.NewConfirmed}
-                  />
-                  <CustomCard
-                    icon="fas fa-skull-crossbones w-5 h-5 pr-2"
-                    title={"New Deaths"}
-                    value={d.NewDeaths}
-                  />
-                  <CustomCard
-                    icon="fas fa-heart w-5 h-5 pr-2"
-                    title={"New Recovered"}
-                    value={d.NewRecovered}
-                  />
-                  <div></div>
-                  <CustomCard
-                    icon="fas fa-check w-5 h-5 pr-2"
-                    title={"Total Confirmed"}
-                    value={d.TotalConfirmed}
-                  />
-                  <CustomCard
-                    icon="fas fa-skull-crossbones w-5 h-5 pr-2"
-                    title={"Total Deaths"}
-                    value={d.TotalDeaths}
-                  />
-                  <CustomCard
-                    icon="fas fa-heart w-5 h-5 pr-2"
-                    title={"Total Recovered"}
-                    value={d.TotalRecovered}
-                  />
-                </div>
+                <>
+                  <div className="flex text-left mb-4">
+                    <div className="w-full  h-12">
+                      <span className="font-semibold  text-2xl">
+                        {d.Country}
+                      </span>
+                      <i className="fas fa-flag"></i>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+                    <CustomCard
+                      icon="fas fa-check w-5 h-5 pr-2"
+                      title={"New Confirmed"}
+                      value={d.NewConfirmed}
+                    />
+                    <CustomCard
+                      icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                      title={"New Deaths"}
+                      value={d.NewDeaths}
+                    />
+                    <CustomCard
+                      icon="fas fa-heart w-5 h-5 pr-2"
+                      title={"New Recovered"}
+                      value={d.NewRecovered}
+                    />
+                    <div></div>
+                    <CustomCard
+                      icon="fas fa-check w-5 h-5 pr-2"
+                      title={"Total Confirmed"}
+                      value={d.TotalConfirmed}
+                    />
+                    <CustomCard
+                      icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                      title={"Total Deaths"}
+                      value={d.TotalDeaths}
+                    />
+                    <CustomCard
+                      icon="fas fa-heart w-5 h-5 pr-2"
+                      title={"Total Recovered"}
+                      value={d.TotalRecovered}
+                    />
+                  </div>
+                </>
               );
             })}
         </div>

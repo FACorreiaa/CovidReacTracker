@@ -16,27 +16,32 @@ export default function CustomSummaryTitle() {
       <div className="h-full overflow-y-auto">
         <div className="container  mx-auto grid">
           {data.data.map((d: SummaryList) => (
-            <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-              <label className="font-semibold">
-                New Around the world <i className="fas fa-globe"></i>
-              </label>
-
-              <CustomCard
-                icon="fas fa-check w-5 h-5 pr-2"
-                title="New Confirmed"
-                value={d.NewConfirmed}
-              />
-              <CustomCard
-                icon="fas fa-skull-crossbones w-5 h-5 pr-2"
-                title="New Deaths"
-                value={d.NewDeaths}
-              />
-              <CustomCard
-                icon="fas fa-heart w-5 h-5 pr-2"
-                title="New Recovered"
-                value={d.NewRecovered}
-              />
-            </div>
+            <>
+              <div className="flex text-left mb-4">
+                <div className="w-full  h-12">
+                  <label className="font-semibold">
+                    New Around the world <i className="fas fa-globe"></i>
+                  </label>
+                </div>
+              </div>
+              <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+                <CustomCard
+                  icon="fas fa-check w-5 h-5 pr-2"
+                  title="New Confirmed"
+                  value={d.NewConfirmed}
+                />
+                <CustomCard
+                  icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                  title="New Deaths"
+                  value={d.NewDeaths}
+                />
+                <CustomCard
+                  icon="fas fa-heart w-5 h-5 pr-2"
+                  title="New Recovered"
+                  value={d.NewRecovered}
+                />
+              </div>
+            </>
           ))}
         </div>
       </div>
