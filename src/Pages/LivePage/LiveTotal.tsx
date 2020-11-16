@@ -12,7 +12,7 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import CustomFormTemplate from "../../components/Form/FormTemplate";
 import { getNumberOfDays } from "../../function/numberOfDays";
 
-export default function LiveAfterDate() {
+export default function LiveTotal() {
   const [selectedFromDate, setSelectedFromDate] = React.useState("");
   const [selectedToDate, setSelectedToDate] = React.useState("");
   const [valueFromDate, setValueFromDate] = React.useState(new Date());

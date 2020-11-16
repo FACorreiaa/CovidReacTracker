@@ -22,21 +22,19 @@ export default function LiveAfterDate() {
   let value = React.useRef("");
 
   const onClick = () => {
-    const country = value.current;
-    setCountry(country);
+    const date = formatISO(inputValue);
+    setSelectedDate(date);
+    setCountry(value.current);
   };
 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const country = e.target.value;
+    //const country = e.target.value;
+    value.current = e.target.value;
     console.log(country);
-    setCountry(country);
-    //setCountry(country);
   };
 
   const onDateChange = (date: Date) => {
     setInputValue(date);
-    const isoDate = formatISO(date);
-    setSelectedDate(isoDate);
   };
 
   if (error) return <div>failed to load</div>;
