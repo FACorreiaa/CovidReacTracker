@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
 import formatISO from "date-fns/formatISO";
 import { Line } from "react-chartjs-2";
-import { format, parseISO } from "date-fns";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomWIPTotalTitle from "../../components/SummaryTitle/CustomWIPTotalTitle";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import { ILiveData } from "../../Interface/LiveData";
 import LiveAfterDateForm from "../../components/Form/LiveAfterDate";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
+import { getNumberOfDays } from "../../function/numberOfDays";
 
 export default function LiveAfterDate() {
   const countryList: any = useCountriesDropdown();
@@ -27,7 +27,9 @@ export default function LiveAfterDate() {
   };
 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    value.current = e.target.value;
+    const country = e.target.value;
+    console.log(country);
+    setCountry(country);
     //setCountry(country);
   };
 
@@ -52,9 +54,8 @@ export default function LiveAfterDate() {
   };*/
 
   const dataSource = {
-    labels: !country
-      ? null
-      : data[0].name.map((n: ILiveData) => format(parseISO(n.Date), "PPPP")),
+    labels: !country ? null : getNumberOfDays(inputValue, new Date()),
+
     datasets: [
       {
         label: "Active",

@@ -28,16 +28,11 @@ export default function CountryStatus() {
     mutate(data, false);
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    value.current = e.target.value;
-  };
-
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const status = e.target.value;
     setStatus(status);
-    mutate(data, false);
+    //mutate(data, false);
   };
 
   const handleCountryFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,8 +83,6 @@ export default function CountryStatus() {
           handlCountryFieldChange={handleCountryFieldChange}
           selectValue={country}
           countryList={countryList}
-          onChange={onChange}
-          myRef={value}
           handleFieldChange={handleFieldChange}
           onClick={onClick}
           for="status"

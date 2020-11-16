@@ -1,14 +1,10 @@
 import React from "react";
 import FormButton from "./FormButton";
-import { useForm } from "react-hook-form";
-import ErrorMessage from "../Subscriptions/ErrorMessage";
 import CustomMultipleStatusSelect from "./CustomMultipleSelect";
 import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
 
 type FormCountryStatusProps = {
   onClick: any;
-  onChange: any;
-  myRef: any;
   handleFieldChange: any;
   for: string;
   id: string;
@@ -19,8 +15,6 @@ type FormCountryStatusProps = {
   selectValue: string;
 };
 export default function CustomFormCountryStatus(props: FormCountryStatusProps) {
-  const { handleSubmit, errors } = useForm();
-
   return (
     <div>
       <form className="w-full max-w-sm shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -56,14 +50,9 @@ export default function CustomFormCountryStatus(props: FormCountryStatusProps) {
         <div className="md:flex md:items-center">
           <div className="md:w-1/3"></div>
           <div className="md:w-2/3">
-            <FormButton
-              onClick={handleSubmit(props.onClick)}
-              type="button"
-              value="Submit"
-            />
+            <FormButton onClick={props.onClick} type="button" value="Submit" />
           </div>
         </div>
-        {errors.country && <ErrorMessage error="Invalid country selected!" />}
       </form>
       <p className="text-center text-gray-500 text-xs">
         &copy;2020 Acme Corp. All rights reserved.

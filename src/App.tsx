@@ -12,7 +12,6 @@ import LogRocket from "logrocket";
 import setupLogRocketReact from "logrocket-react";
 import TotalCases from "./Pages/RankPage/TotalCases";
 import DailyCases from "./Pages/RankPage/DailyCases";
-import LiveAfterDate from "./Pages/LivePage/LiveAfterDate";
 
 import DayOne from "./Pages/DayOnePage/DayOne";
 import LiveDailyCountry from "./Pages/LivePage/LiveDailyCountry";
@@ -65,7 +64,8 @@ function App() {
         <Route exact path="/rank/total" component={TotalCases} />
         <Route exact path="/rank/daily" component={DailyCases} />
         <Route exact path="/dayone" component={DayOne} />
-        <Route exact path="/live/after/date" component={LiveAfterDate} />
+        {/**        <Route exact path="/live/after/date" component={LiveAfterDate} />
+         */}
         <Route exact path="/live/daily/country" component={LiveDailyCountry} />
         <Route exact path="/live/total" component={LiveTotal} />
 

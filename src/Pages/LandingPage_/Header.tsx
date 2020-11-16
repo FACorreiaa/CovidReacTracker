@@ -32,9 +32,11 @@ export default function Header() {
             <option className="bg-transparent" value="live/total">
               {t("live.totalTitle")}
             </option>
-            <option className="bg-transparent" value="live/after/date">
+            {/**
+             * <option className="bg-transparent" value="live/after/date">
               {t("live.totalAfter")}
             </option>
+             */}
             <option className="bg-transparent" value="live/daily/country">
               {t("live.totalCountry")}
             </option>
