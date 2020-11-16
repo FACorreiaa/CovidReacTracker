@@ -1,5 +1,8 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
+import FormButton from "./FormButton";
+import ErrorMessage from "../Subscriptions/ErrorMessage";
 type Props = {
   onClick: any;
   label: string;
@@ -15,6 +18,8 @@ type Props = {
 };
 
 export default function CustomDayOneTemplate(props: Props) {
+  const { handleSubmit, errors, register } = useForm();
+
   return (
     <div className="w-full max-w-xs">
       <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -32,11 +37,15 @@ export default function CustomDayOneTemplate(props: Props) {
               handleFieldChange={props.handleFieldChange}
               selectValue={props.selectValue}
               countryList={props.countryList}
+              ref={register({ required: true })}
+              name="selectValue"
             />
           </div>
+          {errors.selecValue && (
+            <ErrorMessage error="That country might be invalid or no country selected!" />
+          )}
         </div>
-        {/**
-         * <div className="md:flex md:items-center">
+        <div className="md:flex md:items-center">
           <div className="md:w-1/3"></div>
           <div className="md:w-2/3">
             <FormButton
@@ -46,7 +55,6 @@ export default function CustomDayOneTemplate(props: Props) {
             />
           </div>
         </div>
-         */}
       </form>
 
       <p className="text-center text-gray-500 text-xs">

@@ -22,9 +22,9 @@ function DayOne() {
 
   let value = React.useRef("");
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const country = e.target.value;
+    //const country = e.target.value;
+    value.current = e.target.value;
     console.log(country);
-    setCountry(country);
   };
   /*const onClick = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
