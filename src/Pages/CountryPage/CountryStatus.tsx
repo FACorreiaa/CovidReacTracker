@@ -21,24 +21,22 @@ export default function CountryStatus() {
   const url = `${process.env.REACT_APP_BASE_URL}/country/${country}/status/${status}`;
   const { data, error } = useSWR(url, fetcher);
 
-  let value = React.useRef("");
-
+  let countryValue = React.useRef("");
+  let statusValue = React.useRef("");
   const onClick = () => {
-    setCountry(value.current);
+    setCountry(countryValue.current);
+    setStatus(statusValue.current);
     mutate(data, false);
   };
 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    const status = e.target.value;
-    setStatus(status);
+    statusValue.current = e.target.value;
+
     //mutate(data, false);
   };
 
   const handleCountryFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const country = e.target.value;
-    console.log(country);
-    setCountry(country);
+    countryValue.current = e.target.value;
   };
 
   if (error) return <div>failed to load</div>;

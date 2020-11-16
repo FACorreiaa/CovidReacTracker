@@ -41,9 +41,6 @@ export default function CustomDayOneTemplate(props: Props) {
               name="selectValue"
             />
           </div>
-          {errors.selecValue && (
-            <ErrorMessage error="That country might be invalid or no country selected!" />
-          )}
         </div>
         <div className="md:flex md:items-center">
           <div className="md:w-1/3"></div>

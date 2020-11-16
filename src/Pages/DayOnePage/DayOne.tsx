@@ -11,7 +11,7 @@ import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle
 import { useForm } from "react-hook-form";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
-
+import ErrorMesage from "../../components/Subscriptions/ErrorMessage";
 function DayOne() {
   const countryList: any = useCountriesDropdown();
 
@@ -108,7 +108,7 @@ function DayOne() {
           placeholder="Insert Country"
           onChange={onChange}
           label="Country"
-          onClick={handleSubmit(onClick)}
+          onClick={onClick}
         />
       </CustomSecondaryContainer>
 

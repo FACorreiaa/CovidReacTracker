@@ -27,7 +27,8 @@ export default function LiveAfterDate() {
   const url = `${process.env.REACT_APP_BASE_URL}/country/total/${country}/status/${status}/date/live?from=${selectedFromDate}&to=${selectedToDate}`;
   const { data, error } = useSWR(url, fetcher);
 
-  let value = React.useRef("");
+  let countryValue = React.useRef("");
+  let statusValue = React.useRef("");
 
   /*const onClick = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,19 +38,24 @@ export default function LiveAfterDate() {
     [data]
   );*/
   const onClick = () => {
-    setCountry(value.current);
+    const toIsoDate = formatISO(valueToDate);
+    const fromIsoDate = formatISO(valueFromDate);
+    setSelectedFromDate(fromIsoDate);
+    setSelectedToDate(toIsoDate);
+    setCountry(countryValue.current);
+    setStatus(statusValue.current);
+
     mutate(data, false);
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    value.current = e.target.value;
+  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    statusValue.current = e.target.value;
+
+    //mutate(data, false);
   };
 
   const handleCountryFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const country = e.target.value;
-    console.log(country);
-    setCountry(country);
+    countryValue.current = e.target.value;
   };
 
   if (error) return <div>failed to load</div>;
@@ -57,20 +63,10 @@ export default function LiveAfterDate() {
 
   const onFromChange = (date: Date) => {
     setValueFromDate(date);
-    const isoDate = formatISO(date);
-    setSelectedFromDate(isoDate);
   };
 
   const onToChange = (date: Date) => {
     setValueToDate(date);
-    const isoDate = formatISO(date);
-    setSelectedToDate(isoDate);
-  };
-
-  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    const status = e.target.value;
-    setStatus(status);
   };
 
   const dataSource = {
@@ -119,8 +115,6 @@ export default function LiveAfterDate() {
           valueFromDate={valueFromDate}
           valueToDate={valueToDate}
           onToChange={onToChange}
-          myRef={value}
-          onChange={onChange}
           onClick={onClick}
           type="text"
           id="country"

@@ -12,8 +12,6 @@ type LiveTotalProps = {
   valueToDate: any;
   onFromChange: any;
   valueFromDate: any;
-  onChange: any;
-  myRef: any;
   for: string;
   handleFieldChange: any;
   id: string;

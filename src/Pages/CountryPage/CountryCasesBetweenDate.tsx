@@ -30,14 +30,19 @@ export default function CountryCasesBetweenDates() {
   let value = React.useRef("");
 
   const onClick = () => {
+    const fromIsoDate = formatISO(valueFromDate);
+    const toIsoDate = formatISO(valueToDate);
+    setSelectedToDate(toIsoDate);
+    setSelectedFromDate(fromIsoDate);
     setCountry(value.current);
+
     mutate(data, false);
   };
 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const country = e.target.value;
+    //const country = e.target.value;
+    value.current = e.target.value;
     console.log(country);
-    setCountry(country);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,14 +55,10 @@ export default function CountryCasesBetweenDates() {
 
   const onFromChange = (date: Date) => {
     setValueFromDate(date);
-    const isoDate = formatISO(date);
-    setSelectedFromDate(isoDate);
   };
 
   const onToChange = (date: Date) => {
     setValueToDate(date);
-    const isoDate = formatISO(date);
-    setSelectedToDate(isoDate);
   };
 
   const dataSource = {
