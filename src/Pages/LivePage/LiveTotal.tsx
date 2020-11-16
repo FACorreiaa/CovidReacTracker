@@ -10,6 +10,8 @@ import { CountrySummary } from "../../Interface/CountrySummary";
 import CustomReactTailWindDatePicker from "../../components/DatePicker/CustomReactTailWindDatePicker";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomFormTemplate from "../../components/Form/FormTemplate";
+import { differenceInCalendarDays, format, parseISO } from "date-fns";
+import { getNumberOfDays } from "../../function/numberOfDays";
 
 export default function LiveAfterDate() {
   const [selectedFromDate, setSelectedFromDate] = React.useState("");
@@ -31,8 +33,8 @@ export default function LiveAfterDate() {
   const onClick = () => {
     const from = formatISO(valueFromDate);
     const to = formatISO(valueToDate);
-    setSelectedToDate(from);
-    setSelectedFromDate(to);
+    setSelectedToDate(to);
+    setSelectedFromDate(from);
   };
 
   if (error) return <div>failed to load</div>;
@@ -50,7 +52,11 @@ export default function LiveAfterDate() {
   };*/
 
   const dataSource = {
-    labels: ["Total cases around the world since day one"],
+    labels:
+      !selectedFromDate && !selectedToDate
+        ? null
+        : getNumberOfDays(valueFromDate, valueToDate),
+
     datasets: [
       {
         label: "Total Recovered",
@@ -133,7 +139,6 @@ export default function LiveAfterDate() {
         <CustomSummaryTitle />
         <CustomWIPTotalTitle />
       </CustomSecondaryContainer>
-
       <CustomSecondaryContainer>
         <CustomFormTemplate onClick={onClick}>
           <CustomReactTailWindDatePicker
@@ -150,7 +155,6 @@ export default function LiveAfterDate() {
           />
         </CustomFormTemplate>
       </CustomSecondaryContainer>
-
       {data[0].name && (
         <CustomSecondaryContainer>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">

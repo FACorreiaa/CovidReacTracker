@@ -2,17 +2,12 @@ import React, { useState } from "react";
 import CountrySubForm from "./ChildCountrySub";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import { postCountrySub } from "../../services/SubscriptionService";
-import ErrorMessage from "./ErrorMessage";
-import { useForm } from "react-hook-form";
 
 export default function CountrySub() {
   const countryList = useCountriesDropdown();
   const [country, setCountry] = useState("");
-  const [value, setValue] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const [countryEmail, setCountryEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const { handleSubmit } = useForm();
 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const country = e.target.value;
@@ -29,7 +24,7 @@ export default function CountrySub() {
     return setCountryEmail(countryEmail);
   };
 
-  const handleCountrySubmit = async (e: React.FormEvent<HTMLInputElement>) => {
+  const handleCountrySubmit = async () => {
     //e.preventDefault();
     let obj = {
       email: countryEmail,
@@ -41,7 +36,6 @@ export default function CountrySub() {
       setLoading(true);
       await postCountrySub(obj);
       console.log(obj);
-      setSubmitted(true);
       setLoading(false);
     } catch (err) {
       console.log(err);
