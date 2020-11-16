@@ -13,6 +13,7 @@ import { ICountryStatus } from "../../Interface/CountryStatus";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomFormCountryStatusDates from "../../components/Form/FormCountryStatusDates";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
+import { getNumberOfDays } from "../../function/numberOfDays";
 
 export default function LiveAfterDate() {
   const countryList: any = useCountriesDropdown();
@@ -74,9 +75,9 @@ export default function LiveAfterDate() {
 
   const dataSource = {
     labels:
-      country === "" || !data[0]
+      !selectedFromDate && !selectedToDate
         ? null
-        : data[0].name.map((n: ILiveData) => format(parseISO(n.Date), "PPPP")),
+        : getNumberOfDays(valueFromDate, valueToDate),
     datasets: [
       {
         label: "Deaths",

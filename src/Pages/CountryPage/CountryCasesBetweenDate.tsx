@@ -13,6 +13,7 @@ import { ICountryTotal } from "../../Interface/CountryStatus";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomFormCountryDates from "../../components/Form/FormCountryDates";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
+import { getNumberOfDays } from "../../function/numberOfDays";
 
 export default function CountryCasesBetweenDates() {
   const countryList: any = useCountriesDropdown();
@@ -60,9 +61,10 @@ export default function CountryCasesBetweenDates() {
   };
 
   const dataSource = {
-    labels: !country
-      ? null
-      : data[0].name.map((n: ILiveData) => format(parseISO(n.Date), "PPPP")),
+    labels:
+      !selectedFromDate && !selectedToDate
+        ? null
+        : getNumberOfDays(valueFromDate, valueToDate),
     datasets: [
       {
         label: "Active",

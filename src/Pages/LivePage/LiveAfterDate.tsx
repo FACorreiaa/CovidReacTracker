@@ -22,19 +22,13 @@ export default function LiveAfterDate() {
   let value = React.useRef("");
 
   const onClick = () => {
-    setCountry(value.current);
-    mutate(data, false);
-  };
-
-  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const country = e.target.value;
-    console.log(country);
+    const country = value.current;
     setCountry(country);
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
+  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     value.current = e.target.value;
+    //setCountry(country);
   };
 
   const onDateChange = (date: Date) => {
@@ -115,10 +109,6 @@ export default function LiveAfterDate() {
           onAfterChange={onDateChange}
           valueAfterDate={inputValue}
           onClick={onClick}
-          onChange={onChange}
-          myRef={value}
-          type="text"
-          id="country"
         />
       </CustomSecondaryContainer>
 

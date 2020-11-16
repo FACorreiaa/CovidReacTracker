@@ -155,7 +155,7 @@ export default function LiveAfterDate() {
           />
         </CustomFormTemplate>
       </CustomSecondaryContainer>
-      {data[0].name && (
+      {data[0].name && selectedFromDate && selectedToDate && (
         <CustomSecondaryContainer>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line

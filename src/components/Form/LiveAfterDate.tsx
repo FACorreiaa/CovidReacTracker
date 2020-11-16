@@ -9,18 +9,11 @@ type LiveTotalProps = {
   onClick: any;
   onAfterChange: any;
   valueAfterDate: any;
-  onChange: any;
-  myRef: any;
-  id: string;
-  type: string;
-
   handleFieldChange: any;
   countryList: [];
   selectValue: string;
 };
 export default function LiveAfterDateForm(props: LiveTotalProps) {
-  const { handleSubmit, errors } = useForm();
-
   return (
     <div>
       <form className="w-full max-w-sm shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -57,14 +50,9 @@ export default function LiveAfterDateForm(props: LiveTotalProps) {
         <div className="md:flex md:items-center">
           <div className="md:w-1/3"></div>
           <div className="md:w-2/3">
-            <FormButton
-              onClick={handleSubmit(props.onClick)}
-              type="button"
-              value="Submit"
-            />
+            <FormButton onClick={props.onClick} type="button" value="Submit" />
           </div>
         </div>
-        {errors.country && <ErrorMessage error="Invalid country selected!" />}
       </form>
       <p className="text-center text-gray-500 text-xs">
         &copy;2020 Acme Corp. All rights reserved.

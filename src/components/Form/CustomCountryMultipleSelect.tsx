@@ -15,10 +15,6 @@ export default function CustomCountryMultipleSelect(props: Props) {
         id="grid-state"
         name="selectValue"
       >
-        <option value="" selected disabled hidden>
-          Select a country
-        </option>
-
         {props.countryList.map((selectValue) => {
           return (
             <option className="" value={selectValue}>
