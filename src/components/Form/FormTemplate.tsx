@@ -1,4 +1,5 @@
 import React from "react";
+import CustomAuthorMessage from "../ErrorMessages/AuthorMessage";
 import FormButton from "./FormButton";
 
 type Props = {
@@ -19,9 +20,7 @@ export default function CustomFormTemplate(props: Props) {
         </div>
       </form>
 
-      <p className="text-center text-gray-500 text-xs">
-        &copy;2020 Acme Corp. All rights reserved.
-      </p>
+      <CustomAuthorMessage />
     </div>
   );
 }

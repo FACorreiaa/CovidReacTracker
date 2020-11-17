@@ -2,6 +2,7 @@ import React from "react";
 import CustomReactTailWindDatePicker from "../DatePicker/CustomReactTailWindDatePicker";
 import FormButton from "./FormButton";
 import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
+import CustomAuthorMessage from "../ErrorMessages/AuthorMessage";
 
 type LiveTotalProps = {
   onClick: any;
@@ -52,9 +53,7 @@ export default function LiveAfterDateForm(props: LiveTotalProps) {
           </div>
         </div>
       </form>
-      <p className="text-center text-gray-500 text-xs">
-        &copy;2020 Acme Corp. All rights reserved.
-      </p>
+      <CustomAuthorMessage />
     </div>
   );
 }

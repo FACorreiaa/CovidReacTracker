@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import ErrorMessages from "../Subscriptions/ErrorMessage";
 import CustomMultipleStatusSelect from "./CustomMultipleSelect";
 import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
+import CustomAuthorMessage from "../ErrorMessages/AuthorMessage";
 
 type LiveTotalProps = {
   onClick: any;
@@ -98,9 +99,7 @@ export default function CustomFormCountryStatusDates(props: LiveTotalProps) {
         </div>
         {errors.country && <ErrorMessages error="Invalid country selected!" />}
       </form>
-      <p className="text-center text-gray-500 text-xs">
-        &copy;2020 Acme Corp. All rights reserved.
-      </p>
+      <CustomAuthorMessage />
     </div>
   );
 }

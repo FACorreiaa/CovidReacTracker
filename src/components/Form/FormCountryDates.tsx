@@ -4,6 +4,7 @@ import FormButton from "./FormButton";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "../Subscriptions/ErrorMessage";
 import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
+import CustomAuthorMessage from "../ErrorMessages/AuthorMessage";
 
 type LiveTotalProps = {
   onClick: any;
@@ -83,9 +84,7 @@ export default function CustomFormCountryDates(props: LiveTotalProps) {
         </div>
         {errors.country && <ErrorMessage error="Invalid country selected!" />}
       </form>
-      <p className="text-center text-gray-500 text-xs">
-        &copy;2020 Acme Corp. All rights reserved.
-      </p>
+      <CustomAuthorMessage />
     </div>
   );
 }

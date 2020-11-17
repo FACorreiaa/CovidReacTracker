@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import CustomFormButton from "../Button/CustomFormButton";
 import CustomReactTailWindDatePicker from "../DatePicker/CustomReactTailWindDatePicker";
+import CustomAuthorMessage from "../ErrorMessages/AuthorMessage";
 import CustomErrorMessage from "../ErrorMessages/ErrorMessage";
 import CustomInputCountryForm from "./CustomInput";
 
@@ -60,9 +61,7 @@ export default function CustomAfterDateFormTemplate(props: Props) {
         </div>
       </form>
 
-      <p className="text-center text-gray-500 text-xs">
-        &copy;2020 Acme Corp. All rights reserved.
-      </p>
+      <CustomAuthorMessage />
     </div>
   );
 }

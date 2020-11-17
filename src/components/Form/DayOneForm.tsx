@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
 import FormButton from "./FormButton";
 import ErrorMessage from "../Subscriptions/ErrorMessage";
+import CustomAuthorMessage from "../ErrorMessages/AuthorMessage";
 type Props = {
   onClick: any;
   label: string;
@@ -54,9 +55,7 @@ export default function CustomDayOneTemplate(props: Props) {
         </div>
       </form>
 
-      <p className="text-center text-gray-500 text-xs">
-        &copy;2020 Acme Corp. All rights reserved.
-      </p>
+      <CustomAuthorMessage />
     </div>
   );
 }

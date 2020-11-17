@@ -2,6 +2,7 @@ import React from "react";
 import FormButton from "./FormButton";
 import CustomMultipleStatusSelect from "./CustomMultipleSelect";
 import CustomCountryMultipleSelect from "./CustomCountryMultipleSelect";
+import CustomAuthorMessage from "../ErrorMessages/AuthorMessage";
 
 type FormCountryStatusProps = {
   onClick: any;
@@ -54,9 +55,7 @@ export default function CustomFormCountryStatus(props: FormCountryStatusProps) {
           </div>
         </div>
       </form>
-      <p className="text-center text-gray-500 text-xs">
-        &copy;2020 Acme Corp. All rights reserved.
-      </p>
+      <CustomAuthorMessage />
     </div>
   );
 }

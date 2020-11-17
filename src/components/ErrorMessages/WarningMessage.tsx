@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CustomWarningMessage() {
   return (
-    <div className="flex items-center text-center font-semibold shadow">
+    <div className="shadow-md rounded flex items-center text-center font-semibold text-orange-500 border">
       <span>Insert you data to view results</span>
       <i className="fas fa-exclamation"></i>
     </div>
