@@ -11,11 +11,10 @@ import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle
 import { useForm } from "react-hook-form";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
-import ErrorMesage from "../../components/Subscriptions/ErrorMessage";
+import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 function DayOne() {
   const countryList: any = useCountriesDropdown();
 
-  const { handleSubmit } = useForm();
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/dayone/all/total/country/${country}`;
   const { data, error } = useSWR(url, fetcher);
@@ -111,11 +110,10 @@ function DayOne() {
           onClick={onClick}
         />
       </CustomSecondaryContainer>
-
-      {!country ? (
-        ""
-      ) : (
-        <CustomSecondaryContainer>
+      <CustomSecondaryContainer>
+        {!country ? (
+          <CustomWarningMessage />
+        ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Bar
               data={dataSource}
@@ -126,8 +124,8 @@ function DayOne() {
               }}
             />
           </div>
-        </CustomSecondaryContainer>
-      )}
+        )}
+      </CustomSecondaryContainer>
     </div>
   );
 }

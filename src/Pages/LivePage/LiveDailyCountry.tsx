@@ -8,6 +8,7 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import { useForm } from "react-hook-form";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
+import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 
 export default function LiveDailyCountry() {
   const countryList: any = useCountriesDropdown();
@@ -60,7 +61,7 @@ export default function LiveDailyCountry() {
         <div className="py-5">
           <div className="h-full overflow-y-auto">
             <div className="container  mx-auto grid">
-              {country.length &&
+              {country.length > 0 ? (
                 data.map((d: any) => {
                   return (
                     <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
@@ -98,7 +99,10 @@ export default function LiveDailyCountry() {
                       />
                     </div>
                   );
-                })}
+                })
+              ) : (
+                <CustomWarningMessage />
+              )}
             </div>
           </div>
         </div>

@@ -21,7 +21,13 @@ export default function CustomMultipleStatusSelect(props: Props) {
           className=" shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
           id="grid-state"
         >
-          <option value="" selected disabled hidden>
+          <option
+            value=""
+            defaultValue="Select a Status"
+            selected
+            disabled
+            hidden
+          >
             Select a status
           </option>
           {["confirmed", "recovered", "deaths"].map((value) => {

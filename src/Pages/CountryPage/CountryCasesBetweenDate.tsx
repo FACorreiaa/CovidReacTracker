@@ -4,9 +4,6 @@ import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
 import formatISO from "date-fns/formatISO";
 import { Line } from "react-chartjs-2";
-import { ILiveData } from "../../Interface/LiveData";
-import { format } from "date-fns";
-import { parseISO } from "date-fns/fp";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import { ICountryTotal } from "../../Interface/CountryStatus";
@@ -14,6 +11,7 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import CustomFormCountryDates from "../../components/Form/FormCountryDates";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import { getNumberOfDays } from "../../function/numberOfDays";
+import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 
 export default function CountryCasesBetweenDates() {
   const countryList: any = useCountriesDropdown();
@@ -136,9 +134,8 @@ export default function CountryCasesBetweenDates() {
           type="country"
         />
       </CustomSecondaryContainer>
-
-      {country.length && data[0].name && (
-        <CustomSecondaryContainer>
+      <CustomSecondaryContainer>
+        {country.length && data[0].name ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}
@@ -148,10 +145,11 @@ export default function CountryCasesBetweenDates() {
                 maintainAspectRatio: true,
               }}
             />
-            {console.log(data)}
           </div>
-        </CustomSecondaryContainer>
-      )}
+        ) : (
+          <CustomWarningMessage />
+        )}
+      </CustomSecondaryContainer>
     </div>
   );
 }

@@ -12,6 +12,7 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import CustomFormCountryStatus from "../../components/Form/FormCountryStatus";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
+import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 
 export default function CountryStatus() {
   const countryList: any = useCountriesDropdown();
@@ -88,9 +89,8 @@ export default function CountryStatus() {
           id="country"
         />
       </CustomSecondaryContainer>
-
-      {country.length && data[0].name && (
-        <CustomSecondaryContainer>
+      <CustomSecondaryContainer>
+        {country.length && data[0].name ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}
@@ -101,8 +101,10 @@ export default function CountryStatus() {
               }}
             />
           </div>
-        </CustomSecondaryContainer>
-      )}
+        ) : (
+          <CustomWarningMessage />
+        )}
+      </CustomSecondaryContainer>
     </div>
   );
 }

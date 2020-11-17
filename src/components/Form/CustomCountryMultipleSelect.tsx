@@ -18,6 +18,15 @@ export default function CustomCountryMultipleSelect(props: Props) {
         name={props.name}
         ref={props.ref}
       >
+        <option
+          value=""
+          defaultValue="Select a Country"
+          selected
+          disabled
+          hidden
+        >
+          Select a Country
+        </option>
         {props.countryList.map((selectValue) => {
           return (
             <option className="" value={selectValue}>
