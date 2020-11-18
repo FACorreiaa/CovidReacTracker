@@ -63,18 +63,7 @@ export default function CustomCountryTitle(props: Props) {
                       value={d.TotalRecovered}
                     />
                     <div></div>
-                    <CustomCard
-                      icon="fas fa-check w-5 h-5 pr-2"
-                      title={"New Active"}
-                      value={d.NewConfirmed - d.NewRecovered - d.NewDeaths}
-                    />
-                    <CustomCard
-                      icon="fas fa-check w-5 h-5 pr-2"
-                      title={"Total Active"}
-                      value={
-                        d.TotalConfirmed - d.TotalRecovered - d.TotalDeaths
-                      }
-                    />
+
                     <CustomCard
                       icon="fas fa-skull-crossbones w-5 h-5 pr-2"
                       title={"Fatality Ratio"}
