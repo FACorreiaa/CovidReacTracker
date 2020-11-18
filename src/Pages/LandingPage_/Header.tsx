@@ -81,6 +81,7 @@ export default function Header() {
         <li className="inline p-nav-25">
           <Link to="/subscribe"> {t("subscribe")}</Link>
         </li>
+
         <div className="inline p-nav-25">
           <button
             className="logo focus:outline-none"

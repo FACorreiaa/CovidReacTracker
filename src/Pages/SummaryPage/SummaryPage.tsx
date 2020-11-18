@@ -27,6 +27,9 @@ function SummaryPage() {
               totalConfirmed={d.TotalConfirmed.toString()}
               totalDeaths={d.TotalDeaths.toString()}
               totalRecovered={d.TotalRecovered.toString()}
+              fatalityRatio={(
+                Number(d.TotalDeaths) / Number(d.NewConfirmed)
+              ).toString()}
             />
           </>
         ))}
