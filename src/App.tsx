@@ -29,6 +29,8 @@ import SectionInfo from "./Pages/LandingPage_/SectionInfo";
 import CustomButton from "./components/Button/CustomButton";
 import SubscribePage from "./Pages/SubscribePage/Subscribe";
 import TravelPage from "./Pages/TravelPage/TravelPage";
+import CountryStatInfo from "./Pages/StatisticsPage/CountryStatInfo";
+import CountryStatData from "./Pages/StatisticsPage/CountryStatData";
 
 LogRocket.init("covidtracker/covidreactracker");
 setupLogRocketReact(LogRocket);
@@ -85,6 +87,17 @@ function App() {
         <Route exact path="/contact" component={ContactPage} />
         <Route exact path="/subscribe" component={SubscribePage} />
         <Route exact path="/travel" component={TravelPage} />
+        <Route
+          exact
+          path="/statistics/country/info"
+          component={CountryStatInfo}
+        />
+        <Route
+          exact
+          path="/statistics/country/data"
+          component={CountryStatData}
+        />
+
         <Footer />
       </BrowserRouter>
     </Router>

@@ -49,11 +49,11 @@ export default function Header() {
             id="top"
             className="bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
           >
-            <option className="bg-transparent" value="rank/daily">
-              {t("rank.dailyTop")}
+            <option className="bg-transparent" value="statistics/country/info">
+              {t("statistics.info")}
             </option>
-            <option className="bg-transparent" value="rank/total">
-              {t("rank.generalTop")}
+            <option className="bg-transparent" value="statistics/country/stats">
+              {t("statistics.data")}
             </option>
           </select>
         </li>
