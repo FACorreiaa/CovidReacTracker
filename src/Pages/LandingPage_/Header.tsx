@@ -29,13 +29,9 @@ export default function Header() {
             id="live"
             className="w-40 bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
           >
-            <option
-              value=""
-              defaultValue="Live"
-              selected
-              disabled
-              hidden
-            ></option>
+            <option value="" defaultValue="Live Total" selected disabled hidden>
+              {t("live.title")}
+            </option>
             <option className="bg-transparent" value="live/total">
               {t("live.totalTitle")}
             </option>
@@ -56,13 +52,9 @@ export default function Header() {
             id="top"
             className="bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
           >
-            <option
-              value=""
-              defaultValue="Statistics"
-              selected
-              disabled
-              hidden
-            ></option>
+            <option value="" defaultValue="Statistics" selected disabled hidden>
+              {t("statistics.title")}
+            </option>
             <option className="bg-transparent" value="statistics/country/info">
               {t("statistics.info")}
             </option>
@@ -87,13 +79,9 @@ export default function Header() {
             id="country"
             className="w-64 bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
           >
-            <option
-              value=""
-              defaultValue="Country"
-              selected
-              disabled
-              hidden
-            ></option>
+            <option value="" defaultValue="Country" selected disabled hidden>
+              {t("country.title")}
+            </option>
             <option className="bg-transparent" value="country/total">
               {t("country.total")}
             </option>
@@ -115,13 +103,9 @@ export default function Header() {
             id="hospital"
             className="w-64 bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
           >
-            <option
-              value=""
-              defaultValue="hospital"
-              selected
-              disabled
-              hidden
-            ></option>
+            <option value="" defaultValue="hospital" selected disabled hidden>
+              {t("hospital.title")}
+            </option>
             <option className="bg-transparent" value="occupancy">
               {t("hospital.occupancy")}
             </option>

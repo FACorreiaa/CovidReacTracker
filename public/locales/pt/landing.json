@@ -2,6 +2,7 @@
   "summaryTitle": "Sumário",
   "dayOneTitle": "Dia um",
   "live": {
+    "title": "Atualizado",
     "totalTitle": "Total atualizado",
     "totalAfter": "Após data atualizado",
     "totalCountry": "Dados por pais atualizado"
@@ -11,6 +12,7 @@
     "generalTop": "Top 10 geral"
   },
   "country": {
+    "Country": "Pais",
     "total": "Total por pais",
     "status": "Total por status",
     "casesBetween": "Casos por pais entre datas",
@@ -19,10 +21,12 @@
   "subscribe": "Subscrever",
   "about": "Sobre mim",
   "statistics": {
+    "title": "Estatisticas",
     "info": "Informação estatistica por pais",
     "data": "Dados estatisticos por pais"
   },
   "hospital": {
+    "title": "Hospital",
     "occupancy": "Ocupação",
     "occupancyMillion": "Ocupação por milhão",
     "admissions": "Admissões",

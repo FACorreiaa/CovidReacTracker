@@ -2,6 +2,7 @@
   "summaryTitle": "Summary",
   "dayOneTitle": "Day One",
   "live": {
+    "title": "Live",
     "totalTitle": "Live Total",
     "totalAfter": "Live After",
     "totalCountry": "Live Daily Country"
@@ -11,6 +12,7 @@
     "generalTop": "Total Top 10"
   },
   "country": {
+    "title": "Country",
     "total": "Country Total",
     "status": "Country by status",
     "casesBetween": "Country Cases between dates",
@@ -19,11 +21,12 @@
   "subscribe": "Subscribe",
   "about": "About me",
   "statistics": {
-    "info": "Statistics Info by Country",
+    "title": "Statistics",
     "new": "Statistics New Data by Country",
     "total": "Statistics total Data by Country"
   },
   "hospital": {
+    "title": "Hospital",
     "occupancy": "Occupancy",
     "occupancyMillion": "Occupancy Per Million",
     "admissions": "Admissions",
