@@ -28,7 +28,6 @@ export default function LiveDailyCountry() {
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     //const country = e.target.value;
     value.current = e.target.value;
-    console.log(country);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

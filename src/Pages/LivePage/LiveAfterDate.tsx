@@ -30,7 +30,6 @@ export default function LiveAfterDate() {
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     //const country = e.target.value;
     value.current = e.target.value;
-    console.log(country);
   };
 
   const onDateChange = (date: Date) => {
@@ -122,7 +121,6 @@ export default function LiveAfterDate() {
                 maintainAspectRatio: true,
               }}
             />
-            {console.log(data)}
           </div>
         </CustomSecondaryContainer>
       )}

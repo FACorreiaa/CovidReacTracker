@@ -30,7 +30,12 @@ import CustomButton from "./components/Button/CustomButton";
 import SubscribePage from "./Pages/SubscribePage/Subscribe";
 import TravelPage from "./Pages/TravelPage/TravelPage";
 import CountryStatInfo from "./Pages/StatisticsPage/CountryStatInfo";
-import CountryStatData from "./Pages/StatisticsPage/CountryStatData";
+import CountryStatNewData from "./Pages/StatisticsPage/CountryStatNewData";
+import CountryStatTotalData from "./Pages/StatisticsPage/CountryStatTotalData";
+import OccupancyPage from "./Pages/HospitalPage/OccupancyPage";
+import AdmissionsPage from "./Pages/HospitalPage/AdmissionsPage";
+import AdmissionsMillionPage from "./Pages/HospitalPage/AdmissionsMillionPage";
+import OccupancyMillionPage from "./Pages/HospitalPage/OccupancyMillionPage";
 
 LogRocket.init("covidtracker/covidreactracker");
 setupLogRocketReact(LogRocket);
@@ -94,8 +99,26 @@ function App() {
         />
         <Route
           exact
-          path="/statistics/country/data"
-          component={CountryStatData}
+          path="/statistics/country/data/new"
+          component={CountryStatNewData}
+        />
+        <Route
+          exact
+          path="/statistics/country/data/total"
+          component={CountryStatTotalData}
+        />
+        <Route exact path="/occupancy" component={OccupancyPage} />
+        <Route
+          exact
+          path="/occupancy/million"
+          component={OccupancyMillionPage}
+        />
+
+        <Route exact path="/admissions" component={AdmissionsPage} />
+        <Route
+          exact
+          path="/admissions/million"
+          component={AdmissionsMillionPage}
         />
 
         <Footer />

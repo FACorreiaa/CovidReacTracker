@@ -11,7 +11,7 @@ export default function CountrySub() {
 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const country = e.target.value;
-    console.log(country);
+
     setCountry(country);
   };
 
@@ -19,7 +19,6 @@ export default function CountrySub() {
     //const { name, value } = e.target;
     //setData({ ...data, [name]: value });
     const countryEmail = e.target.value;
-    console.log(countryEmail);
 
     return setCountryEmail(countryEmail);
   };
@@ -35,10 +34,8 @@ export default function CountrySub() {
     try {
       setLoading(true);
       await postCountrySub(obj);
-      console.log(obj);
       setLoading(false);
     } catch (err) {
-      console.log(err);
       setLoading(false);
     }
   };

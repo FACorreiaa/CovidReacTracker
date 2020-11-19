@@ -17,5 +17,16 @@
     "statusBetween": "Country status between dates"
   },
   "subscribe": "Subscribe",
-  "about": "About me"
+  "about": "About me",
+  "statistics": {
+    "info": "Statistics Info by Country",
+    "new": "Statistics New Data by Country",
+    "total": "Statistics total Data by Country"
+  },
+  "hospital": {
+    "occupancy": "Occupancy",
+    "occupancyMillion": "Occupancy Per Million",
+    "admissions": "Admissions",
+    "admissionsMillion": "Admissions Per Million"
+  }
 }

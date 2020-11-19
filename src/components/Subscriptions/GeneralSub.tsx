@@ -37,7 +37,6 @@ export default function GeneralSub() {
       setRes({ data: result.data });
       setLoading(false);
     } catch (err) {
-      console.log(err);
       setLoading(false);
     }
   };

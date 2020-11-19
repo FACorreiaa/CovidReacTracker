@@ -13,9 +13,7 @@ function DailyConfirmed() {
   let index = 1;
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
-  console.log("DATA", data);
   const result = data.map((res: any) => res.countrySummary);
-  console.log("result", result);
   return (
     <div className="flex flex-col">
       <h5 className="text-center font-bold">Top 10 Today Confirmed Cases</h5>

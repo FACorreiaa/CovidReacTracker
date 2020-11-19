@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { fetcher } from "../../services/config/http-common";
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 import Loading from "../../components/Loading/Loading";
-import { IDayOne } from "../../Interface/Dayone";
-import { Bar } from "react-chartjs-2";
-import { format, parseISO } from "date-fns";
+import { Line } from "react-chartjs-2";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
-function DayOne() {
+import ErrorMessage from "../../components/Subscriptions/ErrorMessage";
+import { HospitalData } from "../../Interface/HospitalData";
+export default function AdmissionsPage() {
   const countryList: any = useCountriesDropdown();
 
   const [country, setCountry] = useState("");
-  const url = `${process.env.REACT_APP_BASE_URL}/dayone/all/total/country/${country}`;
-  const { data, error } = useSWR(url, fetcher);
+  const url = `${process.env.REACT_APP_BASE_URL}/hospital/country/admissions/${country}`;
+  const { data, error, mutate } = useSWR(url, fetcher);
 
   let value = React.useRef("");
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +32,7 @@ function DayOne() {
   );*/
   const onClick = () => {
     setCountry(value.current);
-    mutate(data, false);
+    mutate(data);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,46 +45,34 @@ function DayOne() {
 
   //format(parseISO(`${d.createdAt}`), "PPPPpppp")
   const dataSource = {
-    labels:
-      !country || !data[0]
-        ? null
-        : data[0].name.map((n: IDayOne) => format(parseISO(n.Date), "PPPP")),
+    labels: !data[0] ? null : data[0].country.map((n: HospitalData) => n.Year),
+
     datasets: [
       {
-        label: "Active",
-        backgroundColor: "rgba(240, 240, 214, 1)",
-        borderColor: "rgba(247, 202, 24, 1)",
+        label: "Weekly New Hospital Admissions",
+        backgroundColor: "rgba(20, 85, 118, 1)",
+        borderColor: "rgba(20, 85, 118, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(240, 240, 214, 1)",
-        hoverBorderColor: "rgba(247, 202, 24, 1)",
-        data:
-          !country || !data[0]
-            ? null
-            : data[0].name.map((n: IDayOne) => n.Active),
+        hoverBackgroundColor: "rgba(20, 85, 118, 1)",
+        hoverBorderColor: "rgba(20, 85, 118, 1)",
+        data: !data[0]
+          ? null
+          : data[0].country.map(
+              (n: HospitalData) => n.Weekly_new_hospital_admissions
+            ),
       },
       {
-        label: "Recovered",
-        backgroundColor: "rgba(41, 241, 195, 1)",
-        borderColor: "rgba(123, 239, 178, 1)",
+        label: "Weely New ICU Admissions",
+        backgroundColor: "rgba(85, 20, 118, 1)",
+        borderColor: "rgba(85, 20, 118, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(41, 241, 195, 1)",
-        hoverBorderColor: "rgba(123, 239, 178, 1)",
-        data:
-          !country || !data[0]
-            ? null
-            : data[0].name.map((n: IDayOne) => n.Recovered),
-      },
-      {
-        label: "Deaths",
-        backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
-        borderWidth: 1,
-        hoverBackgroundColor: "rgba(224, 130, 131, 1)",
-        hoverBorderColor: "rgba(246, 36, 89, 1)",
-        data:
-          !country || !data[0]
-            ? null
-            : data[0].name.map((n: IDayOne) => n.Deaths),
+        hoverBackgroundColor: "rgba(85, 20, 118, 1)",
+        hoverBorderColor: "rgba(85, 20, 118, 1)",
+        data: !data[0]
+          ? null
+          : data[0].country.map(
+              (n: HospitalData) => n.Weekly_new_ICU_admissions
+            ),
       },
     ],
   };
@@ -109,11 +97,13 @@ function DayOne() {
         />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        {!country ? (
-          <CustomWarningMessage />
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-            <Bar
+        {!country && <CustomWarningMessage />}
+        {country && !data[0] && (
+          <ErrorMessage error="No ICU data about that country!" />
+        )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          {data[0] && (
+            <Line
               data={dataSource}
               width={100}
               height={50}
@@ -121,11 +111,9 @@ function DayOne() {
                 maintainAspectRatio: true,
               }}
             />
-          </div>
-        )}
+          )}
+        </div>
       </CustomSecondaryContainer>
     </div>
   );
 }
-
-export default DayOne;

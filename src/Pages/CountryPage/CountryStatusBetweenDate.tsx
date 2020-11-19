@@ -129,7 +129,6 @@ export default function LiveAfterDate() {
                 maintainAspectRatio: true,
               }}
             />
-            {console.log(data)}
           </div>
         ) : (
           <CustomWarningMessage />

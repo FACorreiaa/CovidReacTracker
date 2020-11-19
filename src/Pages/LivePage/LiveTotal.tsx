@@ -165,7 +165,6 @@ export default function LiveTotal() {
                 maintainAspectRatio: true,
               }}
             />
-            {console.log(data)}
           </div>
         </CustomSecondaryContainer>
       )}

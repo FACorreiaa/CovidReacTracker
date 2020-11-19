@@ -1,35 +1,37 @@
 import React, { useState } from "react";
-import useSWR, { mutate } from "swr";
-import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
+import useSWR from "swr";
+import Loading from "../../components/Loading/Loading";
 import { Line } from "react-chartjs-2";
-import { ILiveData } from "../../Interface/LiveData";
-import { format } from "date-fns";
-import { parseISO } from "date-fns/fp";
-import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
-import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
+import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
+import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
-
-export default function CountryTotalPage() {
+import CountryData from "../../Interface/CountryData";
+export default function CountryStatNewData() {
   const countryList: any = useCountriesDropdown();
 
   const [country, setCountry] = useState("");
-  const url = `${process.env.REACT_APP_BASE_URL}/country/total/${country}`;
-  const { data, error } = useSWR(url, fetcher);
+  const url = `${process.env.REACT_APP_BASE_URL}/countrystats/country/data/${country}`;
+  const { data, error, mutate } = useSWR(url, fetcher);
 
   let value = React.useRef("");
-
-  const onClick = () => {
-    setCountry(value.current);
-    mutate(data, false);
-  };
-
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     //const country = e.target.value;
     value.current = e.target.value;
+  };
+  /*const onClick = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setCountry(value.current);
+      setValues(data);
+    },
+    [data]
+  );*/
+  const onClick = () => {
+    setCountry(value.current);
+    mutate(data);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,60 +42,62 @@ export default function CountryTotalPage() {
   if (error) return <div>failed to load</div>;
   if (!data) return <Loading />;
 
+  //format(parseISO(`${d.createdAt}`), "PPPPpppp")
   const dataSource = {
-    labels: !country
-      ? null
-      : data[0].name.map((n: ILiveData) => format(parseISO(n.Date), "PPPP")),
+    labels: !country ? null : data[0].data.map((n: CountryData) => n.date),
     datasets: [
       {
-        label: "Active",
-        backgroundColor: "rgba(240, 240, 214, 1)",
-        borderColor: "rgba(247, 202, 24, 1)",
-        borderWidth: 1,
-        hoverBackgroundColor: "rgba(240, 240, 214, 1)",
-        hoverBorderColor: "rgba(247, 202, 24, 1)",
-        data: !country ? null : data[0].name.map((n: ILiveData) => n.Active),
-      },
-      {
-        label: "Recovered",
-        backgroundColor: "rgba(41, 241, 195, 1)",
-        borderColor: "rgba(123, 239, 178, 1)",
-        borderWidth: 1,
-        hoverBackgroundColor: "rgba(41, 241, 195, 1)",
-        hoverBorderColor: "rgba(123, 239, 178, 1)",
-        data: !country ? null : data[0].name.map((n: ILiveData) => n.Recovered),
-      },
-      {
-        label: "Deaths",
+        label: "New Cases Per Million",
         backgroundColor: "rgba(224, 130, 131, 1)",
         borderColor: "rgba(246, 36, 89, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
-        data: !country ? null : data[0].name.map((n: ILiveData) => n.Deaths),
+        data: !country
+          ? null
+          : data[0].data.map((n: CountryData) => n.new_cases_per_million),
       },
       {
-        label: "Confirmed",
-        backgroundColor: "rgba(154, 18, 179, 1)",
-        borderColor: "rgba(190, 144, 212,1)",
+        label: "New Cases Smoothed Per Million",
+        backgroundColor: "rgba(224, 130, 131, 1)",
+        borderColor: "rgba(246, 36, 89, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(154, 18, 179, 1)",
-        hoverBorderColor: "rgba(190, 144, 212,1)",
-        data: !country ? null : data[0].name.map((n: ILiveData) => n.Confirmed),
+        hoverBackgroundColor: "rgba(224, 130, 131, 1)",
+        hoverBorderColor: "rgba(246, 36, 89, 1)",
+        data: !country
+          ? null
+          : data[0].data.map(
+              (n: CountryData) => n.new_cases_smoothed_per_million
+            ),
+      },
+      {
+        label: "New Deaths Smoothed Per Million",
+        backgroundColor: "rgba(224, 130, 131, 1)",
+        borderColor: "rgba(246, 36, 89, 1)",
+        borderWidth: 1,
+        hoverBackgroundColor: "rgba(224, 130, 131, 1)",
+        hoverBorderColor: "rgba(246, 36, 89, 1)",
+        data: !country
+          ? null
+          : data[0].data.map(
+              (n: CountryData) => n.new_deaths_smoothed_per_million
+            ),
+      },
+      {
+        label: "New Deaths Per Million",
+        backgroundColor: "rgba(224, 130, 131, 1)",
+        borderColor: "rgba(246, 36, 89, 1)",
+        borderWidth: 1,
+        hoverBackgroundColor: "rgba(224, 130, 131, 1)",
+        hoverBorderColor: "rgba(246, 36, 89, 1)",
+        data: !country
+          ? null
+          : data[0].data.map((n: CountryData) => n.new_deaths_per_million),
       },
     ],
   };
-
   return (
     <div>
-      {/**
-       * <CustomSecondaryContainer>
-        <CustomSummaryTitle />
-        <CustomCountryTitle country={country} />
-      </CustomSecondaryContainer>
-       * //
-       */}
-
       <CustomSecondaryContainer>
         {!country ? "" : <CustomCountryTitle country={country} />}
         <CustomSummaryTitle />
@@ -109,7 +113,6 @@ export default function CountryTotalPage() {
           placeholder="Insert Country"
           onChange={onChange}
           label="Country"
-          myRef={value}
           onClick={onClick}
         />
       </CustomSecondaryContainer>

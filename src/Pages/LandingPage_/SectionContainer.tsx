@@ -12,7 +12,6 @@ export const SectionContainer: FunctionComponent<SectionProps> = ({
       <aside className="flex flex-col justify-center"></aside>
       {children}
       <img src={process.env.PUBLIC_URL + phone} alt="phone" width="400px" />
-      {console.log("PROCESS", process.env.PUBLIC_URL)}
     </section>
   </div>
 );

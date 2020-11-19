@@ -17,5 +17,15 @@
     "statusBetween": "Por cada caso entre data"
   },
   "subscribe": "Subscrever",
-  "about": "Sobre mim"
+  "about": "Sobre mim",
+  "statistics": {
+    "info": "Informação estatistica por pais",
+    "data": "Dados estatisticos por pais"
+  },
+  "hospital": {
+    "occupancy": "Ocupação",
+    "occupancyMillion": "Ocupação por milhão",
+    "admissions": "Admissões",
+    "admissionsMillion": "Admissões por milhão"
+  }
 }

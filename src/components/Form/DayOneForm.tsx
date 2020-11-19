@@ -18,8 +18,6 @@ type Props = {
 };
 
 export default function CustomDayOneTemplate(props: Props) {
-  const { handleSubmit, register } = useForm();
-
   return (
     <div className="w-full max-w-xs">
       <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -37,7 +35,6 @@ export default function CustomDayOneTemplate(props: Props) {
               handleFieldChange={props.handleFieldChange}
               selectValue={props.selectValue}
               countryList={props.countryList}
-              ref={register({ required: true })}
               name="selectValue"
             />
           </div>
@@ -45,11 +42,7 @@ export default function CustomDayOneTemplate(props: Props) {
         <div className="md:flex md:items-center">
           <div className="md:w-1/3"></div>
           <div className="md:w-2/3">
-            <FormButton
-              type="button"
-              onClick={handleSubmit(props.onClick)}
-              value="Submit"
-            />
+            <FormButton type="button" onClick={props.onClick} value="Submit" />
           </div>
         </div>
       </form>
