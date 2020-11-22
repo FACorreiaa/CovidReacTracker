@@ -6,6 +6,7 @@ import { Bar } from "react-chartjs-2";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import { CountrySummary } from "../../Interface/CountrySummary";
+import generateRandomColor from "../../function/generateRandomColors";
 export default function SummaryNewDeaths() {
   const url = `${process.env.REACT_APP_BASE_URL}/countriessummary/new/deaths`;
   const { data, error } = useSWR(url, fetcher);
@@ -20,18 +21,15 @@ export default function SummaryNewDeaths() {
       : data[0].countrySummary.map((n: CountrySummary) => n.Country),
     datasets: [
       {
-        label: "New Recovered",
-        backgroundColor: "rgba(150, 40, 27, 1)",
-        borderColor: "rgba(207, 0, 15, 1)",
-        borderWidth: 1,
-        hoverBackgroundColor: "rgba(150, 40, 27, 1)",
-        hoverBorderColor: "rgba(207, 0, 15, 1)",
+        backgroundColor: generateRandomColor(data[0].countrySummary),
+        hoverBackgroundColor: generateRandomColor(data[0].countrySummary),
         data: !data[0]
           ? null
           : data[0].countrySummary.map((n: CountrySummary) => n.NewDeaths),
       },
     ],
   };
+
   return (
     <div>
       <CustomSecondaryContainer>
