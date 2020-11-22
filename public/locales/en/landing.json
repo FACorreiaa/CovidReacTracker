@@ -31,5 +31,14 @@
     "occupancyMillion": "Occupancy Per Million",
     "admissions": "Admissions",
     "admissionsMillion": "Admissions Per Million"
+  },
+  "countrySummary": {
+    "title": "Country Summary",
+    "newRecovered": "New Recovered",
+    "newConfirmed": "New Confirmed",
+    "newDeaths": "New Deaths",
+    "totalRecovered": "Total Recovered",
+    "totalConfirmed": "Total Confirmed",
+    "totalDeaths": "Total Deaths"
   }
 }

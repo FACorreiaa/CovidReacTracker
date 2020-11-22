@@ -31,5 +31,14 @@
     "occupancyMillion": "Ocupação por milhão",
     "admissions": "Admissões",
     "admissionsMillion": "Admissões por milhão"
+  },
+  "countrySummary": {
+    "title": "Sumário por Pais",
+    "newRecovered": "Novos Recuperados",
+    "newConfirmed": "Novos Confirmados",
+    "newDeaths": "Novas Óbitos",
+    "totalRecovered": "Total de Recuperaods",
+    "totalConfirmed": "Total de Confirmados",
+    "totalDeaths": "Total de Óbitos"
   }
 }

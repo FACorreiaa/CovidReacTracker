@@ -36,6 +36,12 @@ import OccupancyPage from "./Pages/HospitalPage/OccupancyPage";
 import AdmissionsPage from "./Pages/HospitalPage/AdmissionsPage";
 import AdmissionsMillionPage from "./Pages/HospitalPage/AdmissionsMillionPage";
 import OccupancyMillionPage from "./Pages/HospitalPage/OccupancyMillionPage";
+import SummaryNewRecovered from "./Pages/SummaryPage/SummaryNewRecovered";
+import SummaryNewDeaths from "./Pages/SummaryPage/SummaryNewDeaths";
+import SummaryNewConfirmed from "./Pages/SummaryPage/SummaryNewConfirmed";
+import SummaryTotalConfirmed from "./Pages/SummaryPage/SummaryTotalConfirmed";
+import SummaryTotalRecovered from "./Pages/SummaryPage/SummaryTotalRecovered";
+import SummaryTotalDeaths from "./Pages/SummaryPage/SummaryTotalDeaths";
 
 LogRocket.init("covidtracker/covidreactracker");
 setupLogRocketReact(LogRocket);
@@ -120,7 +126,32 @@ function App() {
           path="/admissions/million"
           component={AdmissionsMillionPage}
         />
-
+        <Route
+          exact
+          path="/summary/new/recovered"
+          component={SummaryNewRecovered}
+        />
+        <Route exact path="/summary/new/deaths" component={SummaryNewDeaths} />
+        <Route
+          exact
+          path="/summary/new/confirmed"
+          component={SummaryNewConfirmed}
+        />
+        <Route
+          exact
+          path="/summary/total/confirmed"
+          component={SummaryTotalConfirmed}
+        />
+        <Route
+          exact
+          path="/summary/total/recovered"
+          component={SummaryTotalRecovered}
+        />
+        <Route
+          exact
+          path="/summary/total/deaths"
+          component={SummaryTotalDeaths}
+        />
         <Footer />
       </BrowserRouter>
     </Router>

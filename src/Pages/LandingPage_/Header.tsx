@@ -120,6 +120,36 @@ export default function Header() {
             </option>
           </select>
         </li>
+        <li className="inline p-nav-25 ">
+          <select
+            onChange={onChange}
+            name="summary"
+            id="summary"
+            className="w-64 bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
+          >
+            <option value="" defaultValue="hospital" selected disabled hidden>
+              {t("countrySummary.title")}
+            </option>
+            <option className="bg-transparent" value="summary/new/recovered">
+              {t("countrySummary.newRecovered")}
+            </option>
+            <option className="bg-transparent" value="summary/new/confirmed">
+              {t("countrySummary.newConfirmed")}
+            </option>
+            <option className="bg-transparent" value="summary/new/deaths">
+              {t("countrySummary.newDeaths")}
+            </option>
+            <option className="bg-transparent" value="summary/total/recovered">
+              {t("countrySummary.totalRecovered")}
+            </option>
+            <option className="bg-transparent" value="summary/totalconfirmed">
+              {t("countrySummary.totalConfirmed")}
+            </option>
+            <option className="bg-transparent" value="summary/total/deaths">
+              {t("countrySummary.totalDeaths")}
+            </option>
+          </select>
+        </li>
         <li className="inline p-nav-25">
           <Link to="/subscribe"> {t("subscribe")}</Link>
         </li>
