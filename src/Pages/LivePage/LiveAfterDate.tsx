@@ -57,7 +57,7 @@ export default function LiveAfterDate() {
       {
         label: "Active",
         backgroundColor: "rgba(240, 240, 214, 1)",
-        borderColor: "rgba(247, 202, 24, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(240, 240, 214, 1)",
         hoverBorderColor: "rgba(247, 202, 24, 1)",
@@ -66,7 +66,7 @@ export default function LiveAfterDate() {
       {
         label: "Recovered",
         backgroundColor: "rgba(41, 241, 195, 1)",
-        borderColor: "rgba(123, 239, 178, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(41, 241, 195, 1)",
         hoverBorderColor: "rgba(123, 239, 178, 1)",
@@ -75,7 +75,7 @@ export default function LiveAfterDate() {
       {
         label: "Deaths",
         backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
@@ -84,7 +84,7 @@ export default function LiveAfterDate() {
       {
         label: "Confirmed",
         backgroundColor: "rgba(154, 18, 179, 1)",
-        borderColor: "rgba(190, 144, 212,1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(154, 18, 179, 1)",
         hoverBorderColor: "rgba(190, 144, 212,1)",
@@ -119,6 +119,7 @@ export default function LiveAfterDate() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           </div>

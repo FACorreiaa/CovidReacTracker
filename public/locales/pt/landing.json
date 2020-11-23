@@ -23,7 +23,8 @@
   "statistics": {
     "title": "Estatisticas",
     "info": "Informação estatistica por pais",
-    "data": "Dados estatisticos por pais"
+    "new": "Novos dados estatisticos por pais",
+    "total": "Total de dados estatisticos por pais"
   },
   "hospital": {
     "title": "Hospital",

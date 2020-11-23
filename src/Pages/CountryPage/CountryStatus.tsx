@@ -51,7 +51,7 @@ export default function CountryStatus() {
       {
         label: "Cases",
         backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
@@ -98,12 +98,11 @@ export default function CountryStatus() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           </div>
-        ) : (
-          <CustomWarningMessage />
-        )}
+        ) : null}
       </CustomSecondaryContainer>
     </div>
   );

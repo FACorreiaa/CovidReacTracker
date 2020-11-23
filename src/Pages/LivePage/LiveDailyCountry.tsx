@@ -60,48 +60,50 @@ export default function LiveDailyCountry() {
         <div className="py-5">
           <div className="h-full overflow-y-auto">
             <div className="container  mx-auto grid">
-              {country.length > 0 ? (
-                data.map((d: any) => {
-                  return (
-                    <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-                      <h3>{`Values for: ${d.Country}`}</h3>
-                      <CustomCard
-                        icon="fas fa-check w-5 h-5 pr-2"
-                        title={"New Confirmed"}
-                        value={d.NewConfirmed}
-                      />
-                      <CustomCard
-                        icon="fas fa-skull-crossbones w-5 h-5 pr-2"
-                        title={"New Deaths"}
-                        value={d.NewDeaths}
-                      />
-                      <CustomCard
-                        icon="fas fa-heart w-5 h-5 pr-2"
-                        title={"New Recovered"}
-                        value={d.NewRecovered}
-                      />
-                      <div></div>
-                      <CustomCard
-                        icon="fas fa-check w-5 h-5 pr-2"
-                        title={"Total Confirmed"}
-                        value={d.TotalConfirmed}
-                      />
-                      <CustomCard
-                        icon="fas fa-skull-crossbones w-5 h-5 pr-2"
-                        title={"Total Deaths"}
-                        value={d.TotalDeaths}
-                      />
-                      <CustomCard
-                        icon="fas fa-heart w-5 h-5 pr-2"
-                        title={"Total Recovered"}
-                        value={d.TotalRecovered}
-                      />
-                    </div>
-                  );
-                })
-              ) : (
-                <CustomWarningMessage />
-              )}
+              {country.length > 0
+                ? data.map((d: any) => {
+                    return (
+                      <div className="text-center grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+                        <article className="prose lg:prose-xl">
+                          <h3>
+                            {`${d.Country}`} <i className="fas fa-flag"></i>
+                          </h3>
+                        </article>
+                        <CustomCard
+                          icon="fas fa-check w-5 h-5 pr-2"
+                          title={"New Confirmed"}
+                          value={d.NewConfirmed}
+                        />
+                        <CustomCard
+                          icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                          title={"New Deaths"}
+                          value={d.NewDeaths}
+                        />
+                        <CustomCard
+                          icon="fas fa-heart w-5 h-5 pr-2"
+                          title={"New Recovered"}
+                          value={d.NewRecovered}
+                        />
+                        <div></div>
+                        <CustomCard
+                          icon="fas fa-check w-5 h-5 pr-2"
+                          title={"Total Confirmed"}
+                          value={d.TotalConfirmed}
+                        />
+                        <CustomCard
+                          icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                          title={"Total Deaths"}
+                          value={d.TotalDeaths}
+                        />
+                        <CustomCard
+                          icon="fas fa-heart w-5 h-5 pr-2"
+                          title={"Total Recovered"}
+                          value={d.TotalRecovered}
+                        />
+                      </div>
+                    );
+                  })
+                : null}
             </div>
           </div>
         </div>

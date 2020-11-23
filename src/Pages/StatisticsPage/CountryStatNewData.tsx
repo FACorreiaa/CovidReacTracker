@@ -48,22 +48,22 @@ export default function CountryStatNewData() {
     datasets: [
       {
         label: "New Cases Per Million",
-        backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        backgroundColor: "rgba(41, 241, 195, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(224, 130, 131, 1)",
-        hoverBorderColor: "rgba(246, 36, 89, 1)",
+        hoverBackgroundColor: "rgba(41, 241, 195, 1)",
+        hoverBorderColor: "rgba(41, 241, 195, 1)",
         data: !country
           ? null
           : data[0].data.map((n: CountryData) => n.new_cases_per_million),
       },
       {
         label: "New Cases Smoothed Per Million",
-        backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        backgroundColor: "rgba(240, 240, 214, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(224, 130, 131, 1)",
-        hoverBorderColor: "rgba(246, 36, 89, 1)",
+        hoverBackgroundColor: "rgba(240, 240, 214, 1)",
+        hoverBorderColor: "rgba(240, 240, 214, 1)",
         data: !country
           ? null
           : data[0].data.map(
@@ -72,11 +72,11 @@ export default function CountryStatNewData() {
       },
       {
         label: "New Deaths Smoothed Per Million",
-        backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        backgroundColor: "rgba(226, 106, 106, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(224, 130, 131, 1)",
-        hoverBorderColor: "rgba(246, 36, 89, 1)",
+        hoverBackgroundColor: "rgba(226, 106, 106, 1)",
+        hoverBorderColor: "rgba(226, 106, 106, 1)",
         data: !country
           ? null
           : data[0].data.map(
@@ -85,11 +85,11 @@ export default function CountryStatNewData() {
       },
       {
         label: "New Deaths Per Million",
-        backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        backgroundColor: "rgba(233, 212, 96, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(224, 130, 131, 1)",
-        hoverBorderColor: "rgba(246, 36, 89, 1)",
+        hoverBackgroundColor: "rgba(233, 212, 96, 1)",
+        hoverBorderColor: "rgba(233, 212, 96, 1)",
         data: !country
           ? null
           : data[0].data.map((n: CountryData) => n.new_deaths_per_million),
@@ -117,9 +117,7 @@ export default function CountryStatNewData() {
         />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        {!country ? (
-          <CustomWarningMessage />
-        ) : (
+        {!country ? null : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}
@@ -127,6 +125,7 @@ export default function CountryStatNewData() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           </div>

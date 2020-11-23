@@ -12,6 +12,7 @@ import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage"
 import CountryData from "../../Interface/CountryData";
 import ErrorMessage from "../../components/Subscriptions/ErrorMessage";
 import { HospitalData } from "../../Interface/HospitalData";
+import { format, parse } from "date-fns";
 export default function OccupancyPage() {
   const countryList: any = useCountriesDropdown();
 
@@ -46,13 +47,13 @@ export default function OccupancyPage() {
 
   //format(parseISO(`${d.createdAt}`), "PPPPpppp")
   const dataSource = {
-    labels: !data[0] ? null : data[0].country.map((n: CountryData) => n.date),
+    labels: !data[0] ? null : data[0].country.map((n: HospitalData) => n.Year),
 
     datasets: [
       {
         label: "Daily Hospital Occupancy",
         backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
@@ -64,11 +65,11 @@ export default function OccupancyPage() {
       },
       {
         label: "Daily ICU Occupancy",
-        backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        backgroundColor: "rgba(233, 212, 96, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(224, 130, 131, 1)",
-        hoverBorderColor: "rgba(246, 36, 89, 1)",
+        hoverBackgroundColor: "rgba(233, 212, 96, 1)",
+        hoverBorderColor: "rgba(233, 212, 96, 1)",
         data: !data[0]
           ? null
           : data[0].country.map((n: HospitalData) => n.Daily_ICU_occupancy),
@@ -77,6 +78,7 @@ export default function OccupancyPage() {
   };
   return (
     <div>
+      {console.log(data)}
       <CustomSecondaryContainer>
         {!country ? "" : <CustomCountryTitle country={country} />}
         <CustomSummaryTitle />
@@ -96,7 +98,7 @@ export default function OccupancyPage() {
         />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        {!country && <CustomWarningMessage />}
+        {!country && null}
         {country && !data[0] && (
           <ErrorMessage error="No Hospital data about that country!" />
         )}
@@ -108,6 +110,7 @@ export default function OccupancyPage() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           )}

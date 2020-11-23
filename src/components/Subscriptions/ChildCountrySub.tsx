@@ -1,5 +1,7 @@
-import React from "react";
+import { Transition } from "@headlessui/react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import ConfirmationMessage from "./ConfirmationMessage";
 import ErrorMessage from "./ErrorMessage";
 
 type CountrySubProps = {
@@ -16,8 +18,13 @@ type CountrySubProps = {
 };
 
 export default function ChildCountrySub(props: CountrySubProps) {
-  const { register, handleSubmit, errors } = useForm();
-
+  const { register, handleSubmit, errors, formState } = useForm();
+  const [isOpen, setIsOpen] = useState(true);
+  const loading = () => {
+    setTimeout(function () {
+      setIsOpen(false);
+    }, 2000);
+  };
   return (
     <form className="w-full max-w-sm shadow-md rounded">
       <div className="md:flex md:items-center mb-6">
@@ -115,6 +122,22 @@ export default function ChildCountrySub(props: CountrySubProps) {
       )}
       {errors.selectedValue && (
         <ErrorMessage error="That country might be invalid or no country selected!" />
+      )}
+      {formState.isSubmitted && !errors.email && (
+        <div>
+          <Transition
+            show={isOpen}
+            enter="transition-opacity duration-105"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity duration-350"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <ConfirmationMessage confirmation="Email submitted!" />
+            {loading()}
+          </Transition>
+        </div>
       )}
     </form>
   );

@@ -28,6 +28,7 @@ export default function GeneralSub() {
     let obj = {
       email: data.email,
     };
+
     //if (data.email === "" || data.email === undefined) return;
 
     try {

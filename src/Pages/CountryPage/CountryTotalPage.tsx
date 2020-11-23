@@ -48,7 +48,7 @@ export default function CountryTotalPage() {
       {
         label: "Active",
         backgroundColor: "rgba(240, 240, 214, 1)",
-        borderColor: "rgba(247, 202, 24, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(240, 240, 214, 1)",
         hoverBorderColor: "rgba(247, 202, 24, 1)",
@@ -57,7 +57,7 @@ export default function CountryTotalPage() {
       {
         label: "Recovered",
         backgroundColor: "rgba(41, 241, 195, 1)",
-        borderColor: "rgba(123, 239, 178, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(41, 241, 195, 1)",
         hoverBorderColor: "rgba(123, 239, 178, 1)",
@@ -66,7 +66,7 @@ export default function CountryTotalPage() {
       {
         label: "Deaths",
         backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
@@ -75,7 +75,7 @@ export default function CountryTotalPage() {
       {
         label: "Confirmed",
         backgroundColor: "rgba(154, 18, 179, 1)",
-        borderColor: "rgba(190, 144, 212,1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(154, 18, 179, 1)",
         hoverBorderColor: "rgba(190, 144, 212,1)",
@@ -114,9 +114,7 @@ export default function CountryTotalPage() {
         />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        {!country ? (
-          <CustomWarningMessage />
-        ) : (
+        {!country ? null : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}
@@ -124,6 +122,7 @@ export default function CountryTotalPage() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           </div>

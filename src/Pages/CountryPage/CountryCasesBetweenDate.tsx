@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 import Loading from "../../components/Loading/Loading";
 import { fetcher } from "../../services/config/http-common";
 import formatISO from "date-fns/formatISO";
@@ -23,7 +23,7 @@ export default function CountryCasesBetweenDates() {
   const [country, setCountry] = useState("");
 
   const url = `${process.env.REACT_APP_BASE_URL}/country/live/${country}/date/?from=${selectedFromDate}&to=${selectedToDate}`;
-  const { data, error } = useSWR(url, fetcher);
+  const { data, error, mutate } = useSWR(url, fetcher);
 
   let value = React.useRef("");
 
@@ -34,7 +34,7 @@ export default function CountryCasesBetweenDates() {
     setSelectedFromDate(fromIsoDate);
     setCountry(value.current);
 
-    mutate(data, false);
+    mutate(data);
   };
 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,7 +67,7 @@ export default function CountryCasesBetweenDates() {
       {
         label: "Active",
         backgroundColor: "rgba(240, 240, 214, 1)",
-        borderColor: "rgba(247, 202, 24, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(240, 240, 214, 1)",
         hoverBorderColor: "rgba(247, 202, 24, 1)",
@@ -78,7 +78,7 @@ export default function CountryCasesBetweenDates() {
       {
         label: "Recovered",
         backgroundColor: "rgba(41, 241, 195, 1)",
-        borderColor: "rgba(123, 239, 178, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(41, 241, 195, 1)",
         hoverBorderColor: "rgba(123, 239, 178, 1)",
@@ -89,7 +89,7 @@ export default function CountryCasesBetweenDates() {
       {
         label: "Deaths",
         backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
@@ -100,7 +100,7 @@ export default function CountryCasesBetweenDates() {
       {
         label: "Confirmed",
         backgroundColor: "rgba(154, 18, 179, 1)",
-        borderColor: "rgba(190, 144, 212,1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(154, 18, 179, 1)",
         hoverBorderColor: "rgba(190, 144, 212,1)",
@@ -142,12 +142,11 @@ export default function CountryCasesBetweenDates() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           </div>
-        ) : (
-          <CustomWarningMessage />
-        )}
+        ) : null}
       </CustomSecondaryContainer>
     </div>
   );

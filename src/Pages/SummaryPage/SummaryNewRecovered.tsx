@@ -4,9 +4,9 @@ import useSWR from "swr";
 import Loading from "../../components/Loading/Loading";
 import { Doughnut } from "react-chartjs-2";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
-import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import { CountrySummary } from "../../Interface/CountrySummary";
 import generateRandomColor from "../../function/generateRandomColors";
+import CustomTitle from "../../components/SummaryTitle/CustomTitle";
 export default function SummaryNewRecovered() {
   const url = `${process.env.REACT_APP_BASE_URL}/countriessummary/new/recovered`;
   const { data, error } = useSWR(url, fetcher);
@@ -33,10 +33,9 @@ export default function SummaryNewRecovered() {
   return (
     <div>
       <CustomSecondaryContainer>
-        <CustomSummaryTitle />
+        <CustomTitle title="New recovered by Country" />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        {console.log(data)}
         <Doughnut
           data={dataSource}
           options={{

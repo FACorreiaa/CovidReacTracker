@@ -51,7 +51,7 @@ export default function OccupancyMillionPage() {
       {
         label: "Daily Hospital Occupancy Per Million",
         backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
@@ -63,11 +63,11 @@ export default function OccupancyMillionPage() {
       },
       {
         label: "Daily ICU Occupancy Per Million",
-        backgroundColor: "rgba(224, 130, 131, 1)",
-        borderColor: "rgba(246, 36, 89, 1)",
+        backgroundColor: "rgba(233, 212, 96, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(224, 130, 131, 1)",
-        hoverBorderColor: "rgba(246, 36, 89, 1)",
+        hoverBackgroundColor: "rgba(233, 212, 96, 1)",
+        hoverBorderColor: "rgba(233, 212, 96, 1)",
         data: !data[0]
           ? null
           : data[0].country.map(
@@ -97,7 +97,7 @@ export default function OccupancyMillionPage() {
         />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        {!country && <CustomWarningMessage />}
+        {!country && null}
         {country && !data[0] && (
           <ErrorMessage error="No ICU data about that country!" />
         )}
@@ -109,6 +109,7 @@ export default function OccupancyMillionPage() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           )}

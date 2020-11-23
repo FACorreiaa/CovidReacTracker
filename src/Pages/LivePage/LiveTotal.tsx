@@ -60,7 +60,7 @@ export default function LiveTotal() {
       {
         label: "Total Recovered",
         backgroundColor: "rgba(41, 241, 195, 1)",
-        borderColor: "rgba(41, 241, 195, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(41, 241, 195, 1)",
         hoverBorderColor: "rgba(41, 241, 195, 1)",
@@ -72,7 +72,7 @@ export default function LiveTotal() {
       {
         label: "Total Confirmed",
         backgroundColor: "rgba(240, 240, 214, 1)",
-        borderColor: "rgba(240, 240, 214, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(240, 240, 214, 1)",
         hoverBorderColor: "rgba(240, 240, 214, 1)",
@@ -84,7 +84,7 @@ export default function LiveTotal() {
       {
         label: "Total Deaths",
         backgroundColor: "rgba(226, 106, 106, 1)",
-        borderColor: "rgba(226, 106, 106, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(226, 106, 106, 1)",
         hoverBorderColor: "rgba(226, 106, 106, 1)",
@@ -96,7 +96,7 @@ export default function LiveTotal() {
       {
         label: "New Deaths",
         backgroundColor: "rgba(240, 52, 52, 1)",
-        borderColor: "rgba(240, 52, 52, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(240, 52, 52, 1)",
         hoverBorderColor: "rgba(240, 52, 52, 1)",
@@ -108,7 +108,7 @@ export default function LiveTotal() {
       {
         label: "New Confirmed",
         backgroundColor: "rgba(233, 212, 96, 1)",
-        borderColor: "rgba(233, 212, 96, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(233, 212, 96, 1)",
         hoverBorderColor: "rgba(233, 212, 96, 1)",
@@ -120,7 +120,7 @@ export default function LiveTotal() {
       {
         label: "New Recovered",
         backgroundColor: "rgba(42, 187, 155, 1)",
-        borderColor: "rgba(42, 187, 155, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(42, 187, 155, 1)",
         hoverBorderColor: "rgba(42, 187, 155, 1)",
@@ -163,6 +163,7 @@ export default function LiveTotal() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           </div>

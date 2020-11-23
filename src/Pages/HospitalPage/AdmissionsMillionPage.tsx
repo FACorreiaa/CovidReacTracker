@@ -51,7 +51,7 @@ export default function AdmissionsMillionPage() {
       {
         label: "Weely New Hospital Admissions per million",
         backgroundColor: "rgba(20, 118, 44, 1)",
-        borderColor: "rgba(20, 118, 44, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(20, 118, 44, 1)",
         hoverBorderColor: "rgba(20, 118, 44, 1)",
@@ -64,11 +64,11 @@ export default function AdmissionsMillionPage() {
 
       {
         label: "Weely New ICU Admissions per million",
-        backgroundColor: "rgba(85, 20, 118, 1)",
-        borderColor: "rgba(85, 20, 118, 1)",
+        backgroundColor: "rgba(233, 212, 96, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(85, 20, 118, 1)",
-        hoverBorderColor: "rgba(85, 20, 118, 1)",
+        hoverBackgroundColor: "rgba(233, 212, 96, 1)",
+        hoverBorderColor: "rgba(233, 212, 96, 1)",
         data: !data[0]
           ? null
           : data[0].country.map(
@@ -98,7 +98,7 @@ export default function AdmissionsMillionPage() {
         />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        {!country && <CustomWarningMessage />}
+        {!country && null}
         {country && !data[0] && (
           <ErrorMessage error="No ICU data about that country!" />
         )}
@@ -110,6 +110,7 @@ export default function AdmissionsMillionPage() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           )}

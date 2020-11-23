@@ -17,14 +17,14 @@ export default function CustomSummaryTitle() {
         <div className="container  mx-auto grid">
           {data.data.map((d: SummaryList) => (
             <>
-              <div className="flex text-left mb-4">
+              <div className="flex text-center mb-4">
                 <div className="w-full  h-12">
                   <label className="font-semibold">
                     New Around the world <i className="fas fa-globe"></i>
                   </label>
                 </div>
               </div>
-              <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+              <div className="text-center grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                 <CustomCard
                   icon="fas fa-check w-5 h-5 pr-2"
                   title="New Confirmed"

@@ -48,22 +48,22 @@ export default function CountryStatTotalData() {
     datasets: [
       {
         label: "Total Cases Per million",
-        backgroundColor: "rgba(240, 240, 214, 1)",
-        borderColor: "rgba(247, 202, 24, 1)",
+        backgroundColor: "rgba(41, 241, 195, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(240, 240, 214, 1)",
-        hoverBorderColor: "rgba(247, 202, 24, 1)",
+        hoverBackgroundColor: "rgba(0, 0, 0, 1)",
+        hoverBorderColor: "rgba(41, 241, 195, 1)",
         data: !country
           ? null
           : data[0].data.map((n: CountryData) => n.total_cases_per_million),
       },
       {
         label: "Total Deaths Per Million",
-        backgroundColor: "rgba(41, 241, 195, 1)",
-        borderColor: "rgba(123, 239, 178, 1)",
+        backgroundColor: "rgba(240, 240, 214, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(41, 241, 195, 1)",
-        hoverBorderColor: "rgba(123, 239, 178, 1)",
+        hoverBackgroundColor: "rgba(240, 240, 214, 1)",
+        hoverBorderColor: "rgba(240, 240, 214, 1)",
         data: !country
           ? null
           : data[0].data.map((n: CountryData) => n.total_deaths_per_million),
@@ -91,9 +91,7 @@ export default function CountryStatTotalData() {
         />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        {!country ? (
-          <CustomWarningMessage />
-        ) : (
+        {!country ? null : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
             <Line
               data={dataSource}
@@ -101,6 +99,7 @@ export default function CountryStatTotalData() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           </div>

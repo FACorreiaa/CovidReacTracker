@@ -51,7 +51,7 @@ export default function AdmissionsPage() {
       {
         label: "Weekly New Hospital Admissions",
         backgroundColor: "rgba(20, 85, 118, 1)",
-        borderColor: "rgba(20, 85, 118, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
         borderWidth: 1,
         hoverBackgroundColor: "rgba(20, 85, 118, 1)",
         hoverBorderColor: "rgba(20, 85, 118, 1)",
@@ -63,11 +63,12 @@ export default function AdmissionsPage() {
       },
       {
         label: "Weely New ICU Admissions",
-        backgroundColor: "rgba(85, 20, 118, 1)",
-        borderColor: "rgba(85, 20, 118, 1)",
+        backgroundColor: "rgba(233, 212, 96, 1)",
+        borderColor: "rgba(0, 0, 0, 1)",
+
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(85, 20, 118, 1)",
-        hoverBorderColor: "rgba(85, 20, 118, 1)",
+        hoverBackgroundColor: "rgba(233, 212, 96, 1)",
+        hoverBorderColor: "rgba(233, 212, 96, 1)",
         data: !data[0]
           ? null
           : data[0].country.map(
@@ -97,7 +98,7 @@ export default function AdmissionsPage() {
         />
       </CustomSecondaryContainer>
       <CustomSecondaryContainer>
-        {!country && <CustomWarningMessage />}
+        {!country && null}
         {country && !data[0] && (
           <ErrorMessage error="No ICU data about that country!" />
         )}
@@ -109,6 +110,7 @@ export default function AdmissionsPage() {
               height={50}
               options={{
                 maintainAspectRatio: true,
+                responsive: true,
               }}
             />
           )}

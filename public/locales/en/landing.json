@@ -22,8 +22,9 @@
   "about": "About me",
   "statistics": {
     "title": "Statistics",
+    "info": "Information by Country",
     "new": "Statistics New Data by Country",
-    "total": "Statistics total Data by Country"
+    "total": "Statistics Total Data by Country"
   },
   "hospital": {
     "title": "Hospital",

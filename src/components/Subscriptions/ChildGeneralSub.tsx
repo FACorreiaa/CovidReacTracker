@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import ConfirmationMessage from "./ConfirmationMessage";
 import ErrorMessage from "./ErrorMessage";
+import { Transition } from "@headlessui/react";
 
 type GeneralSubProps = {
   value: string;
@@ -9,8 +11,15 @@ type GeneralSubProps = {
   onSubmit: any;
   label: string;
 };
+
 export default function GeneralSubForm(props: GeneralSubProps) {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, formState } = useForm();
+  const [isOpen, setIsOpen] = useState(true);
+  const loading = () => {
+    setTimeout(function () {
+      setIsOpen(false);
+    }, 2000);
+  };
   return (
     <>
       <form className="w-full max-w-sm shadow-md rounded">
@@ -37,6 +46,7 @@ export default function GeneralSubForm(props: GeneralSubProps) {
                 message: "invalid email address",
               },
             })}
+            disabled={formState.isSubmitting}
           />
 
           <button
@@ -49,6 +59,22 @@ export default function GeneralSubForm(props: GeneralSubProps) {
         </div>
         {errors.email && (
           <ErrorMessage error="That email might be invalid or you are already subbed" />
+        )}
+        {formState.isSubmitted && !errors.email && (
+          <div>
+            <Transition
+              show={isOpen}
+              enter="transition-opacity duration-105"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-350"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <ConfirmationMessage confirmation="Email submitted!" />
+              {loading()}
+            </Transition>
+          </div>
         )}
       </form>
     </>
