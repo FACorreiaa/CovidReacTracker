@@ -6,7 +6,7 @@ type SuccessProps = {
 };
 export default function SuccessMessages(props: SuccessProps) {
   return (
-    <div className="bg-transparent text-center py-4 lg:px-4">
+    <div className="bg-white text-center py-4 lg:px-4">
       <div
         className="p-2 bg-green-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
         role="alert"

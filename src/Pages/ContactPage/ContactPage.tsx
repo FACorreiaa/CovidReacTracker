@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <div className="md:w-2/3">
                   <input
                     onChange={onNameChange}
-                    className="shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    className="shadow appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
                     id="inline-full-name"
                     type="text"
                     value={name}
@@ -96,7 +96,7 @@ export default function ContactPage() {
                 </div>
                 <div className="md:w-2/3">
                   <input
-                    className="shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    className="shadow appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
                     id="email"
                     type="email"
                     placeholder="Email"
@@ -127,7 +127,7 @@ export default function ContactPage() {
                 </div>
                 <div className="md:w-2/3">
                   <input
-                    className="shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    className="shadow appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
                     id="message"
                     type="text"
                     placeholder="Message"

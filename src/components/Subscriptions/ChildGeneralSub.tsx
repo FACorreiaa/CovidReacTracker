@@ -36,7 +36,7 @@ export default function GeneralSubForm(props: GeneralSubProps) {
             placeholder={props.placeholder}
             value={props.value}
             onChange={props.onChange}
-            className=" appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+            className="h-auto appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
             aria-label="email"
             name="email"
             ref={register({
@@ -51,7 +51,7 @@ export default function GeneralSubForm(props: GeneralSubProps) {
 
           <button
             onClick={handleSubmit(props.onSubmit)}
-            className="flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
+            className="h-auto flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
             type="button"
           >
             Send<i className="fas fa-paper-plane"></i>

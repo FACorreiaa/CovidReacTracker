@@ -48,7 +48,7 @@ export default function ChildCountrySub(props: CountrySubProps) {
         </div>
         <div className="md:w-2/3">
           <input
-            className="shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+            className="shadow h-auto appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none border border-gray-300 focus:border-orange-500"
             id="email"
             type="email"
             placeholder={props.placeholder}
@@ -77,7 +77,7 @@ export default function ChildCountrySub(props: CountrySubProps) {
         <div className="md:w-2/3">
           <select
             onChange={props.handleFieldChange}
-            className="divide-y divide-blue-300 block shadow appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+            className="h-auto divide-y divide-blue-300 block shadow appearance-none  border rounded w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none border border-gray-300 focus:border-orange-500"
             id="grid-state"
             ref={register({ required: true })}
             name="selectValue"
@@ -109,7 +109,7 @@ export default function ChildCountrySub(props: CountrySubProps) {
         <div className="md:w-1/3"></div>
         <div className="md:w-2/3">
           <button
-            className="flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
+            className="h-auto flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
             type="button"
             onClick={handleSubmit(props.onSubmit)}
           >
