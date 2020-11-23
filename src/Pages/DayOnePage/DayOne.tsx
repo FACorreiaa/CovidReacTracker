@@ -3,7 +3,7 @@ import { fetcher } from "../../services/config/http-common";
 import useSWR, { mutate } from "swr";
 import Loading from "../../components/Loading/Loading";
 import { IDayOne } from "../../Interface/Dayone";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { format, parseISO } from "date-fns";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
@@ -13,7 +13,6 @@ import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 function DayOne() {
   const countryList: any = useCountriesDropdown();
-
   const [country, setCountry] = useState("");
   const url = `${process.env.REACT_APP_BASE_URL}/dayone/all/total/country/${country}`;
   const { data, error } = useSWR(url, fetcher);
@@ -113,7 +112,7 @@ function DayOne() {
           <CustomWarningMessage />
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-            <Bar
+            <Line
               data={dataSource}
               width={100}
               height={50}

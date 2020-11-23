@@ -2,7 +2,7 @@ import React from "react";
 import { fetcher } from "../../services/config/http-common";
 import useSWR from "swr";
 import Loading from "../../components/Loading/Loading";
-import { Bar, Doughnut, Polar } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import { CountrySummary } from "../../Interface/CountrySummary";
