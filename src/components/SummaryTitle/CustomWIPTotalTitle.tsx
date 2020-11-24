@@ -17,7 +17,9 @@ export default function CustomWIPTotalTitle() {
         <div className="container  mx-auto grid">
           {data.data.map((d: SummaryList) => (
             <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-              <h3>Total around the world</h3>
+              <article className="prose prose-sm lg:prose-sm">
+                <h3>Total around the world</h3>
+              </article>
               <CustomCard
                 icon="fas fa-check w-5 h-5 pr-2"
                 title="Total Confirmed"
