@@ -13,7 +13,7 @@ type Props = {
 export default function CustomLandingCard(props: Props) {
   return (
     <div className="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-      <div className="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center">
+      <div className="bg-gray-300  w-full rounded-lg shadow-md bg-cover bg-center h-auto">
         <img src={props.imgSrc} alt={props.altsrc} />
       </div>
 

@@ -26,7 +26,7 @@ export default function Header() {
         <div>
           <Link to="/">
             <img
-              className="h-24 w-auto"
+              className="h-24 w-auto focus:outline-none"
               src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
               alt="Workflow"
             />
@@ -44,7 +44,7 @@ export default function Header() {
               onChange={onChange}
               name="live"
               id="live"
-              className="w-40 bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
+              className="w-40  bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
             >
               <option
                 value=""
@@ -55,7 +55,7 @@ export default function Header() {
               >
                 {t("live.title")}
               </option>
-              <option className="bg-transparent" value="live/total">
+              <option className="bg-transparent text-black" value="live/total">
                 {t("live.totalTitle")}
               </option>
               {/**
@@ -63,7 +63,10 @@ export default function Header() {
               {t("live.totalAfter")}
             </option>
              */}
-              <option className="bg-transparent" value="live/daily/country">
+              <option
+                className="bg-transparent text-black"
+                value="live/daily/country"
+              >
                 {t("live.totalCountry")}
               </option>
             </select>
@@ -85,19 +88,19 @@ export default function Header() {
                 {t("statistics.title")}
               </option>
               <option
-                className="bg-transparent"
+                className="bg-transparent text-black"
                 value="statistics/country/info"
               >
                 {t("statistics.info")}
               </option>
               <option
-                className="bg-transparent"
+                className="bg-transparent text-black"
                 value="statistics/country/data/new"
               >
                 {t("statistics.new")}
               </option>
               <option
-                className="bg-transparent"
+                className="bg-transparent text-black"
                 value="statistics/country/data/total"
               >
                 {t("statistics.total")}
@@ -114,16 +117,28 @@ export default function Header() {
               <option value="" defaultValue="Country" selected disabled hidden>
                 {t("country.title")}
               </option>
-              <option className="bg-transparent" value="country/total">
+              <option
+                className="bg-transparent text-black"
+                value="country/total"
+              >
                 {t("country.total")}
               </option>
-              <option className="bg-transparent" value="country/cases/dates">
+              <option
+                className="bg-transparent text-black"
+                value="country/cases/dates"
+              >
                 {t("country.casesBetween")}
               </option>
-              <option className="bg-transparent" value="country/status">
+              <option
+                className="bg-transparent text-black"
+                value="country/status"
+              >
                 {t("country.status")}
               </option>
-              <option className="bg-transparent" value="country/status/dates">
+              <option
+                className="bg-transparent text-black"
+                value="country/status/dates"
+              >
                 {t("country.statusBetween")}
               </option>
             </select>
@@ -138,16 +153,22 @@ export default function Header() {
               <option value="" defaultValue="hospital" selected disabled hidden>
                 {t("hospital.title")}
               </option>
-              <option className="bg-transparent" value="occupancy">
+              <option className="bg-transparent text-black" value="occupancy">
                 {t("hospital.occupancy")}
               </option>
-              <option className="bg-transparent" value="occupancy/million">
+              <option
+                className="bg-transparent text-black"
+                value="occupancy/million"
+              >
                 {t("hospital.occupancyMillion")}
               </option>
-              <option className="bg-transparent" value="admissions">
+              <option className="bg-transparent text-black" value="admissions">
                 {t("hospital.admissions")}
               </option>
-              <option className="bg-transparent" value="admissions/million">
+              <option
+                className="bg-transparent text-black"
+                value="admissions/million"
+              >
                 {t("hospital.admissionsMillion")}
               </option>
             </select>
@@ -162,25 +183,40 @@ export default function Header() {
               <option value="" defaultValue="hospital" selected disabled hidden>
                 {t("countrySummary.title")}
               </option>
-              <option className="bg-transparent" value="summary/new/recovered">
+              <option
+                className="bg-transparent text-black"
+                value="summary/new/recovered"
+              >
                 {t("countrySummary.newRecovered")}
               </option>
-              <option className="bg-transparent" value="summary/new/confirmed">
+              <option
+                className="bg-transparent text-black"
+                value="summary/new/confirmed"
+              >
                 {t("countrySummary.newConfirmed")}
               </option>
-              <option className="bg-transparent" value="summary/new/deaths">
+              <option
+                className="bg-transparent text-black"
+                value="summary/new/deaths"
+              >
                 {t("countrySummary.newDeaths")}
               </option>
               <option
-                className="bg-transparent"
+                className="bg-transparent text-black"
                 value="summary/total/recovered"
               >
                 {t("countrySummary.totalRecovered")}
               </option>
-              <option className="bg-transparent" value="summary/totalconfirmed">
+              <option
+                className="bg-transparent text-black"
+                value="summary/totalconfirmed"
+              >
                 {t("countrySummary.totalConfirmed")}
               </option>
-              <option className="bg-transparent" value="summary/total/deaths">
+              <option
+                className="bg-transparent text-black"
+                value="summary/total/deaths"
+              >
                 {t("countrySummary.totalDeaths")}
               </option>
             </select>
@@ -279,7 +315,7 @@ export default function Header() {
               <div className="flex items-center justify-between">
                 <Link to="/">
                   <img
-                    className="h-8 w-auto"
+                    className="h-8 w-auto focus:outline-none"
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                     alt="Workflow"
                   />
@@ -336,7 +372,10 @@ export default function Header() {
                       >
                         {t("live.title")}
                       </option>
-                      <option className="bg-transparent" value="live/total">
+                      <option
+                        className="bg-transparent text-black"
+                        value="live/total"
+                      >
                         {t("live.totalTitle")}
                       </option>
                       {/**
@@ -345,7 +384,7 @@ export default function Header() {
             </option>
              */}
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="live/daily/country"
                       >
                         {t("live.totalCountry")}
@@ -369,19 +408,19 @@ export default function Header() {
                         {t("statistics.title")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="statistics/country/info"
                       >
                         {t("statistics.info")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="statistics/country/data/new"
                       >
                         {t("statistics.new")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="statistics/country/data/total"
                       >
                         {t("statistics.total")}
@@ -404,20 +443,26 @@ export default function Header() {
                       >
                         {t("country.title")}
                       </option>
-                      <option className="bg-transparent" value="country/total">
+                      <option
+                        className="bg-transparent text-black"
+                        value="country/total"
+                      >
                         {t("country.total")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="country/cases/dates"
                       >
                         {t("country.casesBetween")}
                       </option>
-                      <option className="bg-transparent" value="country/status">
+                      <option
+                        className="bg-transparent text-black"
+                        value="country/status"
+                      >
                         {t("country.status")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="country/status/dates"
                       >
                         {t("country.statusBetween")}
@@ -440,20 +485,26 @@ export default function Header() {
                       >
                         {t("hospital.title")}
                       </option>
-                      <option className="bg-transparent" value="occupancy">
+                      <option
+                        className="bg-transparent text-black"
+                        value="occupancy"
+                      >
                         {t("hospital.occupancy")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="occupancy/million"
                       >
                         {t("hospital.occupancyMillion")}
                       </option>
-                      <option className="bg-transparent" value="admissions">
+                      <option
+                        className="bg-transparent text-black"
+                        value="admissions"
+                      >
                         {t("hospital.admissions")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="admissions/million"
                       >
                         {t("hospital.admissionsMillion")}
@@ -477,37 +528,37 @@ export default function Header() {
                         {t("countrySummary.title")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="summary/new/recovered"
                       >
                         {t("countrySummary.newRecovered")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="summary/new/confirmed"
                       >
                         {t("countrySummary.newConfirmed")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="summary/new/deaths"
                       >
                         {t("countrySummary.newDeaths")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="summary/total/recovered"
                       >
                         {t("countrySummary.totalRecovered")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="summary/totalconfirmed"
                       >
                         {t("countrySummary.totalConfirmed")}
                       </option>
                       <option
-                        className="bg-transparent"
+                        className="bg-transparent text-black"
                         value="summary/total/deaths"
                       >
                         {t("countrySummary.totalDeaths")}
