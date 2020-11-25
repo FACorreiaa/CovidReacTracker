@@ -21,17 +21,17 @@ export default function CustomWIPTotalTitle() {
                 <h3>Total around the world</h3>
               </article>
               <CustomCard
-                icon="fas fa-check w-5 h-5 pr-2"
+                icon="text-blue-300 fas fa-check w-5 h-5 pr-2"
                 title="Total Confirmed"
                 value={d.TotalConfirmed}
               />
               <CustomCard
-                icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                icon="text-blue-300 fas fa-skull-crossbones w-5 h-5 pr-2"
                 title="Total Deaths"
                 value={d.TotalDeaths}
               />
               <CustomCard
-                icon="fas fa-heart w-5 h-5 pr-2"
+                icon="text-blue-300 fas fa-heart w-5 h-5 pr-2"
                 title="Total Recovered"
                 value={d.TotalRecovered}
               />

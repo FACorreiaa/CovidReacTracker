@@ -51,10 +51,10 @@ export default function GeneralSubForm(props: GeneralSubProps) {
 
           <button
             onClick={handleSubmit(props.onSubmit)}
-            className="hover:border-none focus:shadow-nav focus:outline-none hover:bg-gray-500 h-auto flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
+            className="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm flex-shrink-0 hover:gray-700 border-gray-700 hover:border-none focus:shadow-nav focus:outline-none focus:border-none hover:bg-gray-700 border-none py-1 px-2"
             type="button"
           >
-            Send<i className="fas fa-paper-plane"></i>
+            Send<i className="text-blue-300 fas fa-paper-plane"></i>
           </button>
         </div>
         {errors.email && (

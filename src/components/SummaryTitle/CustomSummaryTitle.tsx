@@ -20,23 +20,24 @@ export default function CustomSummaryTitle() {
               <div className="flex text-center mb-4">
                 <div className="w-full  h-12">
                   <label className="font-semibold">
-                    New Around the world <i className="fas fa-globe"></i>
+                    New Around the world{" "}
+                    <i className="text-blue-300 fas fa-globe"></i>
                   </label>
                 </div>
               </div>
               <div className="text-center grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                 <CustomCard
-                  icon="fas fa-check w-5 h-5 pr-2"
+                  icon="text-blue-300 fas fa-check w-5 h-5 pr-2"
                   title="New Confirmed"
                   value={d.NewConfirmed}
                 />
                 <CustomCard
-                  icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                  icon="text-blue-300 fas fa-skull-crossbones w-5 h-5 pr-2"
                   title="New Deaths"
                   value={d.NewDeaths}
                 />
                 <CustomCard
-                  icon="fas fa-heart w-5 h-5 pr-2"
+                  icon="text-blue-300 fas fa-heart w-5 h-5 pr-2"
                   title="New Recovered"
                   value={d.NewRecovered}
                 />

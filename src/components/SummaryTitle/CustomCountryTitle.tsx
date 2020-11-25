@@ -32,23 +32,23 @@ export default function CustomCountryTitle(props: Props) {
 
                   <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                     <CustomCard
-                      icon="fas fa-check w-5 h-5 pr-2"
+                      icon="text-blue-300 fas fa-check w-5 h-5 pr-2"
                       title={"New Confirmed"}
                       value={d.NewConfirmed}
                     />
                     <CustomCard
-                      icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                      icon="text-blue-300 fas fa-skull-crossbones w-5 h-5 pr-2"
                       title={"New Deaths"}
                       value={d.NewDeaths}
                     />
                     <CustomCard
-                      icon="fas fa-heart w-5 h-5 pr-2"
+                      icon="text-blue-300 fas fa-heart w-5 h-5 pr-2"
                       title={"New Recovered"}
                       value={d.NewRecovered}
                     />
                     <div></div>
                     <CustomCard
-                      icon="fas fa-check w-5 h-5 pr-2"
+                      icon="text-blue-300 fas fa-check w-5 h-5 pr-2"
                       title={"Total Confirmed"}
                       value={d.TotalConfirmed}
                     />
@@ -58,14 +58,14 @@ export default function CustomCountryTitle(props: Props) {
                       value={d.TotalDeaths}
                     />
                     <CustomCard
-                      icon="fas fa-heart w-5 h-5 pr-2"
+                      icon="text-blue-300 fas fa-heart w-5 h-5 pr-2"
                       title={"Total Recovered"}
                       value={d.TotalRecovered}
                     />
                     <div></div>
 
                     <CustomCard
-                      icon="fas fa-skull-crossbones w-5 h-5 pr-2"
+                      icon="text-blue-300 fas fa-skull-crossbones w-5 h-5 pr-2"
                       title={"Fatality Ratio"}
                       value={Number(
                         (d.TotalDeaths / d.NewConfirmed).toFixed(3)

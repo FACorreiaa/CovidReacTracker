@@ -23,7 +23,7 @@ export default function CustomLandingCard(props: Props) {
       <div className=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
         <div className="header-content inline-flex ">
           <div className="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-gray-100">
-            <div className="h-2 w-2 rounded-full m-1 bg-orange-500 "></div>
+            <div className="h-2 w-2 rounded-full m-1 bg-blue-500 "></div>
           </div>
           <div className="category-title flex-1 text-sm font-bold">
             {props.title}
