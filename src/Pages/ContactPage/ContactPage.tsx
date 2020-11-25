@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { postAdminMessage } from "../../services/ContactService";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import { useForm } from "react-hook-form";
 import ErrorMessages from "../../components/Subscriptions/ErrorMessage";
@@ -14,10 +14,10 @@ export default function ContactPage() {
   const [message, setMessage] = useState("");
   const { register, handleSubmit, errors, formState } = useForm();
   const [isOpen, setIsOpen] = useState(true);
-
   const loading = () => {
     setTimeout(function () {
       setIsOpen(false);
+      redirect();
       history.goBack();
     }, 2000);
   };
@@ -44,13 +44,13 @@ export default function ContactPage() {
     setMessage(message);
   };
 
+  const redirect = () => {
+    return `Redirecting...`;
+  };
+
   return (
     <div>
-      <CustomSecondaryContainer>
-        <div className="flex mb-4">
-          <div className="w-1/2 bg-gray-400 h-12"></div>
-          <div className="w-1/2 bg-gray-500 h-12"></div>
-        </div>
+      <div className="font-lato bg-landing-secondary bg-bottom bg-white-landing bg-dark-landing grid justify-evenly border-box h-full bg-no-repeat bottom-0 pt-12">
         <article className="prose prose-sm lg:prose-sm">
           <h3>Contact me</h3>
 
@@ -66,7 +66,7 @@ export default function ContactPage() {
 
         <div className="grid grid-rows-3 grid-flow-col gap-4">
           <div className="row-span-1 col-span-2 ">
-            <form className="w-full max-w-sm shadow-md rounded">
+            <form className="w-full max-w-sm shadow-md rounded border-gray-300 border">
               <div className="md:flex md:items-center mb-6">
                 <div className="md:w-1/3">
                   <label
@@ -164,6 +164,7 @@ export default function ContactPage() {
                           Email sent!
                           <i className="fas fa-check"></i>
                         </div>
+                        <div className="font-semibold">{redirect()}</div>
                         {loading()}
                       </Transition>
                     </div>
@@ -185,7 +186,7 @@ export default function ContactPage() {
             </form>
           </div>
         </div>
-      </CustomSecondaryContainer>
+      </div>
     </div>
   );
 }

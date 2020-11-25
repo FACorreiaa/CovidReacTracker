@@ -66,7 +66,7 @@ export default function CountryStatInfo() {
           ? null
           : data.map((info: CountryInfo) => {
               return (
-                <div className="py-12 bg-white">
+                <div className="py-12 bg-gray-200">
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="lg:text-center">
                       <h2 className="text-base text-black font-semibold tracking-wide uppercase">

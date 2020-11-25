@@ -1,5 +1,6 @@
 import React from "react";
 import "fontsource-poppins";
+import { Link } from "react-router-dom";
 
 type Props = {
   title: string;
@@ -9,6 +10,8 @@ type Props = {
   imgSrc?: string;
   altsrc?: string;
   hashtag?: string;
+  link: string;
+  linkValue: string;
 };
 export default function CustomLandingCard(props: Props) {
   return (
@@ -22,14 +25,16 @@ export default function CustomLandingCard(props: Props) {
           <div className="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-gray-100">
             <div className="h-2 w-2 rounded-full m-1 bg-orange-500 "></div>
           </div>
-          <div className="category-title flex-1 text-sm">{props.title}</div>
+          <div className="category-title flex-1 text-sm font-bold">
+            {props.title}
+          </div>
         </div>
-        <div className="title-post font-medium">{props.subtitle}</div>
+        <div className="title-post font-semibold">{props.subtitle}</div>
 
         <div className="summary-post text-base text-justify">
           {props.value}
           <button className="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm ">
-            <span className="">Lire plus</span>
+            <Link to={props.link}> {props.linkValue}</Link>
           </button>
         </div>
       </div>

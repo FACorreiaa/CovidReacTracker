@@ -22,7 +22,7 @@ export default function GeneralSubForm(props: GeneralSubProps) {
   };
   return (
     <>
-      <form className="w-full max-w-sm shadow-md rounded sm:grid">
+      <form className="w-full max-w-sm shadow-md rounded sm:grid border-gray-300 border">
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
           htmlFor="grid-first-name"

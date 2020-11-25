@@ -15,7 +15,7 @@ type LiveTotalProps = {
 export default function LiveAfterDateForm(props: LiveTotalProps) {
   return (
     <div>
-      <form className="w-full max-w-sm shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form className="w-full max-w-sm shadow-md rounded px-8 pt-6 pb-8 mb-4 border-gray-300 border">
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
             <label className="block text-gray-700 text-sm font-bold md:text-right mb-1 md:mb-0 pr-4">

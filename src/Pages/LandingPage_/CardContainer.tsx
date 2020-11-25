@@ -22,26 +22,32 @@ export default function CardContainer() {
             </div>
             <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
               <CustomLandingCard
-                title="test"
-                subtitle="meyteste"
-                value="ahahah"
+                title="Data"
+                subtitle="Check Data around the world"
+                value="Pick between general data around the world or by a specific country over time"
                 imgSrc={nation}
                 altsrc="nation"
+                link="/country/total"
+                linkValue="Country Data"
               />
 
               <CustomLandingCard
-                title="test"
-                subtitle="meyteste"
-                value="ahahah"
+                title="Alerts"
+                subtitle="Subscribe for data"
+                value="Subscribe to receive daily emails with information about cases around the world or by a specific country"
                 imgSrc={subs}
                 altsrc="nation"
+                link="/subscribe"
+                linkValue="Subscriptions"
               />
               <CustomLandingCard
-                title="test"
-                subtitle="meyteste"
-                value="ahahah"
+                title="Statistics"
+                subtitle="Check your data over time"
+                value="Visualize your data in graphs over time or simple card information!"
                 imgSrc={stats}
                 altsrc="nation"
+                link="/statistics/country/info"
+                linkValue="Statistics"
               />
             </div>
           </div>

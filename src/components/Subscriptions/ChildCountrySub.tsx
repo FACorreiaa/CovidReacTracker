@@ -26,7 +26,7 @@ export default function ChildCountrySub(props: CountrySubProps) {
     }, 2000);
   };
   return (
-    <form className="w-full max-w-sm shadow-md rounded">
+    <form className="w-full max-w-sm shadow-md rounded border-gray-300 border">
       <div className="md:flex md:items-center mb-6">
         <div className="md:w-3/3">
           <label
