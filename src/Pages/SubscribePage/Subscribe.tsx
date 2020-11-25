@@ -7,7 +7,7 @@ export default function SubscribePage() {
   return (
     <div>
       <CustomSecondaryContainer>
-        <article className="prose lg:prose-xl">
+        <article className="prose lg:prose-xl sm:grid">
           <p>
             Subscribe to get emails daily about Corona Virus around the world!
           </p>
@@ -30,8 +30,16 @@ export default function SubscribePage() {
             </span>
             <i className="fas fa-rainbow"></i>
           </p>
+          <div className="mobile:hidden grid grid-rows-3 grid-flow-col gap-4 ">
+            <div className="row-span-1 col-span-2 ">
+              <GeneralSub />
+            </div>
+            <div>
+              <CountrySub />
+            </div>
+          </div>
         </article>
-        <div className="grid grid-rows-3 grid-flow-col gap-4">
+        <div className="grid grid-rows-3 grid-flow-col gap-4 mobile-grid:hidden">
           <div className="row-span-1 col-span-2 ">
             <GeneralSub />
           </div>

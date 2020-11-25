@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import { useForm } from "react-hook-form";
 import ErrorMessages from "../../components/Subscriptions/ErrorMessage";
+import { Transition } from "@headlessui/react";
 
 export default function ContactPage() {
   let history = useHistory();
@@ -11,7 +12,15 @@ export default function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, formState } = useForm();
+  const [isOpen, setIsOpen] = useState(true);
+
+  const loading = () => {
+    setTimeout(function () {
+      setIsOpen(false);
+      history.goBack();
+    }, 2000);
+  };
 
   const onClick = () => {
     const data = {
@@ -20,8 +29,6 @@ export default function ContactPage() {
       message,
     };
     const result = postAdminMessage(data);
-    history.goBack();
-
     return result;
   };
   const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -142,6 +149,25 @@ export default function ContactPage() {
                   {errors.message && (
                     <ErrorMessages error="Please elaborate your message!" />
                   )}
+                  {formState.isSubmitted && !errors.email && (
+                    <div>
+                      <Transition
+                        show={isOpen}
+                        enter="transition-opacity duration-105"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="transition-opacity duration-350"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                      >
+                        <div className="font-semibold border-green-300 text-green-500">
+                          Email sent!
+                          <i className="fas fa-check"></i>
+                        </div>
+                        {loading()}
+                      </Transition>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="md:flex md:items-center">
@@ -149,7 +175,7 @@ export default function ContactPage() {
                 <div className="md:w-2/3">
                   <button
                     onClick={handleSubmit(onClick)}
-                    className="flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
+                    className="hover:border-none focus:shadow-nav focus:outline-none hover:bg-gray-500 flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
                     type="button"
                   >
                     Send<i className="fas fa-paper-plane"></i>

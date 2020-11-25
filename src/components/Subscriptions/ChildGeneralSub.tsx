@@ -22,7 +22,7 @@ export default function GeneralSubForm(props: GeneralSubProps) {
   };
   return (
     <>
-      <form className="w-full max-w-sm shadow-md rounded">
+      <form className="w-full max-w-sm shadow-md rounded sm:grid">
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
           htmlFor="grid-first-name"
@@ -51,7 +51,7 @@ export default function GeneralSubForm(props: GeneralSubProps) {
 
           <button
             onClick={handleSubmit(props.onSubmit)}
-            className="h-auto flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
+            className="hover:border-none focus:shadow-nav focus:outline-none hover:bg-gray-500 h-auto flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 text-sm border-4 text-white py-1 px-2 rounded"
             type="button"
           >
             Send<i className="fas fa-paper-plane"></i>

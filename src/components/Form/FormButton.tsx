@@ -8,7 +8,7 @@ type ButtonsProps = {
 export default function FormButton(props: ButtonsProps) {
   return (
     <button
-      className="flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-orange-700 focus:border-orange-300 hover:bg-orange-500 text-sm border-4 text-white py-1 px-2 rounded "
+      className="flex-shrink-0 bg-gray-700 hover:gray-700 border-gray-700 hover:border-none focus:shadow-nav focus:outline-none focus:border-none hover:bg-gray-700 text-sm border-4 text-white py-1 px-2 rounded "
       onClick={props.onClick}
       type={props.type}
     >

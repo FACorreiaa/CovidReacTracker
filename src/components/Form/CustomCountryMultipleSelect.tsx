@@ -13,7 +13,7 @@ export default function CustomCountryMultipleSelect(props: Props) {
     <>
       <select
         onChange={props.handleFieldChange}
-        className="hover:border-orange-700 focus:border-orange-300 shadow appearance-none bg-white  border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none border border-gray-300"
+        className="hover:border-none focus:border-orange-300 shadow appearance-none bg-white  border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none border border-gray-300"
         id="grid-state"
         name={props.name}
         ref={props.ref}

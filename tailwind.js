@@ -102,6 +102,8 @@ module.exports = {
     },
     screens: {
       tiny: { min: "300px", max: "639px" },
+      "mobile-grid": { min: "300px", max: "824px" },
+      mobile: "824px",
       sm: "640px",
       md: "768px",
       lg: "1024px",
