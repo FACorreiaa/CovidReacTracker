@@ -11,7 +11,6 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import CustomFormCountryDates from "../../components/Form/FormCountryDates";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import { getNumberOfDays } from "../../function/numberOfDays";
-import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 
 export default function CountryCasesBetweenDates() {
   const countryList: any = useCountriesDropdown();

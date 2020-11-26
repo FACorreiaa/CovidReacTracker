@@ -16,7 +16,7 @@ export default function CustomSummaryTitle() {
       <div className="h-full overflow-y-auto">
         <div className="container  mx-auto grid">
           {data.data.map((d: SummaryList) => (
-            <>
+            <div key={d._id}>
               <div className="flex text-center mb-4">
                 <div className="w-full  h-12">
                   <label className="font-semibold">
@@ -42,7 +42,7 @@ export default function CustomSummaryTitle() {
                   value={d.NewRecovered}
                 />
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>

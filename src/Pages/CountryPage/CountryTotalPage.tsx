@@ -11,7 +11,6 @@ import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
-import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 
 export default function CountryTotalPage() {
   const countryList: any = useCountriesDropdown();

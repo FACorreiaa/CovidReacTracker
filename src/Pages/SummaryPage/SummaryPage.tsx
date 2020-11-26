@@ -17,7 +17,7 @@ function SummaryPage() {
     <CustomSecondaryContainer>
       <section className="flex justify-between p-container m-container">
         {data.data.map((d: SummaryList) => (
-          <>
+          <div key={d._id}>
             <SummaryPageList
               title="Covid 19 Daily Summary"
               date={format(parseISO(`${d.createdAt}`), "PPPPpppp")}
@@ -31,7 +31,7 @@ function SummaryPage() {
                 Number(d.TotalDeaths) / Number(d.NewConfirmed)
               ).toString()}
             />
-          </>
+          </div>
         ))}
       </section>
     </CustomSecondaryContainer>

@@ -11,7 +11,6 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import CustomFormCountryStatusDates from "../../components/Form/FormCountryStatusDates";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
 import { getNumberOfDays } from "../../function/numberOfDays";
-import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 
 export default function LiveAfterDate() {
   const countryList: any = useCountriesDropdown();

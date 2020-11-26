@@ -12,7 +12,6 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import CustomFormCountryStatus from "../../components/Form/FormCountryStatus";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
-import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 
 export default function CountryStatus() {
   const countryList: any = useCountriesDropdown();

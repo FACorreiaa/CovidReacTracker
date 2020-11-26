@@ -8,7 +8,6 @@ import { CustomSecondaryContainer } from "../../components/Landing/CustomSeconda
 import { useForm } from "react-hook-form";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
-import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 
 export default function LiveDailyCountry() {
   const countryList: any = useCountriesDropdown();

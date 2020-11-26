@@ -1,4 +1,5 @@
 export interface SummaryList {
+  _id: string;
   NewConfirmed: number;
   NewDeaths: number;
   NewRecovered: number;

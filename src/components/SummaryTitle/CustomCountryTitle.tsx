@@ -20,7 +20,7 @@ export default function CustomCountryTitle(props: Props) {
           {props.country.length &&
             data.map((d: any) => {
               return (
-                <>
+                <div key={d.Country}>
                   <div className="flex text-left mb-4">
                     <div className="w-full  h-12">
                       <span className="font-semibold  text-2xl">
@@ -72,7 +72,7 @@ export default function CustomCountryTitle(props: Props) {
                       )}
                     />
                   </div>
-                </>
+                </div>
               );
             })}
         </div>
