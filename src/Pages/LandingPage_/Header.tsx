@@ -113,8 +113,9 @@ export default function Header() {
               name="country"
               id="country"
               className="w-64 bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
+              defaultValue={"DEFAULT"}
             >
-              <option value="" defaultValue="Country" selected disabled hidden>
+              <option value="DEFAULT" disabled hidden>
                 {t("country.title")}
               </option>
               <option
@@ -149,8 +150,9 @@ export default function Header() {
               name="hospital"
               id="hospital"
               className="w-64 bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
+              defaultValue={"DEFAULT"}
             >
-              <option value="" defaultValue="hospital" selected disabled hidden>
+              <option value="DEFAULT" disabled hidden>
                 {t("hospital.title")}
               </option>
               <option className="bg-transparent text-black" value="occupancy">
@@ -179,8 +181,9 @@ export default function Header() {
               name="summary"
               id="summary"
               className="w-64 bg-transparent inline p-nav-25 rounded leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500"
+              defaultValue={"DEFAULT"}
             >
-              <option value="" defaultValue="hospital" selected disabled hidden>
+              <option value="DEFAULT" disabled hidden>
                 {t("countrySummary.title")}
               </option>
               <option
@@ -269,9 +272,9 @@ export default function Header() {
                   aria-hidden="true"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
@@ -292,9 +295,9 @@ export default function Header() {
                   aria-hidden="true"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
@@ -337,9 +340,9 @@ export default function Header() {
                       aria-hidden="true"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M6 18L18 6M6 6l12 12"
                       />
                     </svg>

@@ -13,9 +13,9 @@ function ConfirmationMessage(props: confirmation) {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="feather feather-check-circle w-5 h-5 mx-2"
         >
           <span className=" absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -36,9 +36,9 @@ function ConfirmationMessage(props: confirmation) {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="feather feather-x cursor-pointer hover:text-green-400 rounded-full w-5 h-5 ml-2"
           >
             <line x1="18" y1="6" x2="6" y2="18"></line>

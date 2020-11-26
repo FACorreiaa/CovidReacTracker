@@ -20,14 +20,9 @@ export default function CustomMultipleStatusSelect(props: Props) {
           onChange={props.handleFieldChange}
           className=" shadow appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none border border-gray-300 focus:border-orange-500"
           id="grid-state"
+          defaultValue={"DEFAULT"}
         >
-          <option
-            value=""
-            defaultValue="Select a Status"
-            selected
-            disabled
-            hidden
-          >
+          <option value="DEFAULT" disabled hidden>
             Select a status
           </option>
           {["confirmed", "recovered", "deaths"].map((value) => {

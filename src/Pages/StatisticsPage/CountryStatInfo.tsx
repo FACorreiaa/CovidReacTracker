@@ -82,7 +82,7 @@ export default function CountryStatInfo() {
                       </div>
 
                       <div className="mt-10">
-                        <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                        <dl className="space-y-10 md:space-y-0 tiny:grid tiny:grid-cols-2 tiny:gap-x-8 tiny:gap-y-10">
                           <div className="flex">
                             <div className="flex-shrink-0">
                               <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500 text-gray-900">

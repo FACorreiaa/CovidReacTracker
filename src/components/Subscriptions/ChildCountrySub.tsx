@@ -81,8 +81,9 @@ export default function ChildCountrySub(props: CountrySubProps) {
             id="grid-state"
             ref={register({ required: true })}
             name="selectValue"
+            defaultValue={"DEFAULT"}
           >
-            <option value="" selected disabled hidden>
+            <option value="DEFAULT" disabled hidden>
               Select a country
             </option>
             {props.countryList.map((selectValue) => {
