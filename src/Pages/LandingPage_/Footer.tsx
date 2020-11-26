@@ -9,11 +9,11 @@ export default function Footer() {
     <footer className="bg-footer-main justify-center font-roboto">
       <section className="w-footer flex justify-between m-footer text-footer-color">
         <section>
-          <h1 className="text-footer-title font-bold  text-footer-color">
+          <h1 className="text-footer-title  text-footer-color">
             Keep updated with daily email alerts and the latest information
             about Covid19
           </h1>
-          <ul className="list-none font-semibold italic">
+          <ul className="list-none italic">
             <Link to="/contact">
               <li>Contact me!</li>
             </Link>

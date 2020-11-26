@@ -11,7 +11,7 @@ export default function CustomButton(props: Props) {
     <div>
       <button
         onClick={props.onClick}
-        className="text-nav-color text-nav p-button w-button text-center shadow-button rounded-button tiny:w-3/6 tiny:h-3/6 tiny:text-sm"
+        className="text-nav-color hover:border-none focus:border-transparent border-none text-nav p-button w-button text-center shadow-button rounded-button tiny:w-3/6 tiny:h-3/6 tiny:text-sm"
       >
         {props.label}
         {props.children}
