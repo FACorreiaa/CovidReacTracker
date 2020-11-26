@@ -8,11 +8,8 @@ import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
-import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
-import CountryData from "../../Interface/CountryData";
 import ErrorMessage from "../../components/Subscriptions/ErrorMessage";
 import { HospitalData } from "../../Interface/HospitalData";
-import { format, parse } from "date-fns";
 export default function OccupancyPage() {
   const countryList: any = useCountriesDropdown();
 

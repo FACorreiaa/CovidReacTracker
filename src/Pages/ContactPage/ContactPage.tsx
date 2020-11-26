@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { postAdminMessage } from "../../services/ContactService";
-import { Redirect, useHistory } from "react-router-dom";
-import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import ErrorMessages from "../../components/Subscriptions/ErrorMessage";
 import { Transition } from "@headlessui/react";

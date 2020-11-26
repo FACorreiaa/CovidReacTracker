@@ -2,15 +2,11 @@ import React, { useState } from "react";
 import { fetcher } from "../../services/config/http-common";
 import useSWR, { mutate } from "swr";
 import Loading from "../../components/Loading/Loading";
-import { IDayOne } from "../../Interface/Dayone";
-import { Bar } from "react-chartjs-2";
-import { format, parseISO } from "date-fns";
 import { CustomSecondaryContainer } from "../../components/Landing/CustomSecondaryContainer";
 import CustomCountryTitle from "../../components/SummaryTitle/CustomCountryTitle";
 import CustomSummaryTitle from "../../components/SummaryTitle/CustomSummaryTitle";
 import CustomDayOneTemplate from "../../components/Form/DayOneForm";
 import useCountriesDropdown from "../../hooks/useCountriesDropdown";
-import CustomWarningMessage from "../../components/ErrorMessages/WarningMessage";
 function TravelPage() {
   const countryList: any = useCountriesDropdown();
 
