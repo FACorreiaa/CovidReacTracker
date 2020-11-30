@@ -96,7 +96,7 @@ export default function CountryStatInfo() {
                               <dd className="mt-2 text-base text-gray-500">
                                 {!info.continent
                                   ? "no data to show"
-                                  : info.location}
+                                  : info.continent}
                               </dd>
                             </div>
                             <div className="ml-4 inline-block flex-row ">

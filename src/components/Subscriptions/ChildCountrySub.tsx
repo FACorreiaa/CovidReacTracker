@@ -110,7 +110,7 @@ export default function ChildCountrySub(props: CountrySubProps) {
         <div className="md:w-1/3"></div>
         <div className="md:w-2/3">
           <button
-            className="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm flex-shrink-0 hover:gray-700 border-gray-700 hover:border-none focus:shadow-nav focus:outline-none focus:border-none hover:bg-gray-700 border-none py-1 px-2"
+            className="bg-blue-100 font-bold text-blue-500 mt-4 block rounded p-2 text-sm flex-shrink-0 hover:gray-700 border-gray-700 hover:border-none focus:shadow-nav focus:outline-none focus:border-none hover:bg-gray-700 border-none py-1 px-2"
             type="button"
             onClick={handleSubmit(props.onSubmit)}
           >
