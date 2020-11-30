@@ -67,8 +67,8 @@ export default function CountryStatInfo() {
               return (
                 <CustomSecondaryContainer>
                   <div className="py-12">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                      <div className="lg:text-center">
+                    <div className="mx-auto px-4 tiny:grid sm:px-6 lg:px-8 ">
+                      <div className="tiny:text-center tiny:grid tiny:gap-6 mb-8 lg:text-center">
                         <h2 className="text-base text-black font-semibold tracking-wide uppercase">
                           Country information
                         </h2>
@@ -83,8 +83,8 @@ export default function CountryStatInfo() {
 
                       <div className="mt-10">
                         <dl className="space-y-10 md:space-y-0 tiny:grid tiny:grid-cols-2 tiny:gap-x-8 tiny:gap-y-10">
-                          <div className="flex">
-                            <div className="flex-shrink-0">
+                          <div className="tiny:grid flex">
+                            <div className="tiny:ml-4 tiny:grid-flow-col flex-shrink-0">
                               <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500 text-gray-900">
                                 <i className="far fa-flag"></i>
                               </div>
@@ -94,7 +94,9 @@ export default function CountryStatInfo() {
                                 Continent
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.continent}
+                                {!info.continent
+                                  ? "no data to show"
+                                  : info.location}
                               </dd>
                             </div>
                             <div className="ml-4 inline-block flex-row ">
@@ -102,13 +104,15 @@ export default function CountryStatInfo() {
                                 Country
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.location}
+                                {!info.location
+                                  ? "no data to show"
+                                  : info.location}
                               </dd>
                             </div>
                           </div>
 
-                          <div className="flex">
-                            <div className="flex-shrink-0">
+                          <div className="flex tiny:grid">
+                            <div className="tiny:ml-4 flex-shrink-0">
                               <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500 text-gray-900">
                                 <i className="fas fa-users"></i>
                               </div>
@@ -118,7 +122,9 @@ export default function CountryStatInfo() {
                                 Population
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.population}
+                                {!info.population
+                                  ? "no data to show"
+                                  : info.population}
                               </dd>
                             </div>
                             <div className="ml-4 inline-block flex-row ">
@@ -126,14 +132,16 @@ export default function CountryStatInfo() {
                                 Population Density
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.population_density}
+                                {!info.population_density
+                                  ? "no data to show"
+                                  : info.population_density}
                               </dd>
                             </div>
                           </div>
 
-                          <div className="flex">
+                          <div className="flex tiny:grid">
                             <div className="flex-shrink-0">
-                              <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500 text-gray-900">
+                              <div className="tiny:ml-4 flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500 text-gray-900">
                                 <i className="fas fa-smoking"></i>
                               </div>
                             </div>
@@ -142,7 +150,9 @@ export default function CountryStatInfo() {
                                 Male Smokers
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.male_smokers}
+                                {!info.male_smokers
+                                  ? "no data to show"
+                                  : info.male_smokers}
                               </dd>
                             </div>
                             <div className="ml-4 inline-block flex-row ">
@@ -150,7 +160,9 @@ export default function CountryStatInfo() {
                                 Female Smokers
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.female_smokers}
+                                {!info.female_smokers
+                                  ? "no data to show"
+                                  : info.female_smokers}
                               </dd>
                             </div>
                             <div className="ml-4 inline-block flex-row ">
@@ -158,7 +170,9 @@ export default function CountryStatInfo() {
                                 Cardio vascular Death rate
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.cardiovasc_death_rate}
+                                {!info.cardiovasc_death_rate
+                                  ? "no data to show"
+                                  : info.cardiovasc_death_rate}
                               </dd>
                             </div>
                             <div className="ml-4 inline-block flex-row ">
@@ -166,13 +180,15 @@ export default function CountryStatInfo() {
                                 Diabetes
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.diabetes_prevalence}
+                                {!info.diabetes_prevalence
+                                  ? "No data to show"
+                                  : info.diabetes_prevalence}
                               </dd>
                             </div>
                           </div>
 
-                          <div className="flex">
-                            <div className="flex-shrink-0">
+                          <div className="flex tiny:grid">
+                            <div className="tiny:ml-4 flex-shrink-0">
                               <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500 text-gray-900">
                                 <i className="far fa-heart"></i>
                               </div>
@@ -182,7 +198,9 @@ export default function CountryStatInfo() {
                                 Human Development Index
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.human_development_index}
+                                {!info.human_development_index
+                                  ? "No data to show"
+                                  : info.human_development_index}
                               </dd>
                             </div>
                             <div className="ml-4 inline-block flex-row ">
@@ -190,7 +208,9 @@ export default function CountryStatInfo() {
                                 Life Expectancy
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.life_expectancy}
+                                {!info.life_expectancy
+                                  ? "No data to show"
+                                  : info.life_expectancy}
                               </dd>
                             </div>
                             <div className="ml-4 inline-block flex-row ">
@@ -198,7 +218,9 @@ export default function CountryStatInfo() {
                                 Extreme Poverty
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.extreme_poverty}
+                                {!info.extreme_poverty
+                                  ? "No data to show"
+                                  : info.extreme_poverty}
                               </dd>
                             </div>
                             <div className="ml-4 inline-block flex-row ">
@@ -206,7 +228,9 @@ export default function CountryStatInfo() {
                                 GDP per capita
                               </dt>
                               <dd className="mt-2 text-base text-gray-500">
-                                {info.gdp_per_capita}
+                                {!info.gdp_per_capita
+                                  ? "No data to show"
+                                  : info.gdp_per_capita}
                               </dd>
                             </div>
                           </div>
