@@ -1,4 +1,8 @@
 export interface ILiveData {
+  name: Name;
+}
+
+type Name = {
   Active: number;
   City: string;
   CityCode: string;
@@ -11,4 +15,4 @@ export interface ILiveData {
   Lon: string;
   Province: string;
   Recovered: number;
-}
+};

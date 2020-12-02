@@ -61,7 +61,9 @@ export default function LiveAfterDate() {
         borderWidth: 1,
         hoverBackgroundColor: "rgba(240, 240, 214, 1)",
         hoverBorderColor: "rgba(247, 202, 24, 1)",
-        data: !country ? null : data[0].name.map((n: ILiveData) => n.Active),
+        data: !country
+          ? null
+          : data[0].name.map((n: ILiveData) => n.name.Active),
       },
       {
         label: "Recovered",
@@ -70,7 +72,9 @@ export default function LiveAfterDate() {
         borderWidth: 1,
         hoverBackgroundColor: "rgba(41, 241, 195, 1)",
         hoverBorderColor: "rgba(123, 239, 178, 1)",
-        data: !country ? null : data[0].name.map((n: ILiveData) => n.Recovered),
+        data: !country
+          ? null
+          : data[0].name.map((n: ILiveData) => n.name.Recovered),
       },
       {
         label: "Deaths",
@@ -79,7 +83,9 @@ export default function LiveAfterDate() {
         borderWidth: 1,
         hoverBackgroundColor: "rgba(224, 130, 131, 1)",
         hoverBorderColor: "rgba(246, 36, 89, 1)",
-        data: !country ? null : data[0].name.map((n: ILiveData) => n.Deaths),
+        data: !country
+          ? null
+          : data[0].name.map((n: ILiveData) => n.name.Deaths),
       },
       {
         label: "Confirmed",
@@ -88,7 +94,9 @@ export default function LiveAfterDate() {
         borderWidth: 1,
         hoverBackgroundColor: "rgba(154, 18, 179, 1)",
         hoverBorderColor: "rgba(190, 144, 212,1)",
-        data: !country ? null : data[0].name.map((n: ILiveData) => n.Confirmed),
+        data: !country
+          ? null
+          : data[0].name.map((n: ILiveData) => n.name.Confirmed),
       },
     ],
   };

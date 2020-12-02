@@ -1,4 +1,8 @@
 export default interface CountryData {
+  data: Country;
+}
+
+type Country = {
   date: string;
   total_cases_per_million: number;
   new_cases_per_million: number;
@@ -6,4 +10,4 @@ export default interface CountryData {
   total_deaths_per_million: number;
   new_deaths_per_million: number;
   new_deaths_smoothed_per_million: number;
-}
+};

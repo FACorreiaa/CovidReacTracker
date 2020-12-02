@@ -43,7 +43,7 @@ export default function CountryStatNewData() {
 
   //format(parseISO(`${d.createdAt}`), "PPPPpppp")
   const dataSource = {
-    labels: !country ? null : data[0].data.map((n: CountryData) => n.date),
+    labels: !country ? null : data.map((n: CountryData) => n.data.date),
     datasets: [
       {
         label: "New Cases Per Million",
@@ -54,7 +54,7 @@ export default function CountryStatNewData() {
         hoverBorderColor: "rgba(41, 241, 195, 1)",
         data: !country
           ? null
-          : data[0].data.map((n: CountryData) => n.new_cases_per_million),
+          : data.map((n: CountryData) => n.data.new_cases_per_million),
       },
       {
         label: "New Cases Smoothed Per Million",
@@ -65,9 +65,7 @@ export default function CountryStatNewData() {
         hoverBorderColor: "rgba(240, 240, 214, 1)",
         data: !country
           ? null
-          : data[0].data.map(
-              (n: CountryData) => n.new_cases_smoothed_per_million
-            ),
+          : data.map((n: CountryData) => n.data.new_cases_smoothed_per_million),
       },
       {
         label: "New Deaths Smoothed Per Million",
@@ -78,8 +76,8 @@ export default function CountryStatNewData() {
         hoverBorderColor: "rgba(226, 106, 106, 1)",
         data: !country
           ? null
-          : data[0].data.map(
-              (n: CountryData) => n.new_deaths_smoothed_per_million
+          : data.map(
+              (n: CountryData) => n.data.new_deaths_smoothed_per_million
             ),
       },
       {
@@ -91,7 +89,7 @@ export default function CountryStatNewData() {
         hoverBorderColor: "rgba(233, 212, 96, 1)",
         data: !country
           ? null
-          : data[0].data.map((n: CountryData) => n.new_deaths_per_million),
+          : data.map((n: CountryData) => n.data.new_deaths_per_million),
       },
     ],
   };

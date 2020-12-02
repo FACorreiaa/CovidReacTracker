@@ -144,7 +144,8 @@ export default function Header() {
               </option>
             </select>
           </li>
-          <li className="inline p-nav-25 ">
+          {/**
+           * <li className="inline p-nav-25 ">
             <select
               onChange={onChange}
               name="hospital"
@@ -175,6 +176,7 @@ export default function Header() {
               </option>
             </select>
           </li>
+           */}
           <li className="inline p-nav-25 ">
             <select
               onChange={onChange}

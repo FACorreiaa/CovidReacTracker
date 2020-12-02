@@ -32,10 +32,6 @@ import TravelPage from "./Pages/TravelPage/TravelPage";
 import CountryStatInfo from "./Pages/StatisticsPage/CountryStatInfo";
 import CountryStatNewData from "./Pages/StatisticsPage/CountryStatNewData";
 import CountryStatTotalData from "./Pages/StatisticsPage/CountryStatTotalData";
-import OccupancyPage from "./Pages/HospitalPage/OccupancyPage";
-import AdmissionsPage from "./Pages/HospitalPage/AdmissionsPage";
-import AdmissionsMillionPage from "./Pages/HospitalPage/AdmissionsMillionPage";
-import OccupancyMillionPage from "./Pages/HospitalPage/OccupancyMillionPage";
 import SummaryNewRecovered from "./Pages/SummaryPage/SummaryNewRecovered";
 import SummaryNewDeaths from "./Pages/SummaryPage/SummaryNewDeaths";
 import SummaryNewConfirmed from "./Pages/SummaryPage/SummaryNewConfirmed";
@@ -113,7 +109,8 @@ function App() {
           path="/statistics/country/data/total"
           component={CountryStatTotalData}
         />
-        <Route exact path="/occupancy" component={OccupancyPage} />
+        {/*
+        *<Route exact path="/occupancy" component={OccupancyPage} />
         <Route
           exact
           path="/occupancy/million"
@@ -126,6 +123,8 @@ function App() {
           path="/admissions/million"
           component={AdmissionsMillionPage}
         />
+        */}
+
         <Route
           exact
           path="/summary/new/recovered"

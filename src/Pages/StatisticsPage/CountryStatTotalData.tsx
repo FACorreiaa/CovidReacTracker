@@ -43,7 +43,7 @@ export default function CountryStatTotalData() {
 
   //format(parseISO(`${d.createdAt}`), "PPPPpppp")
   const dataSource = {
-    labels: !country ? null : data[0].data.map((n: CountryData) => n.date),
+    labels: !country ? null : data.map((n: CountryData) => n.data.date),
     datasets: [
       {
         label: "Total Cases Per million",
@@ -54,7 +54,7 @@ export default function CountryStatTotalData() {
         hoverBorderColor: "rgba(41, 241, 195, 1)",
         data: !country
           ? null
-          : data[0].data.map((n: CountryData) => n.total_cases_per_million),
+          : data.map((n: CountryData) => n.data.total_cases_per_million),
       },
       {
         label: "Total Deaths Per Million",
@@ -65,7 +65,7 @@ export default function CountryStatTotalData() {
         hoverBorderColor: "rgba(240, 240, 214, 1)",
         data: !country
           ? null
-          : data[0].data.map((n: CountryData) => n.total_deaths_per_million),
+          : data.map((n: CountryData) => n.data.total_deaths_per_million),
       },
     ],
   };
